@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+<<<<<<< HEAD
 
+=======
+>>>>>>> fabcb23a69c3acea007637a3a46c757192148ef3
 <!-- initial head -->
 <head>
     <meta charset="utf-8" />
@@ -10,7 +13,11 @@
     <meta content="Mannatthemes" name="author" />
 
     <!-- App favicon -->
+<<<<<<< HEAD
     <link rel="shortcut icon" href="assets/images/favicon.ico">
+=======
+    <link rel="shortcut icon" href="..\..\Assets\images\favicon.ico">
+>>>>>>> fabcb23a69c3acea007637a3a46c757192148ef3
 
     <!-- App css -->
     <link href="../../Assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -19,16 +26,28 @@
     <link href="../../Assets/css/style.css" rel="stylesheet" type="text/css" />
 
 </head>
+<<<<<<< HEAD
 <!-- head End -->
     <body>
         <!-- Top Bar Start -->
         <?php include "../Template/topbar.php";?>
+=======
+
+<!-- head End -->
+    <body>
+        <!-- Top Bar Start -->
+        <?php include "../../Views/Template/topbar.php";?>
+>>>>>>> fabcb23a69c3acea007637a3a46c757192148ef3
         <!-- Top Bar End -->
 
         <div class="page-wrapper">
 
           <!-- Left Sidenav -->
+<<<<<<< HEAD
         <?php include "../Template/sidenav.php" ;?>
+=======
+        <?php include "../../Views/Template/sidenav.php";?>
+>>>>>>> fabcb23a69c3acea007637a3a46c757192148ef3
           <!-- end left-sidenav-->
 
             <!-- Page Content-->
@@ -52,6 +71,7 @@
                   </div>
                   <!-- end page title end breadcrumb -->
                   <div class="row">
+<<<<<<< HEAD
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
@@ -59,11 +79,26 @@
                             </div><!--end card-body-->
                         </div><!--end card-->
                     </div> <!-- end col -->
+=======
+                      <div class="col-lg-12">
+                          <div class="card">
+                              <div class="card-body">
+                                  <h4 class="mt-0 header-title">Markers</h4>
+                                  <p class="text-muted mb-3">Example of google maps.</p>
+                                  <div id="gmaps-markers" class="gmaps"></div>
+                              </div><!--end card-body-->
+                          </div><!--end card-->
+                      </div> <!-- end col -->
+>>>>>>> fabcb23a69c3acea007637a3a46c757192148ef3
                   </div> <!-- end row -->
 
               </div><!-- container -->
 
+<<<<<<< HEAD
                 <?php include "../Template/footer.php" ;?>
+=======
+                <?php include "../../Views/Template/footer.php";?>
+>>>>>>> fabcb23a69c3acea007637a3a46c757192148ef3
                 <!--end footer-->
             </div>
             <!-- end page content -->
@@ -72,11 +107,14 @@
 
 
         <!-- jQuery  -->
+<<<<<<< HEAD
         <!-- google maps api -->
         <!-- Gmaps file -->
         <!-- demo codes -->
         <!-- App js -->
         <!-- jQuery  -->
+=======
+>>>>>>> fabcb23a69c3acea007637a3a46c757192148ef3
         <script src="../../Assets/js/jquery.min.js"></script>
         <script src="../../Assets/js/bootstrap.bundle.min.js"></script>
         <script src="../../Assets/js/metisMenu.min.js"></script>
