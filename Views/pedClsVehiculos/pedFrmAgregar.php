@@ -18,6 +18,28 @@
     <link href="../../Assets/css/metisMenu.min.css" rel="stylesheet" type="text/css" />
     <link href="../../Assets/css/style.css" rel="stylesheet" type="text/css" />
 
+    <style>
+          .thumb {
+            height: 300px;
+            border: 1px solid #000;
+            margin: 10px 5px 0 0;
+          }
+    </style>
+
+
+    <script>
+      colorPicker.addEventListener("input", actualizarPrimero, false);
+      colorPicker.addEventListener("change", watchColorPicker, false);
+
+      function watchColorPicker(event) {
+        document.querySelectorAll("p").forEach(function(p) {
+          p.style.color = event.target.value;
+        });
+      }
+    </script>
+
+
+
 </head>
 <!-- head End -->
     <body>
@@ -118,11 +140,11 @@
                                 <div class="float-right">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Sistema</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:void(0);">Conductor</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:void(0);">Vehículo</a></li>
                                         <li class="breadcrumb-item active">Agregar</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Agregar / Editar Conductor</h4>
+                                <h4 class="page-title">Agregar / Editar Vehículo</h4>
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div>
@@ -134,19 +156,19 @@
                                   <div class="row clearfix">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>DNI <span class="text-danger"></span></label>
-                                                <input class="form-control" type="text" placeholder="Ingresa tu DNI">
+                                                <label>Placa <span class="text-danger"></span></label>
+                                                <input class="form-control" type="text" placeholder="Ingresa Nro Placa">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>Nombres <span class="text-danger"></span></label>
+                                                <label>Marca <span class="text-danger"></span></label>
                                                 <input class="form-control" type="text">
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>Apellidos <span class="text-danger"></span></label>
+                                                <label>Modelo <span class="text-danger"></span></label>
                                                 <input class="form-control" type="text">
                                             </div>
                                         </div>
@@ -154,55 +176,51 @@
                                     <div class="row clearfix">
                                           <div class="col-md-3">
                                               <div class="form-group">
-                                                  <label>Licencia de conductor<span class="text-danger"></span></label>
+                                                  <label>Color <span class="text-danger"></span></label>
                                                   <input class="form-control" type="text">
+                                                  <input type="color" value="#ff0000">
                                               </div>
                                           </div>
                                           <div class="col-md-4">
                                               <div class="form-group">
-                                                  <label>Vigencia de Licencia<span class="text-danger"></span></label>
-                                                  <input class="form-control" type="date">
+                                                  <label>SOAT <span class="text-danger"></span></label>
+                                                  <input class="form-control" type="text">
                                               </div>
                                           </div>
                                           <div class="col-md-5">
                                               <div class="form-group">
-                                                  <label>Celular <span class="text-danger"></span></label>
-                                                  <input class="form-control" type="text">
+                                                  <label>Año de Fabricacion <span class="text-danger"></span></label>
+                                                  <input class="form-control" type="date">
                                               </div>
                                           </div>
                                       </div>
                                       <div class="row clearfix">
-                                            <div class="col-md-8">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
-                                                    <label>Correo electrónico<span class="text-danger"></span></label>
-                                                    <input class="form-control" type="email">
+                                                    <label>Foto <span class="text-danger"></span></label>
+                                                    <input id="files" class="form-control" type="file" name="files[]" accept=".pdf,.jpg,.png" multiple/>
+                                                    <output id="list"><img id="list" width="200%" height="200%" src=""/></output>
+
+
+
                                                 </div>
                                             </div>
+                                            <div class="col-md-6">
+                                              <input name="file-input" id="file-input" type="file" />
+                                                <br />
+                                                  <img id="imgSalida" width="50%" height="50%" src="" />
+                                            </div>
                                             <div class="col-md-4">
+                                                <label>Estado <span class="text-danger"></span></label>
                                                 <div class="form-group">
-                                                    <label>Clave <span class="text-danger"></span></label>
-                                                    <input class="form-control" type="password">
+                                                    <select name="Estado" class="form-control">
+                                                        <option value="">- Seleccionar -</option>
+                                                        <option value="Activo">Activo</option>
+                                                        <option value="Inactivo">Inactivo</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row clearfix">
-                                              <div class="col-md-8">
-                                                  <div class="form-group">
-                                                      <label>Dirección<span class="text-danger"></span></label>
-                                                      <input class="form-control" type="text">
-                                                  </div>
-                                              </div>
-                                              <div class="col-md-4">
-                                                  <label>Estado <span class="text-danger"></span></label>
-                                                  <div class="form-group">
-                                                      <select name="Estado" class="form-control">
-                                                          <option value="">- Seleccionar -</option>
-                                                          <option value="Activo">Activo</option>
-                                                          <option value="Inactivo">Inactivo</option>
-                                                      </select>
-                                                  </div>
-                                              </div>
-                                          </div>
                                         <div class="row clearfix text-right  ">
                                             <div class="col-md-12 ">
                                                 <button class="btn btn-primary btn-icon-split" type="submit">
@@ -213,7 +231,6 @@
                                                 </button>
                                             </div>
                                         </div>
-
 
                                 </div><!--end card-body-->
                             </div><!--end card-->
@@ -227,7 +244,6 @@
                                 </div>
                             </div>
                         </div>
-
                 </div><!-- container -->
 
                 <?php include "../Template/footer.php" ;?>
@@ -236,6 +252,63 @@
             <!-- end page content -->
         </div>
         <!-- end page-wrapper -->
+
+        <script>
+        $(window).load(function(){
+
+$(function() {
+$('#file-input').change(function(e) {
+    addImage(e);
+   });
+
+   function addImage(e){
+    var file = e.target.files[0],
+    imageType = /image.*/;
+
+    if (!file.type.match(imageType))
+     return;
+
+    var reader = new FileReader();
+    reader.onload = fileOnload;
+    reader.readAsDataURL(file);
+   }
+
+   function fileOnload(e) {
+    var result=e.target.result;
+    $('#imgSalida').attr("src",result);
+   }
+  });
+});
+
+        </script>
+
+        <script>
+              function archivo(evt) {
+                  var files = evt.target.files; // FileList object
+
+                  // Obtenemos la imagen del campo "file".
+                  for (var i = 0, f; f = files[i]; i++) {
+                    //Solo admitimos imágenes.
+                    if (!f.type.match('image.*')) {
+                        continue;
+                    }
+
+                    var reader = new FileReader();
+
+                    reader.onload = (function(theFile) {
+                        return function(e) {
+                          // Insertamos la imagen
+                         document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name),'"/>'].join('');
+                        };
+                    })(f);
+
+                    reader.readAsDataURL(f);
+                  }
+              }
+
+              document.getElementById('files').addEventListener('change', archivo, false);
+      </script>
+
 
 
         <!-- jQuery  -->
