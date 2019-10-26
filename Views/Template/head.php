@@ -14,4 +14,13 @@
     <link href="Assets/css/metisMenu.min.css" rel="stylesheet" type="text/css" />
     <link href="Assets/css/style.css" rel="stylesheet" type="text/css" />
 
+
+    <!-- DataTables -->
+    <link href="Assets/ssets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="Assets/assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <!-- Responsive datatable examples -->
+    <link href="Assets/assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" /> 
+
+
+
 </head>
