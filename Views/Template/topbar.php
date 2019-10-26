@@ -2,12 +2,12 @@
 
             <!-- LOGO -->
             <div class="topbar-left">
-                <a href="../projects/projects-index.html" class="logo">
+                <a href="pedPryThakhi/index.php" class="logo">
                     <span>
-                        <img src="assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                        <img src="Assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
                     </span>
                     <span>
-                        <img src="assets/images/logo-dark.png" alt="logo-large" class="logo-lg">
+                        <img src="Assets/images/logo-dark.png" alt="logo-large" class="logo-lg">
                     </span>
                 </a>
             </div>

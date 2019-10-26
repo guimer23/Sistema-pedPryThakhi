@@ -82,7 +82,7 @@
                             </div>
                             <ul class="nav">
                                 <li class="nav-item"><a class="nav-link" href="../projects/projects-clients.html"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
-                                <li class="nav-item"><a class="nav-link" href="../projects/projects-users.html"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
+                                <li class="nav-item"><a class="nav-link" href="Views/pedClsConductor/pedFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
                                 <li class="nav-item"><a class="nav-link" href="../projects/projects-users.html"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                                 <li class="nav-item"><a class="nav-link" href="../projects/projects-users.html"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
                                 <li class="nav-item"><a class="nav-link" href="../projects/projects-users.html"><i class="dripicons-user-group"></i>Usuarios</a></li>
