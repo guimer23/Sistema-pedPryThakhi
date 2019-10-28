@@ -4,10 +4,10 @@
             <div class="topbar-left">
                 <a href="pedPryThakhi/index.php" class="logo">
                     <span>
-                        <img src="Assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                        <img src="../../Assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
                     </span>
                     <span>
-                        <img src="Assets/images/logo-dark.png" alt="logo-large" class="logo-lg">
+                        <img src="../../Assets/images/logo-dark.png" alt="logo-large" class="logo-lg">
                     </span>
                 </a>
             </div>
@@ -48,7 +48,7 @@
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="false" aria-expanded="false">
-                            <img src="assets/images/users/user-4.jpg" alt="profile-user" class="rounded-circle" />
+                            <img src="../../Assets/images/users/user-4.jpg" alt="profile-user" class="rounded-circle" />
                             <span class="ml-1 nav-user-name hidden-sm">Guimer <i class="mdi mdi-chevron-down"></i> </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
