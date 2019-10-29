@@ -2,7 +2,7 @@
 
             <!-- LOGO -->
             <div class="topbar-left">
-                <a href="pedPryThakhi/index.php" class="logo">
+                <a href="../../index.php" class="logo">
                     <span>
                         <img src="../../Assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
                     </span>
