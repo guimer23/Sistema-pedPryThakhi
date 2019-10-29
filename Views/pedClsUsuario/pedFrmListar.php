@@ -125,10 +125,10 @@
                           </div>
                           <ul class="nav">
                               <li class="nav-item"><a class="nav-link" href="../projects/projects-clients.html"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
-                              <li class="nav-item"><a class="nav-link active" href="pedFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
+                              <li class="nav-item"><a class="nav-link" href="Views/pedClsConductor/pedFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
                               <li class="nav-item"><a class="nav-link" href="../projects/projects-users.html"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
-                              <li class="nav-item"><a class="nav-link"  href="#"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../projects/projects-users.html"><i class="dripicons-user-group"></i>Usuarios</a></li>
+                              <li class="nav-item"><a class="nav-link" href="#"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
+                              <li class="nav-item"><a class="nav-link active" href="pedFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
                           </ul>
                       </div><!--Inicia SubMenu Mantenimiento -->
 
@@ -163,32 +163,31 @@
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Thakhi</a></li>
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Mantenimiento</a></li>
-                                        <li class="breadcrumb-item active">Conductores</li>
+                                        <li class="breadcrumb-item active">Usuario</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Conductores</h4>
+                                <h4 class="page-title">Usuarios</h4>
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div>
                     <!-- end page title end breadcrumb -->
 
-
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <a href="pedFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Conductor</a>
-                                    <h4 class="header-title mt-0">Detalles de Conductores</h4>
+                                    <a href="pedFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Usuario</a>
+                                    <h4 class="header-title mt-0">Detalles de Usuario</h4>
                                     <div class="table-responsive dash-social">
                                         <table id="datatable" class="table">
                                             <thead class="thead-light">
                                             <tr>
                                               <th>#</th>
-                                              <th>Nombres y Apellidos</th>
-                                              <th>Licencia</th>
-                                              <th>Vigencia de Lic.</th>
-                                              <th>Correo</th>
-                                              <th>Celular</th>
+                                              <th>Nombre</th>
+                                              <th>Apellidos</th>
+                                              <th>Nombre Usu.</th>
+                                              <th>Email</th>
+                                              <th>Estado</th>
                                               <th>Acción</th>
                                             </tr><!--end tr-->
                                             </thead>
@@ -196,11 +195,11 @@
                                             <tbody>
                                             <tr>
                                               <td>1</td>
-                                              <td>Guimer Coaquira</td>
-                                              <td>11228910 A-2B</td>
-                                              <td>10/12/19</td>
-                                              <td>Guim@upt.pe</td>
-                                              <td>991252544</td>
+                                              <td>Guimer</td>
+                                              <td>Coaquira</td>
+                                              <td>GuimerUsu01</td>
+                                              <td>guimerupt@gmail.com</td>
+                                              <td>Activo</td>
                                               <td>
                                                 <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
@@ -208,11 +207,11 @@
                                             </tr><!--end tr-->
                                             <tr>
                                               <td>2</td>
-                                              <td>Guimer Coaquira</td>
-                                              <td>11228910 A-2B</td>
-                                              <td>10/12/19</td>
-                                              <td>Guim@upt.pe</td>
-                                              <td>991252544</td>
+                                              <td>Jhon</td>
+                                              <td>Aguilar</td>
+                                              <td>JhonUsu01</td>
+                                              <td>Jhon@gmail.com</td>
+                                              <td>Activo</td>
                                               <td>
                                                 <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
