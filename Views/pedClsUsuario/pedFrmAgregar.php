@@ -9,13 +9,7 @@
 
         <!-- App favicon -->
         <link rel="shortcut icon" href="../../Assets/images/favicon.ico">
-
-        <!-- DataTables -->
-        <link href="../../Assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <link href="../../Assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <!-- Responsive datatable examples -->
-        <link href="../../Assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
+        <link href="../../Assets/plugins/dropify/css/dropify.min.css" rel="stylesheet">
         <!-- App css -->
         <link href="../../Assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="../../Assets/css/icons.css" rel="stylesheet" type="text/css" />
@@ -125,10 +119,10 @@
                           </div>
                           <ul class="nav">
                               <li class="nav-item"><a class="nav-link" href="../projects/projects-clients.html"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
-                              <li class="nav-item"><a class="nav-link active" href="pedFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
+                              <li class="nav-item"><a class="nav-link" href="Views/pedClsConductor/pedFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
                               <li class="nav-item"><a class="nav-link" href="../projects/projects-users.html"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
-                              <li class="nav-item"><a class="nav-link"  href="#"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../projects/projects-users.html"><i class="dripicons-user-group"></i>Usuarios</a></li>
+                              <li class="nav-item"><a class="nav-link" href="#"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
+                              <li class="nav-item"><a class="nav-link active" href="pedFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
                           </ul>
                       </div><!--Inicia SubMenu Mantenimiento -->
 
@@ -163,73 +157,94 @@
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Thakhi</a></li>
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Mantenimiento</a></li>
-                                        <li class="breadcrumb-item active">Conductores</li>
+                                        <li class="breadcrumb-item active">Usuario</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Conductores</h4>
+                                <h4 class="page-title">Usuarios</h4>
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div>
                     <!-- end page title end breadcrumb -->
-
-
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-md-12 col-lg-12">
                             <div class="card">
-                                <div class="card-body">
-                                    <a href="pedFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Conductor</a>
-                                    <h4 class="header-title mt-0">Detalles de Conductores</h4>
-                                    <div class="table-responsive dash-social">
-                                        <table id="datatable" class="table">
-                                            <thead class="thead-light">
-                                            <tr>
-                                              <th>#</th>
-                                              <th>Nombres y Apellidos</th>
-                                              <th>Licencia</th>
-                                              <th>Vigencia de Lic.</th>
-                                              <th>Correo</th>
-                                              <th>Celular</th>
-                                              <th>Acción</th>
-                                            </tr><!--end tr-->
-                                            </thead>
-
-                                            <tbody>
-                                            <tr>
-                                              <td>1</td>
-                                              <td>Guimer Coaquira</td>
-                                              <td>11228910 A-2B</td>
-                                              <td>10/12/19</td>
-                                              <td>Guim@upt.pe</td>
-                                              <td>991252544</td>
-                                              <td>
-                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
-                                              </td>
-                                            </tr><!--end tr-->
-                                            <tr>
-                                              <td>2</td>
-                                              <td>Guimer Coaquira</td>
-                                              <td>11228910 A-2B</td>
-                                              <td>10/12/19</td>
-                                              <td>Guim@upt.pe</td>
-                                              <td>991252544</td>
-                                              <td>
-                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
-                                              </td>
-                                            </tr><!--end tr-->
-
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div><!--end card-body-->
-                            </div><!--end card-->
-                        </div> <!--end col-->
-                    </div><!--end row-->
+                                <form class="form-parsley" action="pedFrmListar.php">
+                                  <div class="row">
+                                      <div class="col-md-12 col-lg-9">
+                                          <div class="card-body">
+                                            <h4 class="mt-0 header-title">Datos del Usuarios</h4>
+                                              <div class="row clearfix">
+                                                  <div class="col-md-4">
+                                                      <div class="form-group">
+                                                          <label>Nombres </label>
+                                                          <input type="text" class="form-control" required >
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-8">
+                                                      <div class="form-group">
+                                                          <label>Apellidos</label>
+                                                          <input type="text" class="form-control" required >
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="row clearfix">
+                                                  <div class="col-md-8">
+                                                      <div class="form-group">
+                                                          <label>Email <span class="text-danger"></span></label>
+                                                          <input type="email" class="form-control" required >
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-4">
+                                                      <div class="form-group">
+                                                          <label>Nombre Usuario <span class="text-danger"></span></label>
+                                                          <input type="text" class="form-control" required >
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="row clearfix">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label>Password</label>
+                                                            <input type="password" class="form-control" required >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>Estado</label>
+                                                        <div class="form-group">
+                                                            <select name="Estado" class="form-control" Required>
+                                                                <option value="">- Seleccionar -</option>
+                                                                <option value="Activo">Activo</option>
+                                                                <option value="Inactivo">Inactivo</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row clearfix text-right  ">
+                                                  <div class="form-group mb-0">
+                                                      <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                          Guardar
+                                                      </button>
+                                                      <button type="reset" class="btn btn-danger waves-effect m-l-5">
+                                                          Cancelar
+                                                      </button>
+                                                  </div><!--end form-group-->
+                                                </div>
+                                          </div><!--end card-body-->
+                                      </div><!--end col-->
+                                      <div class="col-md-12 col-lg-3">
+                                          <div class="card-body">
+                                            <h4 class="mt-0 header-title">Subir Foto</h4>
+                                            <p class="text-muted mb-3">Arrastra una imagen</p>
+                                            <input type="file" id="input-file-now" class="dropify" />
+                                          </div><!--end card-body-->
+                                      </div><!--end col-->
+                                  </div><!--end row-->
+                                </form><!--end form-->
+                            </div><!--end row-->
+                        </div><!-- container -->
+                    </div><!-- container -->
 
                 </div><!-- container -->
-
                 <?php include "../Template/footer.php" ;?>
             </div>
             <!-- end page content -->
@@ -243,15 +258,14 @@
         <script src="../../Assets/js/waves.min.js"></script>
         <script src="../../Assets/js/jquery.slimscroll.min.js"></script>
 
-        <script src="../../Assets/plugins/apexcharts/apexcharts.min.js"></script>
-        <script src="https://apexcharts.com/samples/assets/irregular-data-series.js"></script>
-        <script src="https://apexcharts.com/samples/assets/ohlc.js"></script>
-        <!-- Required datatable js -->
-        <script src="../../Assets/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="../../Assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
-        <script src="../../Assets/plugins/peity-chart/jquery.peity.min.js"></script>
+        <!-- Parsley js -->
+        <script src="../../Assets/plugins/parsleyjs/parsley.min.js"></script>
+        <script src="../../Assets/pages/jquery.validation.init.js"></script>
 
-        <script src="../../Assets/pages/jquery.ana_customers.inity.js"></script>
+        <script src="../../Assets/js/jquery.core.js"></script>
+
+        <script src="../../Assets/plugins/dropify/js/dropify.min.js"></script>
+        <script src="../../Assets/pages/jquery.form-upload.init.js"></script>
 
         <!-- App js -->
         <script src="../../Assets/js/app.js"></script>
