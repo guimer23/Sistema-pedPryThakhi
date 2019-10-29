@@ -10,7 +10,7 @@
 
         <!-- App favicon -->
         <link rel="shortcut icon" href="Assets/images/favicon.ico">
-
+<p>guimer me la pela</p>
         <!-- DataTables -->
         <link href="Assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <link href="Assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
