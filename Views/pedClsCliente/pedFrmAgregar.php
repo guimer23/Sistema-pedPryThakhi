@@ -165,107 +165,107 @@
                         </div><!--end col-->
                     </div>
                     <!-- end page title end breadcrumb -->
-
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-md-12 col-lg-12">
                             <div class="card">
-                                <div class="card-body">
-                                  <h4 class="mt-0 header-title">Datos del Cliente</h4>
-                                  <form class="form-parsley" action="pedFrmListar.php">
-                                    <div class="row clearfix">
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>DNI </label>
-                                                <input type="text" class="form-control" required >
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Nombres</label>
-                                                <input type="text" class="form-control" required >
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label>Apellidos <span class="text-danger"></span></label>
-                                                <input type="text" class="form-control" required >
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                      <div class="row clearfix">
-                                            <div class="col-md-5">
-                                                <div class="form-group">
-                                                    <label>Correo electrónico</label>
-                                                    <input type="email" class="form-control" required >
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Clave </label>
-                                                    <input type="password" class="form-control" required >
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Celular</label>
-                                                    <input type="number" class="form-control" required >
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row clearfix">
-                                              <div class="col-md-4">
-                                                  <div class="form-group">
-                                                      <label>Latitud</label>
-                                                      <input type="text" class="form-control" required >
+                                <form class="form-parsley" action="pedFrmListar.php">
+                                  <div class="row">
+                                      <div class="col-md-12 col-lg-9">
+                                          <div class="card-body">
+                                            <h4 class="mt-0 header-title">Datos del Cliente</h4>
+                                              <div class="row clearfix">
+                                                  <div class="col-md-4">
+                                                      <div class="form-group">
+                                                          <label>DNI </label>
+                                                          <input type="text" class="form-control" required >
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-8">
+                                                      <div class="form-group">
+                                                          <label>Nombres</label>
+                                                          <input type="text" class="form-control" required >
+                                                      </div>
                                                   </div>
                                               </div>
-                                              <div class="col-md-4">
-                                                  <div class="form-group">
-                                                      <label>Longitud</label>
-                                                      <input type="text" class="form-control" required >
+                                              <div class="row clearfix">
+                                                  <div class="col-md-8">
+                                                      <div class="form-group">
+                                                          <label>Apellidos <span class="text-danger"></span></label>
+                                                          <input type="text" class="form-control" required >
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-4">
+                                                      <div class="form-group">
+                                                          <label>Celular <span class="text-danger"></span></label>
+                                                          <input type="text" class="form-control" required >
+                                                      </div>
                                                   </div>
                                               </div>
-                                              <div class="col-md-4">
-                                                  <label>Estado</label>
-                                                  <div class="form-group">
-                                                      <select name="Estado" class="form-control" Required>
-                                                          <option value="">- Seleccionar -</option>
-                                                          <option value="Activo">Activo</option>
-                                                          <option value="Inactivo">Inactivo</option>
-                                                      </select>
+                                              <div class="row clearfix">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label>Correo electrónico</label>
+                                                            <input type="email" class="form-control" required >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label>Clave </label>
+                                                            <input type="password" class="form-control" required >
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row clearfix">
+                                                  <div class="col-md-4">
+                                                      <div class="form-group">
+                                                          <label>Latitud</label>
+                                                          <input type="text" class="form-control" required >
+                                                      </div>
                                                   </div>
-                                              </div>
-                                          </div>
-                                          <div class="row clearfix">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                              <h4 class="mt-0 header-title">Subir Foto</h4>
-                                              <p class="text-muted mb-3">Arrastra una imagen</p>
-                                              <input type="file" id="input-file-now" class="dropify" />
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                        <div class="row clearfix text-right  ">
-                                          <div class="form-group mb-0">
-                                              <button type="submit" class="btn btn-primary waves-effect waves-light">
-                                                  Guardar
-                                              </button>
-                                              <button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                  Cancelar
-                                              </button>
-                                          </div><!--end form-group-->
-                                        </div>
-
-                                  </form><!--end form-->
-                                </div><!--end card-body-->
-                            </div><!--end card-->
-                        </div> <!-- end col -->
-                    </div> <!-- end row -->
-
+                                                  <div class="col-md-4">
+                                                      <div class="form-group">
+                                                          <label>Longitud</label>
+                                                          <input type="text" class="form-control" required >
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-4">
+                                                      <label>Estado</label>
+                                                      <div class="form-group">
+                                                          <select name="Estado" class="form-control" Required>
+                                                              <option value="">- Seleccionar -</option>
+                                                              <option value="Activo">Activo</option>
+                                                              <option value="Inactivo">Inactivo</option>
+                                                          </select>
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                                <div class="row clearfix text-right  ">
+                                                  <div class="form-group mb-0">
+                                                      <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                          Guardar
+                                                      </button>
+                                                      <button type="reset" class="btn btn-danger waves-effect m-l-5">
+                                                          Cancelar
+                                                      </button>
+                                                  </div><!--end form-group-->
+                                                </div>
+                                          </div><!--end card-body-->
+                                      </div><!--end col-->
+                                      <div class="col-md-12 col-lg-3">
+                                          <div class="card-body">
+                                            <h4 class="mt-0 header-title">Subir Foto</h4>
+                                            <p class="text-muted mb-3">Arrastra una imagen</p>
+                                            <input type="file" id="input-file-now" class="dropify" />
+                                          </div><!--end card-body-->
+                                      </div><!--end col-->
+                                  </div><!--end row-->
+                                </form><!--end form-->
+                            </div><!--end row-->
+                        </div><!-- container -->
+                    </div><!-- container -->
+                    
                 </div><!-- container -->
-
                 <?php include "../Template/footer.php" ;?>
             </div>
             <!-- end page content -->
