@@ -99,3 +99,33 @@
 
     </body>
 </html>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#entrarSistema').click(function(){
+
+		vacios=ValidadFormVacio('frmLogin');
+
+			if(vacios > 0){
+				alert("Debes llenar todos los campos!!");
+				return false;
+			}
+
+		datos=$('#frmLogin').serialize();
+		$.ajax({
+			type:"POST",
+			data:datos,
+			url:"Procesos/ProcesoUsuarios/login.php",
+			success:function(r){
+
+				if(r==1){
+					window.location="Vistas/inicio.php";
+				}else{
+					alert("No se pudo acceder :(");
+				}
+			}
+		});
+	});
+	});
+</script>
