@@ -196,7 +196,7 @@
                           <div class="title-box">
                               <h6 class="menu-title">Mantenimiento</h6>
                           </div>
-                          <ul class="nav">
+                          <ul class="nav in mm-show">
                             <li class="nav-item"><a class="nav-link" href="Views/pedClsVehiculo/pedFrmListar.php"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
                             <li class="nav-item"><a class="nav-link" href="Views/pedClsConductor/pedFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
                             <li class="nav-item"><a class="nav-link" href="Views/pedClsVehiculoConductor/pedFrmListar.php"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
