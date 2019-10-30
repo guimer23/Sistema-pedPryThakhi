@@ -1,26 +1,14 @@
 <?php
+function conectar(){
 
-class Conectar
-{
+	$user="root";
+	$pass="root";
+	$server="localhost";
+	$db="administracion";
+	$con=mysqli_connect($server,$user,$pass) or die ("Error al conectar a la base de datos".mysqli_connect_error());
 
-	private $servidor="localhost";
-	private $usuario="root";
-	private $pass="";
-	private $bd="administracion";
+	mysqli_selected_db($db,$con);
 
-	function conexion()
-	{
-		$conexion=mysqli_connect($this->servidor,
-						$this->usuario,
-						$this->pass,
-						$this->bd);
-		return $conexion;
-
-
-	}
+	return $con;
 }
-
-
-
-
- ?>
+?>
