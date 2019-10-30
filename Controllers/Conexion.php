@@ -6,7 +6,7 @@ class Conectar
 	private $servidor="localhost";
 	private $usuario="root";
 	private $pass="";
-	private $bd="bd";
+	private $bd="administracion";
 
 	function conexion()
 	{
@@ -15,7 +15,12 @@ class Conectar
 						$this->pass,
 						$this->bd);
 		return $conexion;
+
+
 	}
 }
+
+
+
 
  ?>

@@ -1,3 +1,11 @@
+
+<?php
+session_start();
+
+if (isset($_SESSION['username'])) {
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -289,3 +297,10 @@
 
 
 </script>
+
+<?php
+	}else
+	{
+	header("location:login.php");
+	}
+ ?>

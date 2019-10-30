@@ -37,7 +37,7 @@
                                 </div> <!--end auth-logo-text-->
 
 
-                                <form class="form-horizontal auth-form my-4" action="index.php">
+                                <form id="formulariologin" class="form-horizontal auth-form my-4" >
 
                                     <div class="form-group">
                                         <label for="username">Usuario</label>
@@ -45,7 +45,8 @@
                                             <span class="auth-form-icon">
                                                 <i class="dripicons-user"></i>
                                             </span>
-                                            <input type="text" class="form-control" id="username" placeholder="Ingrese Usuario">
+
+                                            <input type="text"  id="username"   name="username" class="form-control input-sm" >
                                         </div>
                                     </div><!--end form-group-->
 
@@ -55,7 +56,8 @@
                                             <span class="auth-form-icon">
                                                 <i class="dripicons-lock"></i>
                                             </span>
-                                            <input type="password" class="form-control" id="userpassword" placeholder="Ingrese Clave">
+
+                                            <!--	<input type="password" name="userpassword" id="userpassword" class="form-control input-sm">  -->
                                         </div>
                                     </div><!--end form-group-->
 
@@ -73,7 +75,7 @@
 
                                     <div class="form-group mb-0 row">
                                         <div class="col-12 mt-2">
-                                            <button class="btn btn-dark btn-round btn-block waves-effect waves-light" type="submit">Ingresar <i class="fas fa-sign-in-alt ml-1"></i></button>
+                                            <button  type="button" id="entrarsistema" class="btn btn-dark btn-round btn-block waves-effect waves-light" >Ingresar <i class="fas fa-sign-in-alt ml-1"></i></button>
                                         </div><!--end col-->
                                     </div> <!--end form-group-->
                                 </form><!--end form-->
@@ -93,6 +95,8 @@
         <script src="Assets/js/metisMenu.min.js"></script>
         <script src="Assets/js/waves.min.js"></script>
         <script src="Assets/js/jquery.slimscroll.min.js"></script>
+        <script src="Assets/js/jquery-3.2.1.min.js"></script>
+        <script src="Assets/js/funciones.js"></script>
 
         <!-- App js -->
         <script src="Assets/js/app.js"></script>
@@ -103,29 +107,36 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('#entrarSistema').click(function(){
+		$('#entrarsistema').click(function(){
 
-		vacios=ValidadFormVacio('frmLogin');
+		vacios=ValidadFormVacio('formulariologin');
 
 			if(vacios > 0){
 				alert("Debes llenar todos los campos!!");
 				return false;
 			}
 
-		datos=$('#frmLogin').serialize();
-		$.ajax({
-			type:"POST",
-			data:datos,
-			url:"Procesos/ProcesoUsuarios/login.php",
-			success:function(r){
+      datos=$('#formulariologin').serialize();
 
-				if(r==1){
-					window.location="Vistas/inicio.php";
-				}else{
-					alert("No se pudo acceder :(");
-				}
-			}
-		});
+
+      $.ajax({
+      				type:"POST",
+      				data:datos,
+      				url:"Models/ModelUsuarios/LoginUsuarios.php",
+      				success:function(r){
+
+
+      					if(r==1){
+
+      						window.location="index.php";
+      					}else{
+
+
+                	alert("No se pudo acceder :(");
+      					}
+      				}
+      			});
+
 	});
 	});
 </script>
