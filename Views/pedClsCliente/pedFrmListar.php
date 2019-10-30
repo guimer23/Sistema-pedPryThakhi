@@ -124,11 +124,11 @@
                               <h6 class="menu-title">Mantenimiento</h6>
                           </div>
                           <ul class="nav">
-                              <li class="nav-item"><a class="nav-link" href="../projects/projects-clients.html"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
-                              <li class="nav-item"><a class="nav-link" href="Views/pedClsConductor/pedFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../projects/projects-users.html"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
-                              <li class="nav-item"><a class="nav-link active" href="pedFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../projects/projects-users.html"><i class="dripicons-user-group"></i>Usuarios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsVehiculo/pedFrmListar.php"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsConductor/pedFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsVehiculoConductor/pedFrmListar.php"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsCliente/pedFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsUsuario/pedFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
                           </ul>
                       </div><!--Inicia SubMenu Mantenimiento -->
 
