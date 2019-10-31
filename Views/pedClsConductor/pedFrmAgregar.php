@@ -170,7 +170,7 @@
                     <div class="row">
                         <div class="col-md-12 col-lg-12">
                             <div class="card">
-                                <form class="form-parsley" action="pedFrmListar.php">
+                                <form id="frmconductor"  enctype="multipart/form-data">
                                   <div class="row">
                                       <div class="col-md-12 col-lg-9">
                                           <div class="card-body">
@@ -179,13 +179,14 @@
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>DNI </label>
-                                                          <input type="number" class="form-control" required >
+                                                          <input type="number" id="dni" name="dni" class="form-control"  >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Nombres</label>
-                                                          <input type="text" class="form-control" required >
+
+                                                          <input type="text" class="form-control input-sm" name="nombre" id="nombre">
                                                       </div>
                                                   </div>
                                               </div>
@@ -193,13 +194,13 @@
                                                   <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Apellidos <span class="text-danger"></span></label>
-                                                          <input type="text" class="form-control" required >
+                                                          <input type="text" id="apellidos" name="apellidos"class="form-control input-sm"  >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Licencia de conductor <span class="text-danger"></span></label>
-                                                          <input type="text" class="form-control" required >
+                                                          <input type="text"  id="licencia" name="licencia" class="form-control"  >
                                                       </div>
                                                   </div>
                                               </div>
@@ -207,19 +208,19 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Vigencia de Licencia</label>
-                                                            <input type="date" class="form-control" required >
+                                                            <input type="date" id="vigencia" name="vigencia" class="form-control"  >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Celular </label>
-                                                            <input type="number" class="form-control" required >
+                                                            <input type="number" id="celular" name="celular" class="form-control"  >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Clave </label>
-                                                            <input type="password" class="form-control" required >
+                                                            <input type="password" id="clave" name="clave" class="form-control input-sm"   >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -227,13 +228,13 @@
                                                   <div class="col-md-6">
                                                       <div class="form-group">
                                                           <label>Correo electrónico</label>
-                                                          <input type="email" class="form-control" required >
+                                                          <input type="email" id="correo" name="correo" class="form-control"  >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-6">
                                                       <div class="form-group">
                                                           <label>Dirección</label>
-                                                          <input type="text" class="form-control" required >
+                                                          <input type="text" id="direccion" name="direccion"  class="form-control"  >
                                                       </div>
                                                   </div>
                                                 </div>
@@ -241,7 +242,7 @@
                                                   <div class="col-md-4">
                                                       <label>Estado</label>
                                                       <div class="form-group">
-                                                          <select name="Estado" class="form-control" Required>
+                                                          <select name="Estado" class="form-control" id="estado" name="estado" >
                                                               <option value="">- Seleccionar -</option>
                                                               <option value="Activo">Activo</option>
                                                               <option value="Inactivo">Inactivo</option>
@@ -251,10 +252,10 @@
                                                 </div>
                                                 <div class="row clearfix text-right  ">
                                                   <div class="form-group mb-0">
-                                                      <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                      <button type="button" id="botonregistro" class="btn btn-primary waves-effect waves-light">
                                                           Guardar
                                                       </button>
-                                                      <button type="reset" class="btn btn-danger waves-effect m-l-5">
+                                                      <button type="button" class="btn btn-danger waves-effect m-l-5">
                                                           Cancelar
                                                       </button>
                                                   </div><!--end form-group-->
@@ -265,7 +266,9 @@
                                           <div class="card-body">
                                             <h4 class="mt-0 header-title">Subir Foto</h4>
                                             <p class="text-muted mb-3">Arrastra una imagen</p>
-                                            <input type="file" id="input-file-now" class="dropify" />
+
+                                            <input type="file" id="imagen"  name="imagen" class="dropify" />
+
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                   </div><!--end row-->
@@ -282,6 +285,8 @@
         </div>
         <!-- end page-wrapper -->
         <!-- jQuery  -->
+          <script src="../../Assets/js/funciones.js"></script>
+          <script src="../../Assets/js/jquery-3.2.1.min.js"></script>
         <script src="../../Assets/js/jquery.min.js"></script>
         <script src="../../Assets/js/bootstrap.bundle.min.js"></script>
         <script src="../../Assets/js/metisMenu.min.js"></script>
@@ -299,6 +304,8 @@
 
         <!-- App js -->
         <script src="../../Assets/js/app.js"></script>
+
+
     </body>
 </html>
 
@@ -306,4 +313,41 @@
 <script type="text/javascript">
 
 
+$(document).ready(function(){
+
+    $('#botonregistro').click(function(){
+
+      vacios=ValidadFormVacio('frmconductor');
+
+      if(vacios > 0){
+        alert("Debes llenar todos los campos!!");
+        return false;
+      }
+
+      var formData = new FormData(document.getElementById("frmconductor"));
+
+      $.ajax({
+        url:"../../Models/ModelConductor/RegistroConductor.php",
+        type: "post",
+        dataType: "html",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+
+        success:function(r){
+
+          if(r == 1){
+
+
+            alert("Agregado con exito :D");
+              $('#frmconductor')[0].reset();
+          }else{
+          alert("Fallo al subir el archivo :(");
+          }
+        }
+      });
+
+    });
+  });
 </script>

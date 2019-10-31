@@ -1,3 +1,18 @@
+
+<?php
+
+require_once("../../Controllers/Conexion.php");
+	$c= new Conectar();
+		$conexion=$c->conexion();
+	$sql="SELECT MOTid,MOTplaca,MOTmarca,MOTmodelo,MOTcolor,MOTanio_fabricacion from admmottmoto ";
+
+
+$resultado=mysqli_query($conexion,$sql);
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -194,31 +209,24 @@
                                             </thead>
 
                                             <tbody>
-                                            <tr>
-                                              <td>1</td>
-                                              <td>PK-2254</td>
-                                              <td>Toyota</td>
-                                              <td>Hilux 4x4</td>
-                                              <td>Blanco</td>
-                                              <td>2018</td>
-                                              <td>
-                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
-                                              </td>
-                                            </tr><!--end tr-->
-                                            <tr>
-                                              <td>2</td>
-                                              <td>RF-2244</td>
-                                              <td>KIA</td>
-                                              <td>Picanto</td>
-                                              <td>Rojo</td>
-                                              <td>2019</td>
-                                              <td>
-                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
-                                              </td>
-                                            </tr><!--end tr-->
+                                              <?php
 
+                                            while ($ver=mysqli_fetch_row($resultado)) :
+                                              # code...
+                                              ?>
+                                            <tr>
+                                                <td><?php echo  $ver[0]?></td>
+                                                <td><?php echo  $ver[1]?></td>
+                                                <td><?php echo  $ver[2]?></td>
+                                                <td><?php echo  $ver[3]?></td>
+                                                <td><?php echo  $ver[4]?></td>
+                                                <td><?php echo  $ver[5]?></td>
+                                              <td>
+                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
+                                              </td>
+                                            </tr><!--end tr-->
+                                          <?php endwhile ?>
 
                                             </tbody>
                                         </table>

@@ -1,3 +1,17 @@
+
+
+<?php
+
+require_once("../../Controllers/Conexion.php");
+	$c= new Conectar();
+		$conexion=$c->conexion();
+	$sql="SELECT CLIid,CLInombre,CLIapellido,CLIemail,CLIcelular from admclitcliente ";
+
+
+$resultado=mysqli_query($conexion,$sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -245,23 +259,18 @@
                                             </thead>
 
                                             <tbody>
+                                              <?php
+
+                                            while ($ver=mysqli_fetch_row($resultado)) :
+                                              # code...
+                                              ?>
                                             <tr>
-                                              <td>1</td>
-                                              <td>Guimer Coaquira</td>
-                                              <td>guimerupt@gmail.com</td>
-                                              <td>995626969</td>
-                                              <td>Tacna</td>
-                                              <td>
-                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
-                                              </td>
-                                            </tr><!--end tr-->
-                                            <tr>
-                                              <td>2</td>
-                                              <td>Juan Carlos Panty</td>
-                                              <td>senati@gmail.com</td>
-                                              <td>991252544</td>
-                                              <td>Los Sauces - Tacna</td>
+                                              <td><?php echo  $ver[0]?></td>
+                                              <td><?php echo  $ver[1]." ".$ver[2]?></td>
+                                        
+                                              <td><?php echo  $ver[3]?></td>
+                                              <td><?php echo  $ver[4]?></td>
+                                              <td>Dirección</td>
                                               <td>
                                                 <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
@@ -269,6 +278,7 @@
                                             </tr><!--end tr-->
 
 
+                                            <?php endwhile ?>
                                             </tbody>
                                         </table>
                                     </div>

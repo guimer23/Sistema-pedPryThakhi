@@ -8,12 +8,11 @@ require_once("../../Controllers/Usuarios.php");
 $obj = new Usuario();
 
 
-$datos= array(
-//$_POST['username']);
+$datos= array($usu=$_POST['usu'],$_POST['userpassword']);
 
-$usu=$_POST['username'];
 
-echo $obj->Login($usu);
+
+echo $obj->Login($datos);
 
 
  ?>

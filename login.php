@@ -46,7 +46,7 @@
                                                 <i class="dripicons-user"></i>
                                             </span>
 
-                                            <input type="text"  id="username"   name="username" class="form-control input-sm" >
+                                            <input type="text"  id="usu"   name="usu" class="form-control input-sm" >
                                         </div>
                                     </div><!--end form-group-->
 
@@ -57,7 +57,7 @@
                                                 <i class="dripicons-lock"></i>
                                             </span>
 
-                                            <!--	<input type="password" name="userpassword" id="userpassword" class="form-control input-sm">  -->
+                                            	<input type="password" name="userpassword" id="userpassword" class="form-control input-sm">
                                         </div>
                                     </div><!--end form-group-->
 
@@ -117,20 +117,16 @@
 			}
 
       datos=$('#formulariologin').serialize();
-
-
       $.ajax({
       				type:"POST",
       				data:datos,
       				url:"Models/ModelUsuarios/LoginUsuarios.php",
       				success:function(r){
 
-
       					if(r==1){
 
       						window.location="index.php";
       					}else{
-
 
                 	alert("No se pudo acceder :(");
       					}

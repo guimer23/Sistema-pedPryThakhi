@@ -173,62 +173,9 @@
                     <!-- end page title end breadcrumb -->
 
 
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <a href="pedFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Conductor</a>
-                                    <h4 class="header-title mt-0">Detalles de Conductores</h4>
-                                    <div class="table-responsive dash-social">
-                                        <table id="datatable" class="table">
-                                            <thead class="thead-light">
-                                            <tr>
-                                              <th>#</th>
-                                              <th>Nombres y Apellidos</th>
-                                              <th>Licencia</th>
-                                              <th>Vigencia de Lic.</th>
-                                              <th>Correo</th>
-                                              <th>Celular</th>
-                                              <th>Acción</th>
-                                            </tr><!--end tr-->
-                                            </thead>
+                  <div id="tablaconductor">
 
-                                            <tbody>
-                                            <tr>
-                                              <td>1</td>
-                                              <td>Guimer Coaquira</td>
-                                              <td>11228910 A-2B</td>
-                                              <td>10/12/19</td>
-                                              <td>Guim@upt.pe</td>
-                                              <td>991252544</td>
-                                              <td>
-                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
-                                              </td>
-                                            </tr><!--end tr-->
-                                            <tr>
-                                              <td>2</td>
-                                              <td>Guimer Coaquira</td>
-                                              <td>11228910 A-2B</td>
-                                              <td>10/12/19</td>
-                                              <td>Guim@upt.pe</td>
-                                              <td>991252544</td>
-                                              <td>
-                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
-                                              </td>
-                                            </tr><!--end tr-->
-
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div><!--end card-body-->
-                            </div><!--end card-->
-                        </div> <!--end col-->
-                    </div><!--end row-->
-
-                </div><!-- container -->
+                  </div>
 
                 <?php include "../Template/footer.php" ;?>
             </div>
@@ -261,7 +208,9 @@
 
 
 
-<script type="text/javascript">
+<script type="text/javascript"> // PARA MOSTRAR LA TABLA  USUARIOS
+	$(document).ready(function(){
+		$('#tablaconductor').load("pedTablaConductor.php");
 
-
+	});
 </script>

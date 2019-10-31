@@ -168,7 +168,7 @@
                     <div class="row">
                         <div class="col-md-12 col-lg-12">
                             <div class="card">
-                                <form class="form-parsley" action="pedFrmListar.php">
+                                <form id="frmregistrocliente"  enctype="multipart/form-data">
                                   <div class="row">
                                       <div class="col-md-12 col-lg-9">
                                           <div class="card-body">
@@ -177,13 +177,13 @@
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>DNI </label>
-                                                          <input type="text" class="form-control" required >
+                                                          <input type="text" id="dni" name="dni" class="form-control" required >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Nombres</label>
-                                                          <input type="text" class="form-control" required >
+                                                          <input type="text" id="nombre" name="nombre" class="form-control" required >
                                                       </div>
                                                   </div>
                                               </div>
@@ -191,13 +191,13 @@
                                                   <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Apellidos <span class="text-danger"></span></label>
-                                                          <input type="text" class="form-control" required >
+                                                          <input type="text" id="apellido" name="apellido" class="form-control" required >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Celular <span class="text-danger"></span></label>
-                                                          <input type="text" class="form-control" required >
+                                                          <input type="text" id="celular" name="celular" class="form-control" required >
                                                       </div>
                                                   </div>
                                               </div>
@@ -205,13 +205,13 @@
                                                     <div class="col-md-8">
                                                         <div class="form-group">
                                                             <label>Correo electrónico</label>
-                                                            <input type="email" class="form-control" required >
+                                                            <input type="email"  id="correo"  name="correo" class="form-control" required >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Clave </label>
-                                                            <input type="password" class="form-control" required >
+                                                            <input type="password" id="clave" name="clave" class="form-control" required >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -220,19 +220,19 @@
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Latitud</label>
-                                                          <input type="text" class="form-control" required >
+                                                          <input type="text"  id="latitud" name="latitud" class="form-control" required >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Longitud</label>
-                                                          <input type="text" class="form-control" required >
+                                                          <input type="text" id="longitud" name="longitud" class="form-control" required >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-4">
                                                       <label>Estado</label>
                                                       <div class="form-group">
-                                                          <select name="Estado" class="form-control" Required>
+                                                          <select name="Estado" id="estado" name="estado" class="form-control" Required>
                                                               <option value="">- Seleccionar -</option>
                                                               <option value="Activo">Activo</option>
                                                               <option value="Inactivo">Inactivo</option>
@@ -242,7 +242,7 @@
                                                 </div>
                                                 <div class="row clearfix text-right  ">
                                                   <div class="form-group mb-0">
-                                                      <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                      <button type="button" id="registrocliente" class="btn btn-primary waves-effect waves-light">
                                                           Guardar
                                                       </button>
                                                       <button type="reset" class="btn btn-danger waves-effect m-l-5">
@@ -256,7 +256,7 @@
                                           <div class="card-body">
                                             <h4 class="mt-0 header-title">Subir Foto</h4>
                                             <p class="text-muted mb-3">Arrastra una imagen</p>
-                                            <input type="file" id="input-file-now" class="dropify" />
+                                            <input type="file" id="imagen" name="imagen" class="dropify" />
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                   </div><!--end row-->
@@ -296,6 +296,31 @@
 
 
 <script type="text/javascript">
+$(document).ready(function(){
 
+    $('#registrocliente').click(function(){
 
+          var formData = new FormData(document.getElementById("frmregistrocliente"));
+
+      $.ajax({
+        url:"../../Models/ModelCliente/RegistrarCliente.php",
+        type: "post",
+        dataType: "html",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+
+        success:function(r){
+
+          if(r == 1){
+            alert("Agregado con exito :D");
+          }else{
+          alert("Fallo al subir el archivo :(");
+          }
+        }
+      });
+
+    });
+  });
 </script>
