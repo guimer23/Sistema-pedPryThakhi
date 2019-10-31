@@ -314,7 +314,7 @@
 							alert("Agregado con exito :D");
                   $('#frmvehiculo')[0].reset();
 						}else{
-						alert("Fallo al subir el archivo :(");
+					alert("no se pudo agregar");
 						}
 					}
 				});
