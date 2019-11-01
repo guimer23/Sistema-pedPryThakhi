@@ -6,8 +6,6 @@ require_once("../../Controllers/Conexion.php");
 	$c= new Conectar();
 		$conexion=$c->conexion();
 	$sql="SELECT CLIid,CLInombre,CLIapellido,CLIemail,CLIcelular from admclitcliente ";
-
-
 $resultado=mysqli_query($conexion,$sql);
 
 ?>
@@ -260,14 +258,12 @@ $resultado=mysqli_query($conexion,$sql);
 
                                             <tbody>
                                               <?php
-
                                             while ($ver=mysqli_fetch_row($resultado)) :
-                                              # code...
                                               ?>
                                             <tr>
                                               <td><?php echo  $ver[0]?></td>
                                               <td><?php echo  $ver[1]." ".$ver[2]?></td>
-                                        
+
                                               <td><?php echo  $ver[3]?></td>
                                               <td><?php echo  $ver[4]?></td>
                                               <td>Dirección</td>
@@ -276,8 +272,6 @@ $resultado=mysqli_query($conexion,$sql);
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
                                               </td>
                                             </tr><!--end tr-->
-
-
                                             <?php endwhile ?>
                                             </tbody>
                                         </table>

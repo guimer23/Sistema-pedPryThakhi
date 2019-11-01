@@ -1,3 +1,19 @@
+
+
+
+<?php
+
+require_once("../../Controllers/Conexion.php");
+	$c= new Conectar();
+		$conexion=$c->conexion();
+	$sql="SELECT USUid,USUnombre,USUusuario,USUemail,USUestado from admusutusuario ";
+
+
+$resultado=mysqli_query($conexion,$sql);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -193,25 +209,18 @@
                                             </thead>
 
                                             <tbody>
+                                              <?php
+
+                                            while ($ver=mysqli_fetch_row($resultado)) :
+                                              # code...
+                                              ?>
                                             <tr>
-                                              <td>1</td>
-                                              <td>Guimer</td>
-                                              <td>Coaquira</td>
-                                              <td>GuimerUsu01</td>
-                                              <td>guimerupt@gmail.com</td>
-                                              <td>Activo</td>
-                                              <td>
-                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
-                                              </td>
-                                            </tr><!--end tr-->
-                                            <tr>
-                                              <td>2</td>
-                                              <td>Jhon</td>
-                                              <td>Aguilar</td>
-                                              <td>JhonUsu01</td>
-                                              <td>Jhon@gmail.com</td>
-                                              <td>Activo</td>
+                                              <td><?php echo  $ver[0]?></td>
+                                              <td><?php echo  $ver[1]?></td>
+                                              <td><?php echo  $ver[1]?></td>
+                                              <td><?php echo  $ver[2]?></td>
+                                              <td><?php echo  $ver[3]?></td>
+                                              <td><?php echo  $ver[4]?></td>
                                               <td>
                                                 <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
@@ -219,6 +228,7 @@
                                             </tr><!--end tr-->
 
 
+  <?php endwhile ?>
                                             </tbody>
                                         </table>
                                     </div>

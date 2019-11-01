@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['usu'])) {
 
  ?>
 
@@ -80,14 +80,15 @@ if (isset($_SESSION['username'])) {
                                 <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                                     aria-haspopup="false" aria-expanded="false">
                                     <img src="Assets/images/users/user-4.jpg" alt="profile-user" class="rounded-circle" />
-                                    <span class="ml-1 nav-user-name hidden-sm">Guimer <i class="mdi mdi-chevron-down"></i> </span>
+                                    <span class="ml-1 nav-user-name hidden-sm"><?php echo $_SESSION['usu']; ?>  <i class="mdi mdi-chevron-down"></i> </span>
+
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href="#"><i class="dripicons-user text-muted mr-2"></i> Perfil</a>
                                     <a class="dropdown-item" href="#"><i class="dripicons-gear text-muted mr-2"></i> Configuraciones</a>
                                     <a class="dropdown-item" href="#"><i class="dripicons-lock text-muted mr-2"></i> Bloquear pantalla</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#"><i class="dripicons-exit text-muted mr-2"></i> Cerrar sesión</a>
+                                    <a class="dropdown-item" href="Models/ModelUsuarios/CerrarSesion.php"><i class="dripicons-exit text-muted mr-2"></i> Cerrar sesión</a>
                                 </div>
                             </li>
                         </ul><!--end topbar-nav-->

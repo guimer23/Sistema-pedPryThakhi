@@ -1,3 +1,16 @@
+
+<?php
+
+require_once("../../Controllers/Conexion.php");
+	$c= new Conectar();
+	$conexion=$c->conexion();
+	$sql="SELECT CONnombre,CONapellido from admcontconductor ";
+		$resultado=mysqli_query($conexion,$sql);
+
+
+    $sql2="SELECT MOTmarca,MOTplaca  from admmottmoto ";
+  		$resultado2=mysqli_query($conexion,$sql2);
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -179,8 +192,12 @@
                                         <div class="form-group">
                                             <select name="Estado" class="form-control" Required>
                                                 <option value="">- Seleccionar -</option>
-                                                <option value="Activo">Guimer Coaquira</option>
-                                                <option value="Inactivo">Juan carlos panty</option>
+                                              <?php
+                                            while ($ver=mysqli_fetch_row($resultado)) :
+                                              ?>
+                                                <option value="Activo"><?php echo $ver[0]."-".$ver[1]; ?></option>
+
+                                                <?php endwhile; ?>
                                             </select>
                                         </div>
                                     </div>
@@ -189,9 +206,13 @@
                                         <div class="form-group">
                                             <select name="Estado" class="form-control" Required>
                                                 <option value="">- Seleccionar -</option>
-                                                <option value="Activo">Toyota Hilux 2018</option>
-                                                <option value="Inactivo">Honda 200 XL</option>
+                                                <?php
+                                              while ($ver2=mysqli_fetch_row($resultado2)) :
+                                                ?>
+                                              <option value="Activo"><?php echo $ver2[0]."-".$ver2[1]; ?></option>
+      <?php endwhile; ?>
                                             </select>
+
                                         </div>
                                     </div>
                                   </div>
