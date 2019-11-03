@@ -5,7 +5,7 @@
 require_once("../../Controllers/Conexion.php");
 	$c= new Conectar();
 		$conexion=$c->conexion();
-	$sql="SELECT CLIid,CLInombre,CLIapellido,CLIemail,CLIcelular from admclitcliente ";
+	$sql="SELECT CLIdni,CLInombre,CLIapellido,CLIemail,CLIcelular from admclitcliente ";
 $resultado=mysqli_query($conexion,$sql);
 
 ?>

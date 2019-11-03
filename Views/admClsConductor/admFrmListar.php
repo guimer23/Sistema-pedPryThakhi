@@ -173,6 +173,7 @@
 
                   </div>
 
+
                 <?php include "../Template/footer.php" ;?>
             </div>
             <!-- end page content -->

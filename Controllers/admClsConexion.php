@@ -6,7 +6,7 @@ class Conectar
 	private $servidor="192.168.0.8";
 	private $usuario="thakhi";
 	private $pass="12345678";
-	private $bd="administracion";
+	private $bd="administracionthakhi";
 
 	function conexion()
 	{
