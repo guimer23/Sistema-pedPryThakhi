@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -9,7 +11,13 @@
 
         <!-- App favicon -->
         <link rel="shortcut icon" href="../../Assets/images/favicon.ico">
-        <link href="../../Assets/plugins/dropify/css/dropify.min.css" rel="stylesheet">
+
+        <!-- DataTables -->
+        <link href="../../Assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../Assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <!-- Responsive datatable examples -->
+        <link href="../../Assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
         <!-- App css -->
         <link href="../../Assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="../../Assets/css/icons.css" rel="stylesheet" type="text/css" />
@@ -43,7 +51,7 @@
                           </svg>
                       </a><!--Termina Menu Dashboard -->
                       <!--Inicia Menu Ordenes -->
-                      <a href="#Ordenes" class="nav-link" data-toggle="tooltip-custom" data-placement="top" title="" data-original-title="Ordenes">
+                      <a href="#Ordenes" class="nav-link active" d activeata-toggle="tooltip-custom" data-placement="top" title="" data-original-title="Ordenes">
                           <svg class="nav-svg" version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                               viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                               <g>
@@ -58,7 +66,7 @@
                           </svg>
                       </a> <!--Termina Menu Ordenes -->
                       <!--Inicia Menu Mantenimiento -->
-                      <a href="#Mantenimiento" class="nav-link active" data-toggle="tooltip-custom" data-placement="top" title="" data-original-title="Mantenimiento">
+                      <a href="#Mantenimiento" class="nav-link" data-toggle="tooltip-custom" data-placement="top" title="" data-original-title="Mantenimiento">
                           <svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                               <path class="svg-primary" d="M256 32C132.288 32 32 132.288 32 256s100.288 224 224 224 224-100.288 224-224S379.712 32 256 32zm135.765 359.765C355.5 428.028 307.285 448 256 448s-99.5-19.972-135.765-56.235C83.972 355.5 64 307.285 64 256s19.972-99.5 56.235-135.765C156.5 83.972 204.715 64 256 64s99.5 19.972 135.765 56.235C428.028 156.5 448 204.715 448 256s-19.972 99.5-56.235 135.765z"/>
                               <path d="M200.043 106.067c-40.631 15.171-73.434 46.382-90.717 85.933H256l-55.957-85.933zM412.797 288A160.723 160.723 0 0 0 416 256c0-36.624-12.314-70.367-33.016-97.334L311 288h101.797zM359.973 134.395C332.007 110.461 295.694 96 256 96c-7.966 0-15.794.591-23.448 1.715L310.852 224l49.121-89.605zM99.204 224A160.65 160.65 0 0 0 96 256c0 36.639 12.324 70.394 33.041 97.366L201 224H99.204zM311.959 405.932c40.631-15.171 73.433-46.382 90.715-85.932H256l55.959 85.932zM152.046 377.621C180.009 401.545 216.314 416 256 416c7.969 0 15.799-.592 23.456-1.716L201.164 288l-49.118 89.621z"/>
@@ -154,115 +162,49 @@
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Thakhi</a></li>
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Entregas</a></li>
-                                        <li class="breadcrumb-item active">Entregas</li>
+                                        <li class="breadcrumb-item active">Calificar Conductor</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Entregas</h4>
+                                <h4 class="page-title">Calificación de Conductores</h4>
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div>
                     <!-- end page title end breadcrumb -->
                     <div class="row">
-                        <div class="col-md-12 col-lg-12">
+                        <div class="col-12">
                             <div class="card">
-                                <form class="form-parsley" action="pedFrmListar.php">
-                                  <div class="row">
-                                      <div class="col-md-12 col-lg-9">
-                                          <div class="card-body">
-                                            <h4 class="mt-0 header-title">Datos del Entregas</h4>
-                                              <div class="row clearfix">
-                                                  <div class="col-md-4">
-                                                      <div class="form-group">
-                                                          <label>Código </label>
-                                                          <input type="text" class="form-control" required >
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-8">
-                                                      <div class="form-group">
-                                                          <label>Descripción</label>
-                                                          <input type="text" class="form-control" required >
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="row clearfix">
-                                                  <div class="col-md-4">
-                                                      <div class="form-group">
-                                                          <label>Tipo <span class="text-danger"></span></label>
-                                                          <div class="form-group">
-                                                              <select name="Estado" class="form-control" Required>
-                                                                  <option value="">- Seleccionar -</option>
-                                                                  <option value="Comida">Comida</option>
-                                                                  <option value="Documento">Documento</option>
-                                                                  <option value="Encomienda">Encomienda</option>
-                                                                  <option value="Agua">Agua</option>
-                                                              </select>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-8">
-                                                      <div class="form-group">
-                                                          <label>Conductor <span class="text-danger"></span></label>
-                                                          <div class="form-group">
-                                                              <select name="Estado" class="form-control" Required>
-                                                                  <option value="">- Seleccionar -</option>
-                                                                  <option value="Guimer Coaquira">Guimer Coaquira</option>
-                                                                  <option value="Jhon Aguilar">Jhon Aguilar</option>
-                                                              </select>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="row clearfix">
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>Fecha y Hora de entrega</label>
-                                                            <input type="date" class="form-control" required >
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div class="form-group">
-                                                            <label>Cliente </label>
-                                                            <div class="form-group">
-                                                                <select name="Estado" class="form-control" Required>
-                                                                    <option value="">- Seleccionar -</option>
-                                                                    <option value="Leydi Huallpa">Leydi Huallpa</option>
-                                                                    <option value="Juan Carlos Panty">Juan Carlos Panty</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                <div class="card-body">
+                                    <h4 class="header-title mt-0">Detalles de Calificación de Conductores</h4>
+                                    <div class="table-responsive dash-social">
+                                        <table id="datatable" class="table">
+                                            <thead class="thead-light">
+                                            <tr>
+                                              <th>#</th>
+                                              <th>DNI</th>
+                                              <th>Nombres y Apellidos</th>
+                                              <th>Calificación</th>
+                                              <th>Estado</th>
+                                            </tr><!--end tr-->
+                                            </thead>
 
-                                          </div><!--end card-body-->
-                                      </div><!--end col-->
-                                      <div class="col-md-12 col-lg-3">
-                                          <div class="card-body">
-                                            <h4 class="mt-0 header-title">Subir Foto</h4>
-                                            <p class="text-muted mb-3">Arrastra una imagen</p>
-                                            <input type="file" id="input-file-now" class="dropify" />
-                                          </div><!--end card-body-->
-                                      </div><!--end col-->
-                                      <div class="col-md-12 col-lg-12">
-                                          <div class="card-body">
-                                            <div class="row clearfix text-right  ">
-                                              <div class="form-group mb-0">
-                                                  <button type="submit" class="btn btn-primary waves-effect waves-light">
-                                                      Guardar
-                                                  </button>
-                                                  <button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                      Cancelar
-                                                  </button>
-                                              </div><!--end form-group-->
-                                            </div>
-                                          </div><!--end card-body-->
-                                      </div><!--end col-->
-                                  </div><!--end row-->
-                                </form><!--end form-->
-                            </div><!--end row-->
-                        </div><!-- container -->
-                    </div><!-- container -->
+                                            <tbody>
+                                            <tr>
+                                              <td>1</td>
+                                              <td>47199491</td>
+                                              <td>Guimer Coaquira</td>
+                                              <td><i class="mdi mdi-star"></i><i class="mdi mdi-star-half"></i><i class="mdi mdi-star-outline"></i></td>
+                                              <td>Activo</td>
+                                            </tr><!--end tr-->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div><!--end card-body-->
+                            </div><!--end card-->
+                        </div> <!--end col-->
+                    </div><!--end row-->
 
                 </div><!-- container -->
+
                 <?php include "../Template/footer.php" ;?>
             </div>
             <!-- end page content -->
@@ -276,14 +218,15 @@
         <script src="../../Assets/js/waves.min.js"></script>
         <script src="../../Assets/js/jquery.slimscroll.min.js"></script>
 
-        <!-- Parsley js -->
-        <script src="../../Assets/plugins/parsleyjs/parsley.min.js"></script>
-        <script src="../../Assets/pages/jquery.validation.init.js"></script>
+        <!-- google maps api -->
+        <script src="https://maps.google.com/maps/api/js?key=AIzaSyCtSAR45TFgZjOs4nBFFZnII-6mMHLfSYI"></script>
+        <!-- Gmaps file -->
+        <script src="../../Assets/plugins/gmaps/gmaps.min.js"></script>
+        <!-- demo codes -->
+        <script src="../../Assets/pages/jquery.gmaps.init.js"></script>
 
-        <script src="../../Assets/js/jquery.core.js"></script>
-
-        <script src="../../Assets/plugins/dropify/js/dropify.min.js"></script>
-        <script src="../../Assets/pages/jquery.form-upload.init.js"></script>
+        <!-- App js -->
+        <script src="../../Assets/js/app.js"></script>
 
         <!-- App js -->
         <script src="../../Assets/js/app.js"></script>

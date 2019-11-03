@@ -104,7 +104,7 @@
                               <li class="nav-item"><a class="nav-link" href="../analytics/analytics-reports.html"><i class="dripicons-document"></i>Reports</a></li>
                           </ul>
                       </div><!--Termina SubMenu Dashboard -->
-                      <!--Inicia SubMenu Ordenes -->
+                      <!--Inicia SubMenu Entregas -->
                       <div id="Ordenes" class="main-icon-menu-pane active">
                           <div class="title-box">
                               <h6 class="menu-title">Entregas</h6>
@@ -114,7 +114,7 @@
                               <li class="nav-item"><a class="nav-link" href="../../Views/pedClsEntrega/pedFrmListar.php"><i class="mdi mdi-package-variant"></i>Entregas</a></li>
                               <li class="nav-item"><a class="nav-link" href="../../Views/pedClsCalificar/pedFrmListar.php"><i class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
                           </ul>
-                      </div><!--Termina SubMenu Ordenes -->
+                      </div><!--Termina SubMenu Entregas -->
                       <!--Inicia SubMenu Mantenimiento -->
                       <div id="Mantenimiento" class="main-icon-menu-pane">
                           <div class="title-box">
@@ -159,7 +159,7 @@
                                 <div class="float-right">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Thakhi</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:void(0);">Ordenes</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:void(0);">Entregas</a></li>
                                         <li class="breadcrumb-item active">Entregas</li>
                                     </ol>
                                 </div>
@@ -186,6 +186,7 @@
                                               <th>Conductor</th>
                                               <th>Fecha y Hora de Entrega</th>
                                               <th>Cliente</th>
+                                              <th>Estado</th>
                                               <th>Acción</th>
                                             </tr><!--end tr-->
                                             </thead>
@@ -199,6 +200,7 @@
                                               <td>Guimer Coaquira</td>
                                               <td>12/11/2019 23:12:00</td>
                                               <td>Leydi Huallpa</td>
+                                              <td>En Proceso</td>
                                               <td>
                                                 <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
@@ -212,6 +214,7 @@
                                               <td>Gyno Alfaro</td>
                                               <td>12/11/2019 10:12:00</td>
                                               <td>Perez Mamani</td>
+                                              <td>Entregado</td>
                                               <td>
                                                 <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>

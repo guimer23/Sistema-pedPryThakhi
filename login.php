@@ -33,7 +33,7 @@
                                   <br>
                                 <div class="text-center auth-logo-text">
                                     <h4 class="mt-0 mb-3 mt-5">Inicio de Sesión</h4>
-                                    <p class="text-muted mb-0">Sistema - Thakhi Pedidos.</p>
+                                    <p class="text-muted mb-0">Sistema - Thakhi Delivery.</p>
                                 </div> <!--end auth-logo-text-->
 
 
@@ -61,17 +61,7 @@
                                         </div>
                                     </div><!--end form-group-->
 
-                                    <div class="form-group row mt-4">
-                                        <div class="col-sm-6">
-                                            <div class="custom-control custom-switch switch-success">
-                                                <input type="checkbox" class="custom-control-input" id="customSwitchSuccess">
-                                                <label class="custom-control-label text-muted" for="customSwitchSuccess">Recordarme</label>
-                                            </div>
-                                        </div><!--end col-->
-                                        <div class="col-sm-6 text-right">
-                                            <a href="auth-recover-pw.html" class="text-muted font-13"><i class="dripicons-lock"></i>¿Olvidaste tu Clave?</a>
-                                        </div><!--end col-->
-                                    </div><!--end form-group-->
+                                    
 
                                     <div class="form-group mb-0 row">
                                         <div class="col-12 mt-2">
