@@ -223,7 +223,7 @@
                                             <p class="text-muted mb-3">Arrastra una imagen</p>
                                             <input type="file" id="input-file-now" class="dropify" />
                                           </div><!--end card-body-->
-                                      </div><!--end col-->
+                                      </div><!--end col-->OK
                                       <div class="col-md-12 col-lg-12">
                                           <div class="card-body">
                                             <div class="row clearfix text-right  ">
