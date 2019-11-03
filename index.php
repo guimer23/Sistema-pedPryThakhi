@@ -131,7 +131,7 @@ if (isset($_SESSION['usu'])) {
                           </svg>
                       </a><!--Termina Menu Dashboard -->
                       <!--Inicia Menu Ordenes -->
-                      <a href="#Ordenes" class="nav-link" data-toggle="tooltip-custom" data-placement="top" title="" data-original-title="Ordenes">
+                      <a href="#Ordenes" class="nav-link" data-toggle="tooltip-custom" data-placement="top" title="" data-original-title="Entregas">
                           <svg class="nav-svg" version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                               viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                               <g>
@@ -180,10 +180,9 @@ if (isset($_SESSION['usu'])) {
                           <div class="title-box">
                               <h6 class="menu-title">Dashboard</h6>
                           </div>
-                          <ul class="nav">
-                              <li class="nav-item"><a class="nav-link" href="../analytics/analytics-index.html"><i class="dripicons-meter"></i>Dashboard</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../analytics/analytics-customers.html"><i class="dripicons-user-group"></i>Customers</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../analytics/analytics-reports.html"><i class="dripicons-document"></i>Reports</a></li>
+                          <ul class="nav">                              
+                              <li class="nav-item"><a class="nav-link" href="index.php"><i class="dripicons-meter"></i>Dashboard</a></li>
+                              <li class="nav-item"><a class="nav-link" href="index.php"><i class="dripicons-document"></i>Reportes</a></li>
                           </ul>
                       </div><!--Termina SubMenu Dashboard -->
                       <!--Inicia SubMenu Entregas -->
@@ -251,12 +250,171 @@ if (isset($_SESSION['usu'])) {
                     </div>
                     <!-- end page title end breadcrumb -->
 
+                    <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h4 class="header-title mt-0">Audience Overview</h4>
+                                                        <div class="">
+                                                            <div id="ana_dash_1" class="apex-charts"></div>
+                                                        </div>
+                                                    </div><!--end card-body-->
+                                                </div><!--end card-->
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <h4 class="header-title mt-0 mb-3">Live Visits Our New Site</h4>
+                                                                <div id="circlechart" class="apex-charts"></div>
+                                                            </div><!--end col-->
+                                                            <div class="col-lg-6">
+                                                                <h4 class="header-title mt-0 mb-3">Traffic Sources</h4>
+                                                                <div class="traffic-card">
+                                                                    <h3>80</h3>
+                                                                    <h5>Right Now</h5>
+                                                                </div>
+                                                                <div class="progress mb-4">
+                                                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">55%</div>
+                                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100">28%</div>
+                                                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 17%" aria-valuenow="17" aria-valuemin="0" aria-valuemax="100">17%</div>
+                                                                </div>
+                                                                <ul class="list-unstyled url-list mb-0">
+                                                                    <li>
+                                                                        <i class="mdi mdi-circle-medium text-primary"></i>
+                                                                        <span>Organic</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <i class="mdi mdi-circle-medium text-secondary"></i>
+                                                                        <span>Direct</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <i class="mdi mdi-circle-medium text-warning"></i>
+                                                                        <span>Campaign</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div><!--end col-->
+                                                        </div><!--end row-->
+                                                    </div><!--end card-body-->
+                                                </div><!--end card-->
+                                            </div><!--end col-->
+                                            <div class="col-lg-4">
+                                                <div class="card">
+                                                    <div class="card-body mb-0">
+                                                        <div class="row">
+                                                            <div class="col-8 align-self-center">
+                                                                <div class="impressions-data">
+                                                                    <h4 class="mt-0 header-title">Impressions</h4>
+                                                                    <h2 class="mt-0">140k <span class="text-success  font-12 font-weight-normal"><i class="mdi mdi-arrow-up mr-1"></i>21%</span></h2>
+                                                                </div>
+                                                            </div><!--end col-->
+                                                        </div><!--end row-->
+                                                    </div><!--end card-body-->
+                                                    <div class="card-body overflow-hidden p-0">
+                                                        <div class="d-flex mb-0 h-100">
+                                                            <div class="w-100">
+                                                                <div class="apexchart-wrapper">
+                                                                    <div id="dash_spark_1" class="chart-gutters"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!--end card-body-->
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h4 class="header-title mt-0">Sessions Device</h4>
+                                                        <div id="ana_device" class="apex-charts"></div>
+                                                        <div class="table-responsive mt-4">
+                                                            <table class="table mb-0">
+                                                                <thead class="thead-light">
+                                                                <tr>
+                                                                    <th>Device</th>
+                                                                    <th>Sassions</th>
+                                                                    <th>Day</th>
+                                                                    <th>Week</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <th scope="row">Dasktops</th>
+                                                                    <td>1843</td>
+                                                                    <td>-3</td>
+                                                                    <td>-12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Tablets</th>
+                                                                    <td>2543</td>
+                                                                    <td>-5</td>
+                                                                    <td>-2</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Mobiles</th>
+                                                                    <td>3654</td>
+                                                                    <td>-5</td>
+                                                                    <td>-6</td>
+                                                                </tr>
+
+                                                                </tbody>
+                                                            </table><!--end /table-->
+                                                        </div>
+                                                    </div><!--end card-body-->
+                                                </div><!--end card-->
+                                            </div><!--end col-->
+                                        </div><!--end row-->
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-3">
+                                                <div class="card report-card">
+                                                    <div class="card-body">
+                                                        <div class="float-right">
+                                                            <i class="dripicons-user-group report-main-icon"></i>
+                                                        </div>
+                                                        <span class="badge badge-danger">Sessions</span>
+                                                        <h3 class="my-3">24k</h3>
+                                                        <p class="mb-0 text-muted text-truncate"><span class="text-success"><i class="mdi mdi-trending-up"></i>8.5%</span>New Sessions Today</p>
+                                                    </div><!--end card-body-->
+                                                </div><!--end card-->
+                                            </div> <!--end col-->
+                                            <div class="col-md-3">
+                                                <div class="card report-card">
+                                                    <div class="card-body">
+                                                        <div class="float-right">
+                                                            <i class="dripicons-clock report-main-icon"></i>
+                                                        </div>
+                                                        <span class="badge badge-secondary">Avg.Sessions</span>
+                                                        <h3 class="my-3">00:18</h3>
+                                                        <p class="mb-0 text-muted text-truncate"><span class="text-danger"><i class="mdi mdi-trending-down"></i>1.5%</span> Weekly Avg.Sessions</p>
+                                                    </div><!--end card-body-->
+                                                </div><!--end card-->
+                                            </div> <!--end col-->
+                                            <div class="col-md-3">
+                                                <div class="card report-card">
+                                                    <div class="card-body">
+                                                        <div class="float-right">
+                                                            <i class="dripicons-meter report-main-icon"></i>
+                                                        </div>
+                                                        <span class="badge badge-warning">Bounce Rate</span>
+                                                        <h3 class="my-3">$2400</h3>
+                                                        <p class="mb-0 text-muted text-truncate"><span class="text-danger"><i class="mdi mdi-trending-down"></i>35%</span> Bounce Rate Weekly</p>
+                                                    </div><!--end card-body-->
+                                                </div><!--end card-->
+                                            </div> <!--end col-->
+                                            <div class="col-md-3">
+                                                <div class="card report-card">
+                                                    <div class="card-body">
+                                                        <div class="float-right">
+                                                            <i class="dripicons-wallet report-main-icon"></i>
+                                                        </div>
+                                                        <span class="badge badge-success">Goal Completions</span>
+                                                        <h3 class="my-3">85000</h3>
+                                                        <p class="mb-0 text-muted text-truncate"><span class="text-success"><i class="mdi mdi-trending-up"></i>10.5%</span> Completions Weekly</p>
+                                                    </div><!--end card-body-->
+                                                </div><!--end card-->
+                                            </div> <!--end col-->
+                                        </div><!--end row-->
 
 
 
 
 
-                    
                 </div><!-- container -->
 
                 <?php include "Views/Template/footer.php" ;?>
@@ -278,6 +436,9 @@ if (isset($_SESSION['usu'])) {
         <script src="Assets/plugins/gmaps/gmaps.min.js"></script>
         <!-- demo codes -->
         <script src="Assets/pages/jquery.gmaps.init.js"></script>
+
+        <script src="Assets/plugins/apexcharts/apexcharts.min.js"></script>
+                <script src="Assets/pages/jquery.analytics_dashboard.init.js"></script>
 
         <!-- App js -->
         <script src="Assets/js/app.js"></script>

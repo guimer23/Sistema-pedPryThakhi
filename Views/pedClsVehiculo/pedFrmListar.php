@@ -115,9 +115,8 @@ $resultado=mysqli_query($conexion,$sql);
                               <h6 class="menu-title">Dashboard</h6>
                           </div>
                           <ul class="nav">
-                              <li class="nav-item"><a class="nav-link" href="../analytics/analytics-index.html"><i class="dripicons-meter"></i>Dashboard</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../analytics/analytics-customers.html"><i class="dripicons-user-group"></i>Customers</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../analytics/analytics-reports.html"><i class="dripicons-document"></i>Reports</a></li>
+														<li class="nav-item"><a class="nav-link" href="../../index.php"><i class="dripicons-meter"></i>Dashboard</a></li>
+														<li class="nav-item"><a class="nav-link" href="../../index.php"><i class="dripicons-document"></i>Reportes</a></li>
                           </ul>
                       </div><!--Termina SubMenu Dashboard -->
                       <!--Inicia SubMenu Ordenes -->
