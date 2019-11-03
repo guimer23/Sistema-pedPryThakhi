@@ -67,12 +67,7 @@
                             <i class="dripicons-menu nav-icon"></i>
                         </button>
                     </li>
-                    <li class="hide-phone app-search">
-                        <form role="search" class="">
-                            <input type="text" placeholder="Buscar . . ." class="form-control">
-                            <a href=""><i class="fas fa-search"></i></a>
-                        </form>
-                    </li>
+                    
                 </ul>
             </nav>
             <!-- end navbar-->
