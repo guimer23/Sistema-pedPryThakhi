@@ -125,9 +125,9 @@ $resultado=mysqli_query($conexion,$sql);
                               <h6 class="menu-title">Entregas</h6>
                           </div>
                           <ul class="nav">
-                              <li class="nav-item"><a class="nav-link" href="../../Views/pedClsMonitorear/pedFrmListar.php"><i class="mdi mdi-google-maps"></i>Monitorear</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../../Views/pedClsEntrega/pedFrmListar.php"><i class="mdi mdi-package-variant"></i>Entregas</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../../Views/pedClsCalificar/pedFrmListar.php"><i class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsMonitorear/pedFrmListar.php"><i class="mdi mdi-google-maps"></i>Monitorear</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsEntrega/pedFrmListar.php"><i class="mdi mdi-package-variant"></i>Entregas</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsCalificar/pedFrmListar.php"><i class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
                           </ul>
                       </div><!--Termina SubMenu Entregas -->
                       <!--Inicia SubMenu Mantenimiento -->
@@ -136,11 +136,11 @@ $resultado=mysqli_query($conexion,$sql);
                               <h6 class="menu-title">Mantenimiento</h6>
                           </div>
                           <ul class="nav">
-                              <li class="nav-item"><a class="nav-link" href="../../Views/pedClsVehiculo/pedFrmListar.php"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../../Views/pedClsConductor/pedFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../../Views/pedClsVehiculoConductor/pedFrmListar.php"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../../Views/pedClsCliente/pedFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../../Views/pedClsUsuario/pedFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculo/pedFrmListar.php"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsConductor/pedFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculoConductor/pedFrmListar.php"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsCliente/pedFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsUsuario/pedFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
                           </ul>
                       </div><!--Inicia SubMenu Mantenimiento -->
 
