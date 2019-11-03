@@ -1,18 +1,3 @@
-
-<?php
-
-require_once("../../Controllers/Conexion.php");
-	$c= new Conectar();
-		$conexion=$c->conexion();
-	$sql="SELECT MOTid,MOTplaca,MOTmarca,MOTmodelo,MOTcolor,MOTanio_fabricacion from admmottmoto ";
-
-
-$resultado=mysqli_query($conexion,$sql);
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -24,13 +9,7 @@ $resultado=mysqli_query($conexion,$sql);
 
         <!-- App favicon -->
         <link rel="shortcut icon" href="../../Assets/images/favicon.ico">
-
-        <!-- DataTables -->
-        <link href="../../Assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <link href="../../Assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <!-- Responsive datatable examples -->
-        <link href="../../Assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
+        <link href="../../Assets/plugins/dropify/css/dropify.min.css" rel="stylesheet">
         <!-- App css -->
         <link href="../../Assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="../../Assets/css/icons.css" rel="stylesheet" type="text/css" />
@@ -39,7 +18,6 @@ $resultado=mysqli_query($conexion,$sql);
     </head>
 
     <body>
-
 
         <!-- Top Bar Start -->
         <?php include "../Template/topbar.php" ;?>
@@ -115,12 +93,12 @@ $resultado=mysqli_query($conexion,$sql);
                               <h6 class="menu-title">Dashboard</h6>
                           </div>
                           <ul class="nav">
-														<li class="nav-item"><a class="nav-link" href="../../index.php"><i class="dripicons-meter"></i>Dashboard</a></li>
-														<li class="nav-item"><a class="nav-link" href="../../index.php"><i class="dripicons-document"></i>Reportes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../index.php"><i class="dripicons-meter"></i>Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../index.php"><i class="dripicons-document"></i>Reportes</a></li>
                           </ul>
                       </div><!--Termina SubMenu Dashboard -->
-											<!--Inicia SubMenu Entregas -->
-                      <div id="Ordenes" class="main-icon-menu-pane active">
+                      <!--Inicia SubMenu Entregas -->
+                      <div id="Ordenes" class="main-icon-menu-pane">
                           <div class="title-box">
                               <h6 class="menu-title">Entregas</h6>
                           </div>
@@ -182,58 +160,94 @@ $resultado=mysqli_query($conexion,$sql);
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div>
-                    <!-- end page title end breadcrumb -->
-
+                    <!-- end page title end brideadcrumb -->
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-md-12 col-lg-12">
                             <div class="card">
-                                <div class="card-body">
-                                    <a href="pedFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Vehículo</a>
-                                    <h4 class="header-title mt-0">Detalles de Vehículos</h4>
-                                    <div class="table-responsive dash-social">
-                                        <table id="datatable" class="table">
-                                            <thead class="thead-light">
-                                            <tr>
-                                              <th>#</th>
-                                              <th>Placa</th>
-                                              <th>Marca</th>
-                                              <th>Modelo</th>
-                                              <th>Color</th>
-                                              <th>Año Fab.</th>
-                                              <th>Acción</th>
-                                            </tr><!--end tr-->
-                                            </thead>
+                                <form  id="frmvehiculo" class="form-parsley" enctype="multipart/form-data" >
+                                  <div class="row">
+                                      <div class="col-md-12 col-lg-9">
+                                          <div class="card-body">
+                                            <h4 class="mt-0 header-title">Datos del Vehículo</h4>
+                                              <div class="row clearfix">
+                                                  <div class="col-md-3">
+                                                      <div class="form-group">
+                                                          <label>Placa </label>
+                                                          <input type="text" id="placa" name="placa" class="form-control" required >
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-4">
+                                                      <div class="form-group">
+                                                          <label>Marca</label>
+                                                          <input type="text" id="marca" name="marca" class="form-control" required >
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-5">
+                                                      <div class="form-group">
+                                                          <label>Modelo</label>
+                                                          <input type="text" id="modelo" name="modelo" class="form-control" required >
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="row clearfix">
+                                                  <div class="col-md-5">
+                                                      <div class="form-group">
+                                                          <label>Color </label>
+                                                          <input type="text" id="color" name="color" class="form-control" required >
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-7">
+                                                      <div class="form-group">
+                                                          <label>Año Fabricación</label>
+                                                          <input type="number" id="ano" name="ano" class="form-control" required >
+                                                      </div>
+                                                  </div>
 
-                                            <tbody>
-                                              <?php
-
-                                            while ($ver=mysqli_fetch_row($resultado)) :
-                                              # code...
-                                              ?>
-                                            <tr>
-                                                <td><?php echo  $ver[0]?></td>
-                                                <td><?php echo  $ver[1]?></td>
-                                                <td><?php echo  $ver[2]?></td>
-                                                <td><?php echo  $ver[3]?></td>
-                                                <td><?php echo  $ver[4]?></td>
-                                                <td><?php echo  $ver[5]?></td>
-                                              <td>
-                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
-                                              </td>
-                                            </tr><!--end tr-->
-                                          <?php endwhile ?>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div><!--end card-body-->
-                            </div><!--end card-->
-                        </div> <!--end col-->
-                    </div><!--end row-->
+                                              </div>
+                                              <div class="row clearfix">
+                                                <div class="col-md-7">
+                                                    <div class="form-group">
+                                                        <label>Vigencia SOAT</label>
+                                                        <input type="date" id="soat" name="soat" class="form-control" required >
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <label>Estado</label>
+                                                    <div class="form-group">
+                                                        <select name="Estado" id="estado" name="estado" class="form-control" Required>
+                                                            <option value="">- Seleccionar -</option>
+                                                            <option value="Activo">Activo</option>
+                                                            <option value="Inactivo">Inactivo</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <div class="row clearfix text-right  ">
+                                                  <div class="form-group mb-0">
+                                                      <button type="button" id="btnvehiculo" class="btn btn-primary waves-effect waves-light">
+                                                          Guardar
+                                                      </button>
+                                                      <button type="reset" class="btn btn-danger waves-effect m-l-5">
+                                                          Cancelar
+                                                      </button>
+                                                  </div><!--end form-group-->
+                                                </div>
+                                          </div><!--end card-body-->
+                                      </div><!--end col-->
+                                      <div class="col-md-12 col-lg-3">
+                                          <div class="card-body">
+                                            <h4 class="mt-0 header-title">Subir Foto</h4>
+                                            <p class="text-muted mb-3">Arrastra una imagen</p>
+                                            <input type="file" id="imagen" name="imagen" class="dropify" />
+                                          </div><!--end card-body-->
+                                      </div><!--end col-->
+                                  </div><!--end row-->
+                                </form><!--end form-->
+                            </div><!--end row-->
+                        </div><!-- container -->
+                    </div><!-- container -->
 
                 </div><!-- container -->
-
                 <?php include "../Template/footer.php" ;?>
             </div>
             <!-- end page content -->
@@ -241,21 +255,22 @@ $resultado=mysqli_query($conexion,$sql);
         <!-- end page-wrapper -->
 
         <!-- jQuery  -->
+          <script src="../../Assets/js/funciones.js"></script>
+          <script src="../../Assets/js/jquery-3.2.1.min.js"></script>
         <script src="../../Assets/js/jquery.min.js"></script>
         <script src="../../Assets/js/bootstrap.bundle.min.js"></script>
         <script src="../../Assets/js/metisMenu.min.js"></script>
         <script src="../../Assets/js/waves.min.js"></script>
         <script src="../../Assets/js/jquery.slimscroll.min.js"></script>
 
-        <script src="../../Assets/plugins/apexcharts/apexcharts.min.js"></script>
-        <script src="https://apexcharts.com/samples/assets/irregular-data-series.js"></script>
-        <script src="https://apexcharts.com/samples/assets/ohlc.js"></script>
-        <!-- Required datatable js -->
-        <script src="../../Assets/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="../../Assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
-        <script src="../../Assets/plugins/peity-chart/jquery.peity.min.js"></script>
+        <!-- Parsley js -->
+        <script src="../../Assets/plugins/parsleyjs/parsley.min.js"></script>
+        <script src="../../Assets/pages/jquery.validation.init.js"></script>
 
-        <script src="../../Assets/pages/jquery.ana_customers.inity.js"></script>
+        <script src="../../Assets/js/jquery.core.js"></script>
+
+        <script src="../../Assets/plugins/dropify/js/dropify.min.js"></script>
+        <script src="../../Assets/pages/jquery.form-upload.init.js"></script>
 
         <!-- App js -->
         <script src="../../Assets/js/app.js"></script>
@@ -265,6 +280,41 @@ $resultado=mysqli_query($conexion,$sql);
 
 
 <script type="text/javascript">
+		$(document).ready(function(){
 
 
-</script>
+			$('#btnvehiculo').click(function(){
+
+					vacios=ValidadFormVacio('frmvehiculo');
+
+				if(vacios > 0){
+					alert("Debes llenar todos los campos!!");
+					return false;
+				}
+
+				var formData = new FormData(document.getElementById("frmvehiculo"));
+
+				$.ajax({
+					url:"../../Models/ModelVehiculo/RegistrarVehiculo.php",
+					type: "post",
+					dataType: "html",
+					data: formData,
+					cache: false,
+					contentType: false,
+					processData: false,
+
+					success:function(r){
+
+						if(r == 1){
+
+							alert("Agregado con exito :D");
+                  $('#frmvehiculo')[0].reset();
+						}else{
+					alert("no se pudo agregar");
+						}
+					}
+				});
+
+			});
+		});
+	</script>
