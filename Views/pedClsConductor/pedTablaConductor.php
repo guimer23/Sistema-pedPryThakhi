@@ -61,9 +61,9 @@ $resultado=mysqli_query($conexion,$sql);
                           	  ?>
                             <tr>
 
-                              <td><?php echo  $ver[0]?></td>
+                              	<td><?php echo  $ver[0]?></td>
                                 <td><?php echo  $ver[1]." ".$ver[2]?></td>
-                          		<td><?php echo $ver[3]; ?></td>
+                          			<td><?php echo $ver[3]; ?></td>
                               	<td> vigencia</td>
                               	<td><?php echo $ver[4]; ?></td>
                                 <td><?php echo $ver[5]; ?></td>

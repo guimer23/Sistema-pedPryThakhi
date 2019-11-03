@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -95,7 +96,8 @@
                           <ul class="nav">
                               <li class="nav-item"><a class="nav-link" href="../analytics/analytics-index.html"><i class="dripicons-meter"></i>Dashboard</a></li>
                               <li class="nav-item"><a class="nav-link" href="../analytics/analytics-customers.html"><i class="dripicons-user-group"></i>Customers</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../analytics/analytics-reports.html"><i class="dripicons-document"></i>Reports</a></li>
+                              <li cla
+                              ss="nav-item"><a class="nav-link" href="../analytics/analytics-reports.html"><i class="dripicons-document"></i>Reports</a></li>
                           </ul>
                       </div><!--Termina SubMenu Dashboard -->
                       <!--Inicia SubMenu Ordenes -->
@@ -168,6 +170,17 @@
                     <div class="row">
                         <div class="col-md-12 col-lg-12">
                             <div class="card">
+
+                              <?php
+                              if(isset($_GET['code']))
+                            //
+                              $code =strtoupper($_GET['code']);
+                              else $code="";
+
+
+
+                               ?>
+
                                 <form  id="frmvehiculo" class="form-parsley" enctype="multipart/form-data" >
                                   <div class="row">
                                       <div class="col-md-12 col-lg-9">
@@ -177,6 +190,7 @@
                                                   <div class="col-md-3">
                                                       <div class="form-group">
                                                           <label>Placa </label>
+                                                          <input type="text" name="es" id="es"  value="<?php echo $code  ?>" hidden=""  >
                                                           <input type="text" id="placa" name="placa" class="form-control" required >
                                                       </div>
                                                   </div>
@@ -218,7 +232,7 @@
                                                 <div class="col-md-5">
                                                     <label>Estado</label>
                                                     <div class="form-group">
-                                                        <select name="Estado" id="estado" name="estado" class="form-control" Required>
+                                                        <select id="estado" name="estado" class="form-control" Required>
                                                             <option value="">- Seleccionar -</option>
                                                             <option value="Activo">Activo</option>
                                                             <option value="Inactivo">Inactivo</option>
@@ -242,7 +256,9 @@
                                           <div class="card-body">
                                             <h4 class="mt-0 header-title">Subir Foto</h4>
                                             <p class="text-muted mb-3">Arrastra una imagen</p>
+
                                             <input type="file" id="imagen" name="imagen" class="dropify" />
+
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                   </div><!--end row-->
@@ -322,3 +338,74 @@
 			});
 		});
 	</script>
+
+
+  <script type="text/javascript">
+   function LlenaDatos(){
+
+var  code=$('#es').val();
+  	 $.ajax({
+  				type:"POST",
+  				data:"codigo=" + code,
+  				url:"../../Models/ModelVehiculo/ObtenerDatosVehiculo.php",
+  				success:function(r){
+  					dato=jQuery.parseJSON(r);
+  					$('#placa').val(dato['Placa']);
+            $('#marca').val(dato['Marca']);
+            $('#modelo').val(dato['Modelo']);
+            $('#color').val(dato['Color']);
+            //    alert(dato['Fabricacion']);
+                var ano=dato['Fabricacion'].toString();
+        //    $('#ano').parseInt(string,val(dato['Fabricacion']));
+
+          $('#ano').val(parseInt(ano));
+        //    $('#ano').val(dato['Fabricacion']);
+          //alert(dato['Soat']);
+          //  var dt = new date();
+        //    var  dtt= Date.parse(dato['Soat']);
+ //class="form-control input-sm"
+          //    $('#soat').val(dtt);
+      var e= dato['Estado'];
+      if (e=="1") {
+        $('#estado').val("Activo");
+      }else {
+        $('#estado').val("Inactivo")
+      }
+
+
+ var img=dato['Foto'];
+//var fo=$('#imagen');
+//alert(img);
+/*  var cadena =dato['Foto'],
+      separador = "/", // un espacio en blanco
+      limite    = 2,
+      arregloDeSubCadenas = cadena.split(separador, limite);
+      */
+//fo.src=img;
+
+var f=$('#imagen');
+f.src="../../Fotos/toyota.jpg";
+/*var archivo = document.getElementById("imagen").files[0];
+  var reader = new FileReader();
+  if (img) {
+    reader.readAsDataURL(archivo );
+    reader.onloadend = function () {
+        document.getElementById("imagen").src = reader.result;
+    }
+  }
+*/
+
+
+//  var imgVer=explode("/", img);
+  //			var imgruta=$imgVer[1]."/".$imgVer[2]."/".$imgVer[3];
+//  $('#imagen').src(arregloDeSubCadenas);
+
+
+}
+  			});
+
+
+   }
+ LlenaDatos();
+
+  </script>

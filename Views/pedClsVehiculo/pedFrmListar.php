@@ -222,7 +222,7 @@ $resultado=mysqli_query($conexion,$sql);
                                                 <td><?php echo  $ver[4]?></td>
                                                 <td><?php echo  $ver[5]?></td>
                                               <td>
-                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a   class="mr-2" onclick="TraeDatos('<?php echo  $ver[0]?>')"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
                                               </td>
                                             </tr><!--end tr-->
@@ -269,6 +269,23 @@ $resultado=mysqli_query($conexion,$sql);
 
 
 <script type="text/javascript">
+ function TraeDatos(code){
+
+	 $.ajax({
+				type:"POST",
+				data:"codigo=" + code,
+				url:"../../Models/ModelVehiculo/ObtenerDatosVehiculo.php",
+				success:function(r){
+					dato=jQuery.parseJSON(r);
+					$('#placa').val(dato['Placa']);
+			
+					window.location="pedFrmAgregar.php?code="+code;
+
+
+				}
+			});
+
+ }
 
 
 </script>

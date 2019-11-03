@@ -161,7 +161,19 @@
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div>
-                    <!-- end page title end breadcrumb -->
+                    <?php
+
+                    require_once("../../Controllers/Conexion.php");
+                    	$c= new Conectar();
+                    	$conexion=$c->conexion();
+                    	$sql="SELECT CONid,CONnombre,CONapellido from admcontconductor ";
+                    		$resultado=mysqli_query($conexion,$sql);
+
+
+                        $sql2="SELECT CLIdni,CLInombre,CLIapellido  from admclitcliente ";
+                      		$resultado2=mysqli_query($conexion,$sql2);
+                    ?>
+
                     <div class="row">
                         <div class="col-md-12 col-lg-12">
                             <div class="card">
@@ -205,8 +217,11 @@
                                                           <div class="form-group">
                                                               <select name="Estado" class="form-control" Required>
                                                                   <option value="">- Seleccionar -</option>
-                                                                  <option value="Guimer Coaquira">Guimer Coaquira</option>
-                                                                  <option value="Jhon Aguilar">Jhon Aguilar</option>
+                                                                  <?php
+                                                                while ($ver=mysqli_fetch_row($resultado)) :
+                                                                  ?>
+                                                                  <option  value="<?php echo $ver[0] ?>"><?php echo $ver[1]."-".$ver[2]; ?></option>
+                                                                <?php endwhile; ?>
                                                               </select>
                                                           </div>
                                                       </div>
@@ -225,8 +240,11 @@
                                                             <div class="form-group">
                                                                 <select name="Estado" class="form-control" Required>
                                                                     <option value="">- Seleccionar -</option>
-                                                                    <option value="Leydi Huallpa">Leydi Huallpa</option>
-                                                                    <option value="Juan Carlos Panty">Juan Carlos Panty</option>
+                                                                    <?php
+                                                                  while ($ver2=mysqli_fetch_row($resultado2)) :
+                                                                    ?>
+                                                                  <option  value="<?php echo $ver2[0] ?>"><?php echo $ver2[1]."-".$ver2[2]; ?></option>
+                                                                <?php endwhile; ?>
                                                                 </select>
                                                             </div>
                                                         </div>
