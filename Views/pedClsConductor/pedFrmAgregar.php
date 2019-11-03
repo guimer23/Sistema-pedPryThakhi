@@ -101,20 +101,17 @@
                             <li class="nav-item"><a class="nav-link" href="../analytics/analytics-reports.html"><i class="dripicons-document"></i>Reports</a></li>
                         </ul>
                     </div><!--Termina SubMenu Dashboard -->
-                    <!--Inicia SubMenu Ordenes -->
+                    <!--Inicia SubMenu Entregas -->
                     <div id="Ordenes" class="main-icon-menu-pane">
                         <div class="title-box">
-                            <h6 class="menu-title">Ordenes</h6>
+                            <h6 class="menu-title">Entregas</h6>
                         </div>
                         <ul class="nav">
-                            <li class="nav-item"><a class="nav-link" href="../ecommerce/ecommerce-index.html"><i class="dripicons-device-desktop"></i>Dashboard</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../ecommerce/ecommerce-products.html"><i class="dripicons-view-apps"></i>Products</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../ecommerce/ecommerce-product-list.html"><i class="dripicons-list"></i>Product List</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../ecommerce/ecommerce-product-detail.html"><i class="dripicons-article"></i>Product Detail</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../ecommerce/ecommerce-cart.html"><i class="dripicons-cart"></i>Cart</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../ecommerce/ecommerce-checkout.html"><i class="dripicons-card"></i>Checkout</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsMonitorear/pedFrmListar.php"><i class="mdi mdi-google-maps"></i>Monitorear</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsEntrega/pedFrmListar.php"><i class="mdi mdi-package-variant"></i>Entregas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsCalificar/pedFrmListar.php"><i class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
                         </ul>
-                    </div><!--Termina SubMenu Ordenes -->
+                    </div><!--Termina SubMenu Entregas -->
                     <!--Inicia SubMenu Mantenimiento -->
                     <div id="Mantenimiento" class="main-icon-menu-pane active">
                         <div class="title-box">
