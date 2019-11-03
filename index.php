@@ -35,10 +35,10 @@ if (isset($_SESSION['usu'])) {
                     <div class="topbar-left">
                         <a href="index.php" class="logo">
                             <span>
-                                <img src="Assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                                <img src="Assets/images/logo-thakhi-sm.png" alt="logo-small" class="logo-sm">
                             </span>
                             <span>
-                                <img src="Assets/images/logo-dark.png" alt="logo-large" class="logo-lg">
+                                <img src="Assets/images/logo-letra.png" alt="logo-large" class="logo-lg">
                             </span>
                         </a>
                     </div>
@@ -180,7 +180,7 @@ if (isset($_SESSION['usu'])) {
                           <div class="title-box">
                               <h6 class="menu-title">Dashboard</h6>
                           </div>
-                          <ul class="nav">                              
+                          <ul class="nav">
                               <li class="nav-item"><a class="nav-link" href="index.php"><i class="dripicons-meter"></i>Dashboard</a></li>
                               <li class="nav-item"><a class="nav-link" href="index.php"><i class="dripicons-document"></i>Reportes</a></li>
                           </ul>
