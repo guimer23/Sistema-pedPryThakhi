@@ -102,9 +102,9 @@
                               <h6 class="menu-title">Entregas</h6>
                           </div>
                           <ul class="nav">
-                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsMonitorear/pedFrmListar.php"><i class="mdi mdi-google-maps"></i>Monitorear</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsEntrega/pedFrmListar.php"><i class="mdi mdi-package-variant"></i>Entregas</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsCalificar/pedFrmListar.php"><i class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsMonitorear/admFrmListar.php"><i class="mdi mdi-google-maps"></i>Monitorear</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsEntrega/admFrmListar.php"><i class="mdi mdi-package-variant"></i>Entregas</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsCalificar/admFrmListar.php"><i class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
                           </ul>
                       </div><!--Termina SubMenu Entregas -->
                       <!--Inicia SubMenu Mantenimiento -->
@@ -113,11 +113,11 @@
                               <h6 class="menu-title">Mantenimiento</h6>
                           </div>
                           <ul class="nav">
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculo/pedFrmListar.php"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsConductor/pedFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculoConductor/pedFrmListar.php"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsCliente/pedFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsUsuario/pedFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculo/admFrmListar.php"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsConductor/admFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculoConductor/admFrmListar.php"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsCliente/admFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsUsuario/admFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
                           </ul>
                       </div><!--Inicia SubMenu Mantenimiento -->
 
@@ -223,7 +223,7 @@
                                             <p class="text-muted mb-3">Arrastra una imagen</p>
                                             <input type="file" id="input-file-now" class="dropify" />
                                           </div><!--end card-body-->
-                                      </div><!--end col-->OK
+                                      </div><!--end col-->
                                       <div class="col-md-12 col-lg-12">
                                           <div class="card-body">
                                             <div class="row clearfix text-right  ">
