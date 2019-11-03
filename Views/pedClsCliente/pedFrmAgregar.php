@@ -226,16 +226,7 @@
                                                           <input type="text" id="longitud" name="longitud" class="form-control" required >
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4">
-                                                      <label>Estado</label>
-                                                      <div class="form-group">
-                                                          <select name="Estado" id="estado" name="estado" class="form-control" Required>
-                                                              <option value="">- Seleccionar -</option>
-                                                              <option value="Activo">Activo</option>
-                                                              <option value="Inactivo">Inactivo</option>
-                                                          </select>
-                                                      </div>
-                                                  </div>
+                                                  
                                                 </div>
                                                 <div class="row clearfix text-right  ">
                                                   <div class="form-group mb-0">
