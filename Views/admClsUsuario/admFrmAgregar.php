@@ -214,16 +214,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row clearfix text-right  ">
-                                                  <div class="form-group mb-0">
-                                                      <button type="button" id="registrousuario" class="btn btn-primary waves-effect waves-light">
-                                                          Guardar
-                                                      </button>
-                                                      <button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                          Cancelar
-                                                      </button>
-                                                  </div><!--end form-group-->
-                                                </div>
+
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                       <div class="col-md-12 col-lg-3">
@@ -231,6 +222,20 @@
                                             <h4 class="mt-0 header-title">Subir Foto</h4>
                                             <p class="text-muted mb-3">Arrastra una imagen</p>
                                             <input type="file" id="input-file-now" class="dropify" />
+                                          </div><!--end card-body-->
+                                      </div><!--end col-->
+                                      <div class="col-md-12 col-lg-12">
+                                          <div class="card-body">
+                                            <div class="row clearfix text-right  ">
+                                              <div class="form-group mb-0">
+                                                  <button type="button" id="registrousuario" class="btn btn-primary waves-effect waves-light">
+                                                      Guardar
+                                                  </button>
+                                                  <button type="reset" class="btn btn-danger waves-effect m-l-5">
+                                                      Cancelar
+                                                  </button>
+                                              </div><!--end form-group-->
+                                            </div>
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                   </div><!--end row-->

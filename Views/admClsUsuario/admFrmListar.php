@@ -197,8 +197,8 @@ $resultado=mysqli_query($conexion,$sql);
                                               <th>#</th>
                                               <th>Nombre</th>
                                               <th>Apellidos</th>
-                                              <th>Nombre Usu.</th>
-                                              <th>Email</th>
+																							<th>Email</th>
+                                              <th>Usuario</th>
                                               <th>Estado</th>
                                               <th>Acción</th>
                                             </tr><!--end tr-->
@@ -222,8 +222,6 @@ $resultado=mysqli_query($conexion,$sql);
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
                                               </td>
                                             </tr><!--end tr-->
-
-
   <?php endwhile ?>
                                             </tbody>
                                         </table>

@@ -94,15 +94,8 @@
                               <h6 class="menu-title">Dashboard</h6>
                           </div>
                           <ul class="nav">
-<<<<<<< HEAD:Views/admClsVehiculo/admFrmAgregar.php
-                            <li class="nav-item"><a class="nav-link" href="../../index.php"><i class="dripicons-meter"></i>Dashboard</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../index.php"><i class="dripicons-document"></i>Reportes</a></li>
-=======
-                              <li class="nav-item"><a class="nav-link" href="../analytics/analytics-index.html"><i class="dripicons-meter"></i>Dashboard</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../analytics/analytics-customers.html"><i class="dripicons-user-group"></i>Customers</a></li>
-                              <li cla
-                              ss="nav-item"><a class="nav-link" href="../analytics/analytics-reports.html"><i class="dripicons-document"></i>Reports</a></li>
->>>>>>> b8aa3b9cd0b29d85eed07a590c6b996af66945cf:Views/pedClsVehiculo/pedFrmAgregar.php
+														<li class="nav-item"><a class="nav-link" href="../../index.php"><i class="dripicons-meter"></i>Dashboard</a></li>
+														<li class="nav-item"><a class="nav-link" href="../../index.php"><i class="dripicons-document"></i>Reportes</a></li>
                           </ul>
                       </div><!--Termina SubMenu Dashboard -->
                       <!--Inicia SubMenu Entregas -->
@@ -242,25 +235,28 @@
                                                     </div>
                                                 </div>
                                                 </div>
-                                                <div class="row clearfix text-right  ">
-                                                  <div class="form-group mb-0">
-                                                      <button type="button" id="btnvehiculo" class="btn btn-primary waves-effect waves-light">
-                                                          Guardar
-                                                      </button>
-                                                      <button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                          Cancelar
-                                                      </button>
-                                                  </div><!--end form-group-->
-                                                </div>
+
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                       <div class="col-md-12 col-lg-3">
                                           <div class="card-body">
                                             <h4 class="mt-0 header-title">Subir Foto</h4>
                                             <p class="text-muted mb-3">Arrastra una imagen</p>
-
                                             <input type="file" id="imagen" name="imagen" class="dropify" />
-
+                                          </div><!--end card-body-->
+                                      </div><!--end col-->
+                                      <div class="col-md-12 col-lg-12">
+                                          <div class="card-body">
+                                            <div class="row clearfix text-right  ">
+                                              <div class="form-group mb-0">
+                                                  <button type="button" id="btnvehiculo" class="btn btn-primary waves-effect waves-light">
+                                                      Guardar
+                                                  </button>
+                                                  <button type="reset" class="btn btn-danger waves-effect m-l-5">
+                                                      Cancelar
+                                                  </button>
+                                              </div><!--end form-group-->
+                                            </div>
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                   </div><!--end row-->

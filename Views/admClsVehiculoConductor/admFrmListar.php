@@ -196,9 +196,8 @@ $resultado=mysqli_query($conexion,$sql);
                                             <tr>
                                               <th>#</th>
                                               <th>Conductor</th>
-                                              <th>Vehículo</th>
-                                              <th>Latitud</th>
-                                              <th>Longitud</th>
+                                              <th>Vehículo</th> 
+																							<th>Estado</th>
                                               <th>Acción</th>
                                             </tr><!--end tr-->
                                             </thead>

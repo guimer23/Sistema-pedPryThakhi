@@ -200,6 +200,7 @@ $resultado=mysqli_query($conexion,$sql);
                                               <th>Modelo</th>
                                               <th>Color</th>
                                               <th>Año Fab.</th>
+																							<th>Estado</th>
                                               <th>Acción</th>
                                             </tr><!--end tr-->
                                             </thead>
