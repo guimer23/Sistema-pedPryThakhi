@@ -181,59 +181,7 @@ $resultado=mysqli_query($conexion,$sql);
                     </div>
                     <!-- end page title end breadcrumb -->
 
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="icon-contain">
-                                        <div class="row">
-                                            <div class="col-8 align-self-center">
-                                                <h5 class="">Clientes que regresan</h5>
-                                                <p class="text-muted mb-0">Ultimo mes : 150 <i class="mdi mdi-menu-up text-success font-16"></i></p>
-                                            </div><!--end col-->
-                                            <div class="col-4">
-                                                <span class="peity-bar" data-peity='{ "fill": ["#e0e7fd", "#4d79f6"]}' data-width="100%" data-height="60">6,2,8,4,3,8,1,3,6,5,9,2,8,1,4,8,9,8,2,1</span>
-                                            </div><!--end col-->
-                                        </div>  <!--end row-->
-                                    </div><!--end icon-contain-->
-                                </div><!--end card-body-->
-                            </div><!--end card-->
-                        </div><!--end col-->
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="icon-contain">
-                                        <div class="row">
-                                            <div class="col-8 align-self-center">
-                                                <h5 class="">Nuevos Clientes</h5>
-                                                <p class="text-muted mb-0">Ultimo mes : 10 <i class="mdi mdi-menu-down text-danger font-16"></i></p>
-                                            </div><!--end col-->
-                                            <div class="col-4">
-                                                <span class="peity-line" data-width="100%" data-peity='{ "fill": ["#c3f0ff"],"stroke": ["#4ac7ec"]}' data-height="60">6,2,8,4,3,8,1,3,6,5,9,2,8,1,4,8,9,8,2,1</span>
-                                            </div><!--end col-->
-                                        </div>  <!--end row-->
-                                    </div><!--end icon-contain-->
-                                </div><!--end card-body-->
-                            </div><!--end card-->
-                        </div><!--end col-->
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="icon-contain">
-                                        <div class="row">
-                                            <div class="col-8 align-self-center">
-                                                <h5 class="">Porcentaje de Crecimiento</h5>
-                                                <p class="text-muted mb-0">Ultimo mes : 30% <i class="mdi mdi-menu-up text-success font-16"></i></p>
-                                            </div><!--end col-->
-                                            <div class="col-4 text-right">
-                                                <span class="peity-donut" data-peity='{ "fill": ["#4d79f6", "#e0e7fd"], "innerRadius": 23, "radius": 32 }' data-width="60" data-height="60">226,134</span>
-                                            </div><!--end col-->
-                                        </div>  <!--end row-->
-                                    </div><!--end icon-contain-->
-                                </div><!--end card-body-->
-                            </div><!--end card-->
-                        </div><!--end col-->
-                    </div><!--end row-->
+
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
