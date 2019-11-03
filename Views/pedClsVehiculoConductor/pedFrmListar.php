@@ -1,3 +1,20 @@
+<?php
+
+require_once("../../Controllers/Conexion.php");
+	$c= new Conectar();
+		$conexion=$c->conexion();
+	$sql="SELECT adm.MOCid,con.CONnombre,con.CONapellido,mo.MOTplaca from admmoctmoto_conductor  as adm
+  inner join admcontconductor as con
+ on con.CONid=adm.CONid
+ inner join admmottmoto as mo
+ on adm.MOTid= mo.MOTid";
+
+
+$resultado=mysqli_query($conexion,$sql);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -192,30 +209,21 @@
                                             </thead>
 
                                             <tbody>
+                                              <?php
+
+                                            while ($ver=mysqli_fetch_row($resultado)) :
+                                              # code...
+                                              ?>
                                             <tr>
-                                              <td>1</td>
-                                              <td>Guimer Coaquira</td>
-                                              <td>PK-2254</td>
-                                              <td>+562.2545455</td>
-                                              <td>+52.21111200</td>
+                                              <td><?php echo  $ver[0]?></td>
+                                              <td><?php echo  $ver[1]." ".$ver[2] ?></td>
+                                              <td><?php echo  $ver[3]?></td>
                                               <td>
                                                 <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
                                               </td>
                                             </tr><!--end tr-->
-                                            <tr>
-                                              <td>1</td>
-                                              <td>Jhon Aguilar</td>
-                                              <td>PK-2111</td>
-                                              <td>+562.2545455</td>
-                                              <td>+52.21111200</td>
-                                              <td>
-                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
-                                              </td>
-                                            </tr><!--end tr-->
-
-
+                                          <?php endwhile ?>
                                             </tbody>
                                         </table>
                                     </div>

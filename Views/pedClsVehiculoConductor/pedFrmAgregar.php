@@ -4,11 +4,11 @@
 require_once("../../Controllers/Conexion.php");
 	$c= new Conectar();
 	$conexion=$c->conexion();
-	$sql="SELECT CONnombre,CONapellido from admcontconductor ";
+	$sql="SELECT CONid,CONnombre,CONapellido from admcontconductor ";
 		$resultado=mysqli_query($conexion,$sql);
 
 
-    $sql2="SELECT MOTmarca,MOTplaca  from admmottmoto ";
+    $sql2="SELECT MOTid,MOTmarca,MOTplaca  from admmottmoto ";
   		$resultado2=mysqli_query($conexion,$sql2);
 ?>
 <!DOCTYPE html>
@@ -185,17 +185,17 @@ require_once("../../Controllers/Conexion.php");
                             <div class="card">
                                 <div class="card-body">
                                 <h4 class="mt-0 header-title">Datos del Vehículo - Conductor</h4>
-                                <form class="form-parsley" action="pedFrmListar.php">
+                                <form  id="frmvehiculoconductor" class="form-parsley" >
                                   <div class="row clearfix">
                                     <div class="col-md-6">
                                         <label>Conductor</label>
                                         <div class="form-group">
-                                            <select name="Estado" class="form-control" Required>
+                                            <select  class="form-control" id="idconductor" name="idconductor" Required>
                                                 <option value="">- Seleccionar -</option>
                                               <?php
                                             while ($ver=mysqli_fetch_row($resultado)) :
                                               ?>
-                                                <option value="Activo"><?php echo $ver[0]."-".$ver[1]; ?></option>
+                                                <option  value="<?php echo $ver[0] ?>"><?php echo $ver[1]."-".$ver[2]; ?></option>
 
                                                 <?php endwhile; ?>
                                             </select>
@@ -204,13 +204,13 @@ require_once("../../Controllers/Conexion.php");
                                     <div class="col-md-6">
                                         <label>Vehículo</label>
                                         <div class="form-group">
-                                            <select name="Estado" class="form-control" Required>
+                                            <select class="form-control" id="idvehiculo" name="idvehiculo" Required>
                                                 <option value="">- Seleccionar -</option>
                                                 <?php
                                               while ($ver2=mysqli_fetch_row($resultado2)) :
                                                 ?>
-                                              <option value="Activo"><?php echo $ver2[0]."-".$ver2[1]; ?></option>
-      <?php endwhile; ?>
+                                              <option  value="<?php echo $ver2[0] ?>"><?php echo $ver2[0]."-".$ver2[1]; ?></option>
+      																			<?php endwhile; ?>
                                             </select>
 
                                         </div>
@@ -231,7 +231,7 @@ require_once("../../Controllers/Conexion.php");
                                     </div>
                                     <div class="row clearfix text-right  ">
                                       <div class="form-group mb-0">
-                                          <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                          <button type="button" id="btnregistrovc" name="btnregistrovc" class="btn btn-primary waves-effect waves-light">
                                               Guardar
                                           </button>
                                           <button type="reset" class="btn btn-danger waves-effect m-l-5">
@@ -255,6 +255,7 @@ require_once("../../Controllers/Conexion.php");
         <!-- end page-wrapper -->
 
         <!-- jQuery  -->
+				          <script src="../../Assets/js/jquery-3.2.1.min.js"></script>
         <script src="../../Assets/js/jquery.min.js"></script>
         <script src="../../Assets/js/bootstrap.bundle.min.js"></script>
         <script src="../../Assets/js/metisMenu.min.js"></script>
@@ -278,6 +279,32 @@ require_once("../../Controllers/Conexion.php");
 
 
 <script type="text/javascript">
+$(document).ready(function(){
+
+    $('#btnregistrovc').click(function(){
 
 
+          var formData = new FormData(document.getElementById("frmvehiculoconductor"));
+
+      $.ajax({
+        url:"../../Models/ModelVehiculoConductor/RegistroVehiculoConductor.php",
+        type: "post",
+        dataType: "html",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+
+        success:function(r){
+				
+          if(r == 1){
+            alert("Agregado con exito :D");
+          }else{
+          alert("Fallo al subir el archivo :(");
+          }
+        }
+      });
+
+    });
+  });
 </script>

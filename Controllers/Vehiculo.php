@@ -39,6 +39,31 @@ class Vehiculo
         return mysqli_query($conexion,$sql);
     }
 
+    public function ObtenDatosVehiculo($codigo){
+
+      $c= new Conectar();
+      $conexion=$c->conexion();
+      $sql ="SELECT MOTid, motmarca,motplaca,MOTmodelo,MOTcolor,MOTsoat,MOTanio_fabricacion,MOTfoto,MOTestado from admmottmoto
+      where MOTid='$codigo'";
+
+      $resultado =mysqli_query($conexion,$sql);
+      $ver=mysqli_fetch_row($resultado);
+      $datos=array(
+        'Codigo'=>$ver[0],
+        'Nombre'=>$ver[1],
+        'Placa'=> $ver[2],
+        'Modelo'=>$ver[3],
+        'Color'=>$ver[4],
+        'Soat'=> $ver[5],
+        'Fabricacion'=>$ver[6],
+        'Foto'=> $ver[7],
+        'Estado'=> $ver[8]
+          );
+
+      return $datos;
+
+}
+
 }
 
 
