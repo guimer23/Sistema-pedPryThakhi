@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="es">
 
 <!-- initial head -->
@@ -181,7 +181,6 @@
                                                   <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Nombres</label>
-
                                                           <input type="text" class="form-control input-sm" name="nombre" id="nombre">
                                                       </div>
                                                   </div>
@@ -213,18 +212,18 @@
                                                             <input type="number" id="celular" name="celular" class="form-control"  >
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Clave </label>
-                                                            <input type="password" id="clave" name="clave" class="form-control input-sm"   >
+                                                            <label>Correo electrónico</label>
+                                                            <input type="email" id="correo" name="correo" class="form-control"  >
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row clearfix">
-                                                  <div class="col-md-6">
+                                                  <div class="col-md-4">
                                                       <div class="form-group">
-                                                          <label>Correo electrónico</label>
-                                                          <input type="email" id="correo" name="correo" class="form-control"  >
+                                                          <label>Clave </label>
+                                                          <input type="password" id="clave" name="clave" class="form-control input-sm"   >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-6">
@@ -246,25 +245,27 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="row clearfix text-right  ">
-                                                  <div class="form-group mb-0">
-                                                      <button type="button" id="botonregistro" class="btn btn-primary waves-effect waves-light">
-                                                          Guardar
-                                                      </button>
-                                                      <button type="button" class="btn btn-danger waves-effect m-l-5">
-                                                          Cancelar
-                                                      </button>
-                                                  </div><!--end form-group-->
-                                                </div>
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                       <div class="col-md-12 col-lg-3">
                                           <div class="card-body">
                                             <h4 class="mt-0 header-title">Subir Foto</h4>
                                             <p class="text-muted mb-3">Arrastra una imagen</p>
-
-                                            <input type="file" id="imagen"  name="imagen" class="dropify" />
-
+                                            <input type="file" id="imagen" name="imagen" class="dropify" />
+                                          </div><!--end card-body-->
+                                      </div><!--end col-->
+                                      <div class="col-md-12 col-lg-12">
+                                          <div class="card-body">
+                                            <div class="row clearfix text-right  ">
+                                              <div class="form-group mb-0">
+                                                  <button type="button" id="registrocliente" class="btn btn-primary waves-effect waves-light">
+                                                      Guardar
+                                                  </button>
+                                                  <button type="reset" class="btn btn-danger waves-effect m-l-5">
+                                                      Cancelar
+                                                  </button>
+                                              </div><!--end form-group-->
+                                            </div>
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                   </div><!--end row-->

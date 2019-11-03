@@ -225,26 +225,6 @@
                                                           <input type="text" id="longitud" name="longitud" class="form-control" required >
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4">
-                                                      <label>Estado</label>
-                                                      <div class="form-group">
-                                                          <select name="Estado" id="estado" name="estado" class="form-control" Required>
-                                                              <option value="">- Seleccionar -</option>
-                                                              <option value="Activo">Activo</option>
-                                                              <option value="Inactivo">Inactivo</option>
-                                                          </select>
-                                                      </div>
-                                                  </div>
-                                                </div>
-                                                <div class="row clearfix text-right  ">
-                                                  <div class="form-group mb-0">
-                                                      <button type="button" id="registrocliente" class="btn btn-primary waves-effect waves-light">
-                                                          Guardar
-                                                      </button>
-                                                      <button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                          Cancelar
-                                                      </button>
-                                                  </div><!--end form-group-->
                                                 </div>
                                           </div><!--end card-body-->
                                       </div><!--end col-->
@@ -253,6 +233,20 @@
                                             <h4 class="mt-0 header-title">Subir Foto</h4>
                                             <p class="text-muted mb-3">Arrastra una imagen</p>
                                             <input type="file" id="imagen" name="imagen" class="dropify" />
+                                          </div><!--end card-body-->
+                                      </div><!--end col-->
+                                      <div class="col-md-12 col-lg-12">
+                                          <div class="card-body">
+                                            <div class="row clearfix text-right  ">
+                                              <div class="form-group mb-0">
+                                                  <button type="button" id="registrocliente" class="btn btn-primary waves-effect waves-light">
+                                                      Guardar
+                                                  </button>
+                                                  <button type="reset" class="btn btn-danger waves-effect m-l-5">
+                                                      Cancelar
+                                                  </button>
+                                              </div><!--end form-group-->
+                                            </div>
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                   </div><!--end row-->

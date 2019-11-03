@@ -192,10 +192,10 @@ $resultado=mysqli_query($conexion,$sql);
                                             <thead class="thead-light">
                                             <tr>
                                               <th>#</th>
-                                              <th>Nombres y Apellidos</th>
+																							<th>DNI</th>
+																							<th>Nombres y Apellidos</th>
                                               <th>Correo</th>
                                               <th>Nº Celular</th>
-                                              <th>Direccion</th>
                                               <th>Acción</th>
                                             </tr><!--end tr-->
                                             </thead>

@@ -149,7 +149,6 @@
 
             <!-- Page Content-->
             <div class="page-content">
-
                 <div class="container-fluid">
                     <!-- Page-Title -->
                     <div class="row">

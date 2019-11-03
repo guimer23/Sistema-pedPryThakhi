@@ -250,7 +250,24 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="row clearfix">
+                                                      <div class="col-md-6">
+                                                          <div class="form-group">
+                                                              <label>Precio</label>
+                                                              <input type="text" class="form-control" required >
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                          <label>Estado</label>
+                                                          <div class="form-group">
+                                                              <select name="Estado" class="form-control" id="estado" name="estado" >
+                                                                  <option value="">- Seleccionar -</option>
+                                                                  <option value="Activo">Activo</option>
+                                                                  <option value="Inactivo">Inactivo</option>
+                                                              </select>
+                                                          </div>
+                                                      </div>
+                                                  </div>
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                       <div class="col-md-12 col-lg-3">
