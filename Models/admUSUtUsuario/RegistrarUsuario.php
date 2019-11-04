@@ -1,6 +1,6 @@
 <?php
-require_once("../../Controllers/Conexion.php");
-require_once("../../Controllers/Usuarios.php");
+require_once("../../Controllers/admClsConexion.php");
+require_once("../../Controllers/admClsUsuarios.php");
 
 $obj = new Usuario();
 
