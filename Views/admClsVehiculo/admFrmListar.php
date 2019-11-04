@@ -1,10 +1,10 @@
 
 <?php
 
-require_once("../../Controllers/Conexion.php");
+require_once("../../Controllers/admClsConexion.php");
 	$c= new Conectar();
 		$conexion=$c->conexion();
-	$sql="SELECT MOTid,MOTplaca,MOTmarca,MOTmodelo,MOTcolor,MOTanio_fabricacion from admmottmoto ";
+	$sql="SELECT VEHid,VEHplaca,VEHmarca,VEHmodelo,VEHcolor,VEHanio_fabricacion from admvehtvehiculo ";
 
 
 $resultado=mysqli_query($conexion,$sql);
@@ -188,7 +188,7 @@ $resultado=mysqli_query($conexion,$sql);
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <a href="pedFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Vehículo</a>
+                                    <a href="admFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Vehículo</a>
                                     <h4 class="header-title mt-0">Detalles de Vehículos</h4>
                                     <div class="table-responsive dash-social">
                                         <table id="datatable" class="table">
@@ -217,7 +217,7 @@ $resultado=mysqli_query($conexion,$sql);
                                                 <td><?php echo  $ver[2]?></td>
                                                 <td><?php echo  $ver[3]?></td>
                                                 <td><?php echo  $ver[4]?></td>
-                                                <td><?php echo  $ver[5]?></td>
+
                                               <td>
                                                 <a   class="mr-2" onclick="TraeDatos('<?php echo  $ver[0]?>')"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>

@@ -11,10 +11,10 @@ class Vehiculo
 
           $fecha=date('Y-m-d');
 
-            $sql="INSERT into imagenes (
-                          nombre,
-                          ruta,
-                          fechaSubida)
+            $sql="INSERT into admimgtimagen (
+                          IMGnombre,
+                          IMGruta,
+                          IMGfechaSubida)
                     values ('$datos[0]',
                         '$datos[1]',
                         '$fecha')";
@@ -26,7 +26,7 @@ class Vehiculo
     {
       $c= new Conectar();
       $conexion=$c->conexion();
-      $sql="INSERT INTO admmottmoto (motmarca,motplaca,MOTmodelo,MOTcolor,MOTsoat,MOTanio_fabricacion,MOTfoto,MOTestado)
+      $sql="INSERT INTO admvehtvehiculo (VEHplaca,VEHmarca,VEHmodelo,VEHcolor,VEHanio_fabricacion,VEHsoat,VEHestado,VEHfoto)
       values('$datos[0]',
             '$datos[1]',
             '$datos[2]',

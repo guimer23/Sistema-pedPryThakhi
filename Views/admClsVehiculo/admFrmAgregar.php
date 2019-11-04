@@ -104,9 +104,9 @@
                               <h6 class="menu-title">Entregas</h6>
                           </div>
                           <ul class="nav">
-                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsMonitorear/pedFrmListar.php"><i class="mdi mdi-google-maps"></i>Monitorear</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsEntrega/pedFrmListar.php"><i class="mdi mdi-package-variant"></i>Entregas</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsCalificar/pedFrmListar.php"><i class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsMonitorear/admFrmListar.php"><i class="mdi mdi-google-maps"></i>Monitorear</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsEntrega/admFrmListar.php"><i class="mdi mdi-package-variant"></i>Entregas</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsCalificar/admFrmListar.php"><i class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
                           </ul>
                       </div><!--Termina SubMenu Entregas -->
                       <!--Inicia SubMenu Mantenimiento -->
@@ -115,11 +115,11 @@
                               <h6 class="menu-title">Mantenimiento</h6>
                           </div>
                           <ul class="nav">
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculo/pedFrmListar.php"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsConductor/pedFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculoConductor/pedFrmListar.php"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsCliente/pedFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsUsuario/pedFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculo/admFrmListar.php"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsConductor/admFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculoConductor/admFrmListar.php"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsCliente/admFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsUsuario/admFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
                           </ul>
                       </div><!--Inicia SubMenu Mantenimiento -->
 
@@ -170,7 +170,7 @@
                               if(isset($_GET['code']))
                             //
                               $code =strtoupper($_GET['code']);
-                              else $code="";
+                              else $code="AAA";
 
 
 
@@ -185,7 +185,7 @@
                                                   <div class="col-md-3">
                                                       <div class="form-group">
                                                           <label>Placa </label>
-                                                          <input type="text" name="es" id="es"  value="<?php echo $code  ?>" hidden=""  >
+                                                          <input type="text" name="es" id="es"  value="<?php echo $code  ?>"  >
                                                           <input type="text" id="placa" name="placa" class="form-control" required >
                                                       </div>
                                                   </div>
@@ -221,7 +221,7 @@
                                                 <div class="col-md-7">
                                                     <div class="form-group">
                                                         <label>Vigencia SOAT</label>
-                                                        <input type="date" id="soat" name="soat" class="form-control" required >
+                                                          <input type="date" id="soat" name="soat" class="form-control" required >
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5">
@@ -313,7 +313,7 @@
 				var formData = new FormData(document.getElementById("frmvehiculo"));
 
 				$.ajax({
-					url:"../../Models/ModelVehiculo/RegistrarVehiculo.php",
+					url:"../../Models/admVEHtVehiculo/RegistrarVehiculo.php",
 					type: "post",
 					dataType: "html",
 					data: formData,
@@ -322,11 +322,11 @@
 					processData: false,
 
 					success:function(r){
-
+		alert(r);
 						if(r == 1){
 
 							alert("Agregado con exito :D");
-                  $('#frmvehiculo')[0].reset();
+              //    $('#frmvehiculo')[0].reset();
 						}else{
 					alert("no se pudo agregar");
 						}
@@ -364,7 +364,7 @@ var  code=$('#es').val();
  //class="form-control input-sm"
           //    $('#soat').val(dtt);
       var e= dato['Estado'];
-      if (e=="1") {
+      if (e=="A") {
         $('#estado').val("Activo");
       }else {
         $('#estado').val("Inactivo")
@@ -381,8 +381,8 @@ var  code=$('#es').val();
       */
 //fo.src=img;
 
-var f=$('#imagen');
-f.src="../../Fotos/toyota.jpg";
+//var f=$('#imagen');
+//f.src="../../Fotos/toyota.jpg";
 /*var archivo = document.getElementById("imagen").files[0];
   var reader = new FileReader();
   if (img) {

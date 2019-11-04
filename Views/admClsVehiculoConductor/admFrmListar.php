@@ -1,6 +1,6 @@
 <?php
 
-require_once("../../Controllers/Conexion.php");
+require_once("../../Controllers/admClsConexion.php");
 	$c= new Conectar();
 		$conexion=$c->conexion();
 	$sql="SELECT adm.MOCid,con.CONnombre,con.CONapellido,mo.MOTplaca from admmoctmoto_conductor  as adm
@@ -8,7 +8,6 @@ require_once("../../Controllers/Conexion.php");
  on con.CONid=adm.CONid
  inner join admmottmoto as mo
  on adm.MOTid= mo.MOTid";
-
 
 $resultado=mysqli_query($conexion,$sql);
 
@@ -196,7 +195,7 @@ $resultado=mysqli_query($conexion,$sql);
                                             <tr>
                                               <th>#</th>
                                               <th>Conductor</th>
-                                              <th>Vehículo</th> 
+                                              <th>Vehículo</th>
 																							<th>Estado</th>
                                               <th>Acción</th>
                                             </tr><!--end tr-->
