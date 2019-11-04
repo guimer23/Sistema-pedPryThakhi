@@ -206,7 +206,7 @@
                                                     <div class="col-md-4">
                                                         <label>Estado</label>
                                                         <div class="form-group">
-                                                            <select name="Estado"  id="estado" name="estado" class="form-control" Required>
+                                                            <select   id="estado" name="estado" class="form-control" Required>
                                                                 <option value="">- Seleccionar -</option>
                                                                 <option value="Activo">Activo</option>
                                                                 <option value="Inactivo">Inactivo</option>
@@ -221,7 +221,7 @@
                                           <div class="card-body">
                                             <h4 class="mt-0 header-title">Subir Foto</h4>
                                             <p class="text-muted mb-3">Arrastra una imagen</p>
-                                            <input type="file" id="input-file-now" class="dropify" />
+                                            <input type="file" id="imagen" name="imagen" class="dropify" />
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                       <div class="col-md-12 col-lg-12">
@@ -283,7 +283,7 @@ $(document).ready(function(){
       var formData = new FormData(document.getElementById("frmregistrousuario"));
 
       $.ajax({
-        url:"../../Models/ModelUsuarios/RegistrarUsuario.php",
+        url:"../../Models/admUSUtUsuario/RegistrarUsuario.php",
         type: "post",
         dataType: "html",
         data: formData,
@@ -296,7 +296,7 @@ $(document).ready(function(){
           if(r == 1){
 
             alert("Agregado con exito :D");
-            $('#frmregistrousuario')[0].reset();
+              window.location = "admFrmListar.php";
           }else{
           alert("Fallo al subir el archivo :(");
           }

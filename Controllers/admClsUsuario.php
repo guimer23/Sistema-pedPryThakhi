@@ -30,10 +30,10 @@ class Usuario
 
       $fecha=date('Y-m-d');
 
-        $sql="INSERT into imagenes (
-                      nombre,
-                      ruta,
-                      fechaSubida)
+        $sql="INSERT into admimgtimagen (
+                      IMGnombre,
+                      IMGruta,
+                      IMGfechaSubida)
                 values ('$datos[0]',
                     '$datos[1]',
                     '$fecha')";
@@ -45,12 +45,14 @@ public function RegistrarUsuario($datos)
 {
   $c= new Conectar();
   $conexion=$c->conexion();
-  $sql="INSERT INTO admusutusuario (usunombre,USUemail,USUusuario,USUpassword,USUestado)
+  $sql="INSERT INTO admusutusuario (USUnombre,USUapellidos,USUemail,USUusuario,USUpassword,USUestado,USUfoto)
   values('$datos[0]',
         '$datos[1]',
         '$datos[2]',
         '$datos[3]',
-        '$datos[4]')";
+        '$datos[4]',
+        '$datos[5]',
+        '$datos[6]')";
 
     return mysqli_query($conexion,$sql);
 }

@@ -6,7 +6,7 @@
 require_once("../../Controllers/admClsConexion.php");
 	$c= new Conectar();
 		$conexion=$c->conexion();
-	$sql="SELECT USUid,USUnombre,USUapellidos,USUemail,USUusuario,USUpassword,USUestado from admusutusuario ";
+	$sql="SELECT USUid,USUnombre,USUapellidos,USUemail,USUusuario,USUpassword,USUestado,USUfoto from admusutusuario ";
 
 
 $resultado=mysqli_query($conexion,$sql);
