@@ -28,6 +28,56 @@
             <div class="left-sidenav">
               <div class="main-icon-menu">
                   <nav class="nav">
+
+                    <li class="dropdown notification-list">
+                        <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <i class="dripicons-bell noti-icon"></i>
+                            <span class="badge badge-danger badge-pill noti-icon-badge">2</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+                            <!-- item-->
+                            <h6 class="dropdown-item-text">
+                                Notifications (18)
+                            </h6>
+                            <div class="slimscroll notification-list">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                                    <div class="notify-icon bg-success"><i class="mdi mdi-cart-outline"></i></div>
+                                    <p class="notify-details">Your order is placed<small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-warning"><i class="mdi mdi-message"></i></div>
+                                    <p class="notify-details">New Message received<small class="text-muted">You have 87 unread messages</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-info"><i class="mdi mdi-glass-cocktail"></i></div>
+                                    <p class="notify-details">Your item is shipped<small class="text-muted">It is a long established fact that a reader will</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
+                                    <p class="notify-details">Your order is placed<small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-danger"><i class="mdi mdi-message"></i></div>
+                                    <p class="notify-details">New Message received<small class="text-muted">You have 87 unread messages</small></p>
+                                </a>
+                            </div>
+                            <!-- All-->
+                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary">
+                                View all <i class="fi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </li>
+
+
+
+
+
                     <!--Inicia Menu Dashboard -->
                       <a href="#Dashboard" class="nav-link" data-toggle="tooltip-custom" data-placement="top" title="" data-original-title="Dashboard">
                           <svg class="nav-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -239,9 +289,12 @@
                                           <div class="card-body">
                                             <div class="row clearfix text-right  ">
                                               <div class="form-group mb-0">
-                                                  <button type="button" id="registrocliente" class="btn btn-primary waves-effect waves-light">
+                                                  <td class="border-0"><button type="button" id="registrocliente" class="btn btn-primary waves-effect waves-light">
                                                       Guardar
-                                                  </button>
+                                                  </button></td>
+                                                  <td class="border-0"><button type="button" class="btn btn-primary waves-effect waves-light" id="sa-success">Click me</button></td>
+
+
                                                   <button type="reset" class="btn btn-danger waves-effect m-l-5">
                                                       Cancelar
                                                   </button>
@@ -268,6 +321,10 @@
         <script src="../../Assets/js/metisMenu.min.js"></script>
         <script src="../../Assets/js/waves.min.js"></script>
         <script src="../../Assets/js/jquery.slimscroll.min.js"></script>
+
+        <!-- Sweet-Alert  -->
+        <script src="../../Assets/plugins/sweet-alert2/sweetalert2.min.js"></script>
+        <script src="../../Assets/pages/jquery.sweet-alert.init.js"></script>
 
         <!-- Parsley js -->
         <script src="../../Assets/plugins/parsleyjs/parsley.min.js"></script>
