@@ -15,9 +15,6 @@ class Conectar
 						$this->pass,
 						$this->bd);
 		return $conexion;
-
-
 	}
 }
-
- ?>
+?>
