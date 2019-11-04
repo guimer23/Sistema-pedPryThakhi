@@ -2,10 +2,10 @@
 
 <?php
 
-require_once("../../Controllers/Conexion.php");
+require_once("../../Controllers/admClsConexion.php");
 	$c= new Conectar();
 		$conexion=$c->conexion();
-	$sql="SELECT CLIdni,CLInombre,CLIapellido,CLIemail,CLIcelular from admclitcliente ";
+	$sql="SELECT CLIdni,CLInombre,CLIapellido,CLIcelular,CLIemail from admclitcliente ";
 $resultado=mysqli_query($conexion,$sql);
 
 ?>
@@ -121,9 +121,9 @@ $resultado=mysqli_query($conexion,$sql);
                               <h6 class="menu-title">Entregas</h6>
                           </div>
                           <ul class="nav">
-                              <li class="nav-item"><a class="nav-link" href="../../Views/pedClsMonitorear/admFrmListar.php"><i class="mdi mdi-google-maps"></i>Monitorear</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../../Views/pedClsEntrega/admFrmListar.php"><i class="mdi mdi-package-variant"></i>Entregas</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../../Views/pedClsCalificar/admFrmListar.php"><i class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsMonitorear/admFrmListar.php"><i class="mdi mdi-google-maps"></i>Monitorear</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsEntrega/admFrmListar.php"><i class="mdi mdi-package-variant"></i>Entregas</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsCalificar/admFrmListar.php"><i class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
                           </ul>
                       </div><!--Termina SubMenu Entregas -->
                       <!--Inicia SubMenu Mantenimiento -->
@@ -132,11 +132,11 @@ $resultado=mysqli_query($conexion,$sql);
                               <h6 class="menu-title">Mantenimiento</h6>
                           </div>
                           <ul class="nav">
-                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsVehiculo/admFrmListar.php"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsConductor/admFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsVehiculoConductor/admFrmListar.php"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsCliente/admFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsUsuario/admFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculo/admFrmListar.php"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsConductor/admFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculoConductor/admFrmListar.php"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsCliente/admFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsUsuario/admFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
                           </ul>
                       </div><!--Inicia SubMenu Mantenimiento -->
 
@@ -185,17 +185,17 @@ $resultado=mysqli_query($conexion,$sql);
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <a href="pedFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Cliente</a>
+                                    <a href="admFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Cliente</a>
                                     <h4 class="header-title mt-0">Detalles de Clientes</h4>
                                     <div class="table-responsive dash-social">
                                         <table id="datatable" class="table">
                                             <thead class="thead-light">
                                             <tr>
-                                              <th>#</th>
+
 																							<th>DNI</th>
 																							<th>Nombres y Apellidos</th>
-                                              <th>Correo</th>
                                               <th>Nº Celular</th>
+																							<th>Correo</th>
                                               <th>Acción</th>
                                             </tr><!--end tr-->
                                             </thead>
@@ -207,10 +207,9 @@ $resultado=mysqli_query($conexion,$sql);
                                             <tr>
                                               <td><?php echo  $ver[0]?></td>
                                               <td><?php echo  $ver[1]." ".$ver[2]?></td>
-
                                               <td><?php echo  $ver[3]?></td>
                                               <td><?php echo  $ver[4]?></td>
-                                              <td>Dirección</td>
+                                              
                                               <td>
                                                 <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>

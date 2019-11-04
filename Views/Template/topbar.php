@@ -4,10 +4,10 @@
             <div class="topbar-left">
                 <a href="../../index.php" class="logo">
                     <span>
-                        <img src="../../Assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                        <img src="../../Assets/images/logo-thakhi-sm.png" alt="logo-small" class="logo-sm">
                     </span>
                     <span>
-                        <img src="../../Assets/images/logo-dark.png" alt="logo-large" class="logo-lg">
+                        <img src="../../Assets/images/logo-letra.png" alt="logo-large" class="logo-lg">
                     </span>
                 </a>
             </div>
@@ -67,7 +67,7 @@
                             <i class="dripicons-menu nav-icon"></i>
                         </button>
                     </li>
-                    
+
                 </ul>
             </nav>
             <!-- end navbar-->

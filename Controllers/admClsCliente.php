@@ -9,10 +9,10 @@ class Clientes
 
         $fecha=date('Y-m-d');
 
-          $sql="INSERT into imagenes (
-                        nombre,
-                        ruta,
-                        fechaSubida)
+          $sql="INSERT into admimgtimagen (
+                        IMGnombre,
+                        IMGruta,
+                        IMGfechaSubida)
                   values ('$datos[0]',
                       '$datos[1]',
                       '$fecha')";
@@ -24,7 +24,7 @@ class Clientes
   {
     $c= new Conectar();
     $conexion=$c->conexion();
-    $sql="INSERT INTO admclitcliente (cliid,clicelular,CLIclave,CLInombre,CLIapellido,CLIfoto,CLIemail,CLIlatitud,CLIlongitud,CLIestado)
+    $sql="INSERT INTO admclitcliente (CLIdni,CLInombre,CLIapellido,CLIcelular,CLIemail,CLIclave,CLIlatitud,CLIlongitud,CLIfoto)
     values('$datos[0]',
           '$datos[1]',
           '$datos[2]',
@@ -33,8 +33,7 @@ class Clientes
           '$datos[5]',
           '$datos[6]',
           '$datos[7]',
-          '$datos[8]',
-          '$datos[9]')";
+          '$datos[8]')";
 
       return mysqli_query($conexion,$sql);
   }
