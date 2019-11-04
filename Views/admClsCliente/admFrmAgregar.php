@@ -293,7 +293,7 @@ $(document).ready(function(){
           var formData = new FormData(document.getElementById("frmregistrocliente"));
 
       $.ajax({
-        url:"../../Models/ModelCliente/RegistrarCliente.php",
+        url:"../../Models/admCLItCliente/RegistrarCliente.php",
         type: "post",
         dataType: "html",
         data: formData,
@@ -305,6 +305,9 @@ $(document).ready(function(){
 
           if(r == 1){
             alert("Agregado con exito :D");
+
+            window.location = "admFrmListar.php";
+
           }else{
           alert("Fallo al subir el archivo :(");
           }
