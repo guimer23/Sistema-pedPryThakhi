@@ -15,10 +15,14 @@
         <link href="../../Assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="../../Assets/css/metisMenu.min.css" rel="stylesheet" type="text/css" />
         <link href="../../Assets/css/style.css" rel="stylesheet" type="text/css" />
+
+        <!--Sweetalert2 para alertas-->
+        <script src="../../Assets/sweetalert2/dist/sweetalert2.all.min.js"></script>
+        <script src="../../Assets/sweetalert2/dist/sweetalert2.min.js"></script>
+        <link href="../../Assets/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
-
         <!-- Top Bar Start -->
         <?php include "../Template/topbar.php" ;?>
         <!-- Top Bar End -->
@@ -163,7 +167,7 @@
                     <div class="row">
                         <div class="col-md-12 col-lg-12">
                             <div class="card">
-                                <form id="frmregistrousuario" enctype="multipart/form-data">
+                                <form id="frmregistrousuario" enctype="multipart/form-data" class="form-parsley">
                                   <div class="row">
                                       <div class="col-md-12 col-lg-9">
                                           <div class="card-body">
@@ -172,7 +176,7 @@
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Nombres </label>
-                                                          <input type="text" id="nombre" name="nombre" class="form-control" required >
+                                                          <input type="text" id="nombre" name="nombre" class="form-control" required />
                                                       </div>
                                                   </div>
                                                   <div class="col-md-8">
@@ -192,7 +196,7 @@
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Nombre Usuario <span class="text-danger"></span></label>
-                                                          <input type="text" id="usuario" name="usuario" class="form-control" required >
+                                                          <input type="text" id="usuario" name="usuario" class="form-control" required pattern = "[A-Za-zñÑáéíóúÁÉÍÓÚ ]{3,250}">
                                                       </div>
                                                   </div>
                                               </div>
@@ -228,7 +232,7 @@
                                           <div class="card-body">
                                             <div class="row clearfix text-right  ">
                                               <div class="form-group mb-0">
-                                                  <button type="button" id="registrousuario" class="btn btn-primary waves-effect waves-light">
+                                                  <button type="submit" id="registrousuario" class="btn btn-primary waves-effect waves-light">
                                                       Guardar
                                                   </button>
                                                   <button type="reset" class="btn btn-danger waves-effect m-l-5">
@@ -292,13 +296,22 @@ $(document).ready(function(){
         processData: false,
 
         success:function(r){
+          if(r == 1
+            Swal.fire({
+                type: 'success',
+                title: 'Muy Bien!',
+                text: 'Se guardo con éxito!'
+            })
+          //alert("Agregado con exito :D");
+            window.location = "admFrmListar.php";
 
-          if(r == 1){
-
-            alert("Agregado con exito :D");
-              window.location = "admFrmListar.php";
           }else{
-          alert("Fallo al subir el archivo :(");
+            Swal.fire({
+                type: 'error',
+                title: 'Error!',
+                text: 'Tiene que llenar todo los campos!'
+            })
+            //alert("Fallo al subir el archivo :(");
           }
         }
       });
