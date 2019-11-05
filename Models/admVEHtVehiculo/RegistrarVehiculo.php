@@ -1,6 +1,6 @@
 <?php
-require_once("../../Controllers/Conexion.php");
-require_once("../../Controllers/Vehiculo.php");
+require_once("../../Controllers/admClsConexion.php");
+require_once("../../Controllers/admClsVehiculo.php");
 
 $obj = new Vehiculo();
 
@@ -15,16 +15,32 @@ $obj = new Vehiculo();
 		if(move_uploaded_file($rutaAlmacenamiento, $rutaFinal)){
 				$idimagen=$obj->agregaImagen($datosImg);
 
+				$estado=$_POST['estado'];
+			$var="";
+			if($estado=="Activo"){
+				 // $datos[6]="A";
+				 $var="A";
+
+				}
+					else {
+
+				// code...$datos[6]="A";
+				$var="I";
+			}
 				if($idimagen > 0){
 
-					$datos[0]=$_POST['marca'];
-          $datos[1]=$_POST['placa'];
+
+
+
+					$datos[0]=$_POST['placa'];
+          $datos[1]=$_POST['marca'];
           $datos[2]=$_POST['modelo'];
           $datos[3]=$_POST['color'];
-          $datos[4]=$_POST['soat'];
-          $datos[5]=$_POST['ano'];
-					$datos[6]=$idimagen;
-          $datos[7]="1";
+          $datos[4]=$_POST['ano'];
+          $datos[5]=$_POST['soat'];
+					$datos[6]=$var;
+					$datos[7]=$idimagen;
+
 					echo $obj->RegistrarVehiculo($datos);
 				}else{
 					echo 0;

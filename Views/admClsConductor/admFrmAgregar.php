@@ -106,9 +106,9 @@
                             <h6 class="menu-title">Entregas</h6>
                         </div>
                         <ul class="nav">
-                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsMonitorear/admFrmListar.php"><i class="mdi mdi-google-maps"></i>Monitorear</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsEntrega/admFrmListar.php"><i class="mdi mdi-package-variant"></i>Entregas</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/pedClsCalificar/admFrmListar.php"><i class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsMonitorear/admFrmListar.php"><i class="mdi mdi-google-maps"></i>Monitorear</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsEntrega/admFrmListar.php"><i class="mdi mdi-package-variant"></i>Entregas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsCalificar/admFrmListar.php"><i class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
                         </ul>
                     </div><!--Termina SubMenu Entregas -->
                     <!--Inicia SubMenu Mantenimiento -->
@@ -117,11 +117,11 @@
                             <h6 class="menu-title">Mantenimiento</h6>
                         </div>
                         <ul class="nav">
-                          <li class="nav-item"><a class="nav-link" href="../../Views/pedClsVehiculo/admFrmListar.php"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
-                          <li class="nav-item"><a class="nav-link" href="../../Views/pedClsConductor/admFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                          <li class="nav-item"><a class="nav-link" href="../../Views/pedClsVehiculoConductor/admFrmListar.php"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
-                          <li class="nav-item"><a class="nav-link" href="../../Views/pedClsCliente/admFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                          <li class="nav-item"><a class="nav-link" href="../../Views/pedClsUsuario/admFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
+                          <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculo/admFrmListar.php"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
+                          <li class="nav-item"><a class="nav-link" href="../../Views/admClsConductor/admFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
+                          <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculoConductor/admFrmListar.php"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
+                          <li class="nav-item"><a class="nav-link" href="../../Views/admClsCliente/admFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
+                          <li class="nav-item"><a class="nav-link" href="../../Views/admClsUsuario/admFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
                         </ul>
                     </div><!--Inicia SubMenu Mantenimiento -->
 
@@ -237,7 +237,7 @@
                                                   <div class="col-md-4">
                                                       <label>Estado</label>
                                                       <div class="form-group">
-                                                          <select name="Estado" class="form-control" id="estado" name="estado" >
+                                                          <select  class="form-control" id="estado" name="estado" >
                                                               <option value="">- Seleccionar -</option>
                                                               <option value="Activo">Activo</option>
                                                               <option value="Inactivo">Inactivo</option>
@@ -258,7 +258,7 @@
                                           <div class="card-body">
                                             <div class="row clearfix text-right  ">
                                               <div class="form-group mb-0">
-                                                  <button type="button" id="registrocliente" class="btn btn-primary waves-effect waves-light">
+                                                  <button type="button" id="registroconductor" class="btn btn-primary waves-effect waves-light">
                                                       Guardar
                                                   </button>
                                                   <button type="reset" class="btn btn-danger waves-effect m-l-5">
@@ -308,11 +308,9 @@
 
 
 <script type="text/javascript">
-
-
 $(document).ready(function(){
 
-    $('#botonregistro').click(function(){
+    $('#registroconductor').click(function(){
 
       vacios=ValidadFormVacio('frmconductor');
 
@@ -324,7 +322,7 @@ $(document).ready(function(){
       var formData = new FormData(document.getElementById("frmconductor"));
 
       $.ajax({
-        url:"../../Models/ModelConductor/RegistroConductor.php",
+        url:"../../Models/admCONtConductor/RegistroConductor.php",
         type: "post",
         dataType: "html",
         data: formData,
@@ -338,7 +336,7 @@ $(document).ready(function(){
 
 
             alert("Agregado con exito :D");
-              $('#frmconductor')[0].reset();
+            //  $('#frmconductor')[0].reset();
           }else{
           alert("Fallo al subir el archivo :(");
           }

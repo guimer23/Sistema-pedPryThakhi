@@ -1,10 +1,10 @@
 
 <?php
 
-require_once("../../Controllers/Conexion.php");
+require_once("../../Controllers/admClsConexion.php");
 	$c= new Conectar();
 		$conexion=$c->conexion();
-	$sql="SELECT CONid,CONnombre,CONapellido,CONlicencia,CONemail,CONcelular from admcontconductor ";
+	$sql="SELECT CONdni,CONnombre,CONapellido,CONlicencia,CONvigencialicencia,CONemail,CONcelular from admcontconductor ";
 
 
 $resultado=mysqli_query($conexion,$sql);
@@ -37,7 +37,7 @@ $resultado=mysqli_query($conexion,$sql);
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="pedFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Conductor</a>
+                    <a href="admFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Conductor</a>
                     <h4 class="header-title mt-0">Detalles de Conductores</h4>
                     <div class="table-responsive dash-social">
                         <table id="datatable" class="table">
@@ -47,8 +47,9 @@ $resultado=mysqli_query($conexion,$sql);
                               <th>Nombres y Apellidos</th>
                               <th>Licencia</th>
                               <th>Vigencia de Lic.</th>
+
                               <th>Correo</th>
-                              <th>Celular</th>
+	  <th>Celular</th>
                               <th>Acción</th>
                             </tr><!--end tr-->
                             </thead>
@@ -64,9 +65,11 @@ $resultado=mysqli_query($conexion,$sql);
                               	<td><?php echo  $ver[0]?></td>
                                 <td><?php echo  $ver[1]." ".$ver[2]?></td>
                           			<td><?php echo $ver[3]; ?></td>
-                              	<td> vigencia</td>
+
                               	<td><?php echo $ver[4]; ?></td>
                                 <td><?php echo $ver[5]; ?></td>
+																    <td><?php echo $ver[6]; ?></td>
+
                               <td>
                                 <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>

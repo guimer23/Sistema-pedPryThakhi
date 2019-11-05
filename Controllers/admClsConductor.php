@@ -3,28 +3,27 @@
 
 class Conductores
 {
-    public function agregaImagen($datos){
-        $c=new Conectar();
-        $conexion=$c->conexion();
+  public function agregaImagen($datos){
+      $c=new Conectar();
+      $conexion=$c->conexion();
 
-        $fecha=date('Y-m-d');
+      $fecha=date('Y-m-d');
 
-          $sql="INSERT into imagenes (
-                        nombre,
-                        ruta,
-                        fechaSubida)
-                  values ('$datos[0]',
-                      '$datos[1]',
-                      '$fecha')";
-        $result=mysqli_query($conexion,$sql);
-    return mysqli_insert_id($conexion);
-  }
-
+        $sql="INSERT into admimgtimagen (
+                      IMGnombre,
+                      IMGruta,
+                      IMGfechaSubida)
+                values ('$datos[0]',
+                    '$datos[1]',
+                    '$fecha')";
+      $result=mysqli_query($conexion,$sql);
+  return mysqli_insert_id($conexion);
+}
   public function RegistrarConductor($datos)
   {
     $c= new Conectar();
     $conexion=$c->conexion();
-    $sql="INSERT INTO admcontconductor (concelular,conclave,CONnombre,CONapellido,confoto,CONemail,CONlicencia,CONestado)
+    $sql="INSERT INTO admcontconductor (CONdni,CONnombre,CONapellido,CONlicencia,CONvigencialicencia,CONcelular,CONemail,CONclave,CONdireccion,CONestado,CONfoto)
     values('$datos[0]',
           '$datos[1]',
           '$datos[2]',
@@ -32,7 +31,10 @@ class Conductores
           '$datos[4]',
           '$datos[5]',
           '$datos[6]',
-          '$datos[7]')";
+          '$datos[7]',
+          '$datos[8]',
+          '$datos[9]',
+          '$datos[10]')";
 
       return mysqli_query($conexion,$sql);
   }
