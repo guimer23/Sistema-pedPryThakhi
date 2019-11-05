@@ -1,14 +1,15 @@
 
 <?php
 
-require_once("../../Controllers/Conexion.php");
+require_once("../../Controllers/admClsConexion.php");
+
 	$c= new Conectar();
 	$conexion=$c->conexion();
-	$sql="SELECT CONid,CONnombre,CONapellido from admcontconductor ";
+	$sql="SELECT CONdni,CONnombre,CONapellido from admcontconductor ";
 		$resultado=mysqli_query($conexion,$sql);
 
 
-    $sql2="SELECT MOTid,MOTmarca,MOTplaca  from admmottmoto ";
+    $sql2="SELECT VEHid,VEHmarca,VEHplaca  from admvehtvehiculo ";
   		$resultado2=mysqli_query($conexion,$sql2);
 ?>
 <!DOCTYPE html>
@@ -205,7 +206,7 @@ require_once("../../Controllers/Conexion.php");
                                                 <?php
                                               while ($ver2=mysqli_fetch_row($resultado2)) :
                                                 ?>
-                                              <option  value="<?php echo $ver2[0] ?>"><?php echo $ver2[0]."-".$ver2[1]; ?></option>
+                                              <option  value="<?php echo $ver2[0] ?>"><?php echo $ver2[1]."-".$ver2[2]; ?></option>
       																			<?php endwhile; ?>
                                             </select>
 
@@ -274,33 +275,30 @@ require_once("../../Controllers/Conexion.php");
 </html>
 
 
+
+
 <script type="text/javascript">
-$(document).ready(function(){
+	$(document).ready(function(){
 
-    $('#btnregistrovc').click(function(){
+		$('#btnregistrovc').click(function(){
+			datos=$('#frmvehiculoconductor').serialize();
 
+			$.ajax({
+				type:"POST",
+				data:datos,
 
-          var formData = new FormData(document.getElementById("frmvehiculoconductor"));
+				  url:"../../Models/admVECtVehiculoConductor/RegistroVehiculoConductor.php",
 
-      $.ajax({
-        url:"../../Models/ModelVehiculoConductor/RegistroVehiculoConductor.php",
-        type: "post",
-        dataType: "html",
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
+				success:function(r){
+					//alert(r);
+					if(r==1){
 
-        success:function(r){
-
-          if(r == 1){
-            alert("Agregado con exito :D");
-          }else{
-          alert("Fallo al subir el archivo :(");
-          }
-        }
-      });
-
-    });
-  });
+					alert("Agregado con exito");
+					}else{
+				alert("Fallo al agregar :(");
+					}
+				}
+			});
+		});
+	});
 </script>

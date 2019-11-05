@@ -3,11 +3,11 @@
 require_once("../../Controllers/admClsConexion.php");
 	$c= new Conectar();
 		$conexion=$c->conexion();
-	$sql="SELECT adm.MOCid,con.CONnombre,con.CONapellido,mo.MOTplaca from admmoctmoto_conductor  as adm
+	$sql="SELECT adm.VECid,con.CONnombre,con.CONapellido,mo.VEHplaca,adm.VECestado from admvectvehiculo_conductor  as adm
   inner join admcontconductor as con
- on con.CONid=adm.CONid
- inner join admmottmoto as mo
- on adm.MOTid= mo.MOTid";
+ on con.CONdni=adm.CONdni
+ inner join admvehtvehiculo as mo
+ on adm.VEHid= mo.VEHid";
 
 $resultado=mysqli_query($conexion,$sql);
 
@@ -187,7 +187,7 @@ $resultado=mysqli_query($conexion,$sql);
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <a href="pedFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Asignar Nuevo Vehículo a Conductor</a>
+                                    <a href="admFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Asignar Nuevo Vehículo a Conductor</a>
                                     <h4 class="header-title mt-0">Detalles de Vehículo - Conductor</h4>
                                     <div class="table-responsive dash-social">
                                         <table id="datatable" class="table">
@@ -211,6 +211,7 @@ $resultado=mysqli_query($conexion,$sql);
                                               <td><?php echo  $ver[0]?></td>
                                               <td><?php echo  $ver[1]." ".$ver[2] ?></td>
                                               <td><?php echo  $ver[3]?></td>
+																							       <td><?php echo  $ver[4]?></td>
                                               <td>
                                                 <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>

@@ -8,7 +8,7 @@ class VehiculoConductor
     {
       $c= new Conectar();
       $conexion=$c->conexion();
-      $sql="INSERT INTO admmoctmoto_conductor (CONid,MOTid)
+      $sql="INSERT INTO admvectvehiculo_conductor (CONdni,VEHid)
       values('$datos[0]',
             '$datos[1]')";
 
