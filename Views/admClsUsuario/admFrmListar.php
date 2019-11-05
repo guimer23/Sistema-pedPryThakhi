@@ -203,10 +203,8 @@ $resultado=mysqli_query($conexion,$sql);
                                               <th>Acción</th>
                                             </tr><!--end tr-->
                                             </thead>
-
                                             <tbody>
                                               <?php
-
                                             while ($ver=mysqli_fetch_row($resultado)) :
                                               # code...
                                               ?>
@@ -219,10 +217,10 @@ $resultado=mysqli_query($conexion,$sql);
                                               <td><?php echo  $ver[6]?></td>
                                               <td>
                                                 <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
+                                                <a href="#"><i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i></a>
                                               </td>
                                             </tr><!--end tr-->
-  <?php endwhile ?>
+  																				<?php endwhile ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -230,6 +228,46 @@ $resultado=mysqli_query($conexion,$sql);
                             </div><!--end card-->
                         </div> <!--end col-->
                     </div><!--end row-->
+
+                    <!--  Modal content for the above example -->
+                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Usuario</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                </div>
+                                <div class="modal-body">
+																	<div class="row">
+																			<div class="col-md-3">
+																					<img src="../../Assets/images/small/user-pro.jpg" alt="" class="img-fluid">
+																			</div>
+																			<div class="col-lg-9 align-self-center">
+                                            <div class="single-pro-detail">
+                                                <p class="mb-1">Usuario</p>
+                                                <div class="custom-border mb-3"></div>
+                                                <h3 class="pro-title">Guimer Coaquira Coaquira</h3>
+																								<table width=100%>
+																									<tr>
+																										<th width=2%><h5><b>CORREO</b></h5></th>
+																										<td width=70%><h5>: guicoaquirac@upt.pe</h5></td>
+																									</tr>
+																									<tr>
+																										<th width=30%><h5><b>USUARIO</b></h5></th>
+																										<td width=70%><h5>: admin</h5></td>
+																									</tr>
+																									<tr>
+																										<th width=30%><h5><b>ESTADO</b></h5></th>
+																										<td width=70%><h5>: Activo</h5></td>
+																									</tr>
+																								</table>
+                                            </div>
+                                        </div><!--end col-->
+																	</div>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
 
                 </div><!-- container -->
 
