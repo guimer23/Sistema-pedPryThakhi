@@ -232,7 +232,7 @@
                                           <div class="card-body">
                                             <div class="row clearfix text-right  ">
                                               <div class="form-group mb-0">
-                                                  <button type="submit" id="registrousuario" class="btn btn-primary waves-effect waves-light">
+                                                  <button type="button" id="registrousuario" name="registrousuario" class="btn btn-primary waves-effect waves-light">
                                                       Guardar
                                                   </button>
                                                   <button type="reset" class="btn btn-danger waves-effect m-l-5">
@@ -256,7 +256,7 @@
         <!-- end page-wrapper -->
 
         <!-- jQuery  -->
-          <script src="../../Assets/js/jquery-3.2.1.min.js"></script>
+        <script src="../../Assets/js/jquery-3.2.1.min.js"></script>
         <script src="../../Assets/js/jquery.min.js"></script>
         <script src="../../Assets/js/bootstrap.bundle.min.js"></script>
         <script src="../../Assets/js/metisMenu.min.js"></script>
@@ -283,6 +283,8 @@
 $(document).ready(function(){
 
     $('#registrousuario').click(function(){
+//console.log("hola");
+      //alert("hola");
 
       var formData = new FormData(document.getElementById("frmregistrousuario"));
 
@@ -296,14 +298,14 @@ $(document).ready(function(){
         processData: false,
 
         success:function(r){
-          if(r == 1
+          if(r == 1){
             Swal.fire({
                 type: 'success',
                 title: 'Muy Bien!',
                 text: 'Se guardo con éxito!'
             })
           //alert("Agregado con exito :D");
-            window.location = "admFrmListar.php";
+          //  window.location = "admFrmListar.php";
 
           }else{
             Swal.fire({

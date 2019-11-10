@@ -38,24 +38,50 @@ class Usuario
                     '$datos[1]',
                     '$fecha')";
       $result=mysqli_query($conexion,$sql);
-  return mysqli_insert_id($conexion);
-}
+      return mysqli_insert_id($conexion);
+    }
 
-public function RegistrarUsuario($datos)
-{
-  $c= new Conectar();
-  $conexion=$c->conexion();
-  $sql="INSERT INTO admusutusuario (USUnombre,USUapellidos,USUemail,USUusuario,USUpassword,USUestado,USUfoto)
-  values('$datos[0]',
-        '$datos[1]',
-        '$datos[2]',
-        '$datos[3]',
-        '$datos[4]',
-        '$datos[5]',
-        '$datos[6]')";
+    public function RegistrarUsuario($datos)
+    {
+      $c= new Conectar();
+      $conexion=$c->conexion();
+      $sql="INSERT INTO admusutusuario (USUnombre,USUapellidos,USUemail,USUusuario,USUpassword,USUestado,USUfoto)
+      values('$datos[0]',
+            '$datos[1]',
+            '$datos[2]',
+            '$datos[3]',
+            '$datos[4]',
+            '$datos[5]',
+            '$datos[6]')";
 
-    return mysqli_query($conexion,$sql);
-}
+        return mysqli_query($conexion,$sql);
+    }
+
+    public function ObtenDatosUsuario($codigo){
+          $c= new Conectar();
+          $conexion=$c->conexion();
+
+          $sql ="SELECT d.USUid,d.USUnombre,d.USUapellidos,d.USUemail,d.USUusuario,d.USUpassword,d.USUestado,d.USUfoto,img.IMGruta from admusutusuario as d
+          inner join  admimgtimagen as img
+          on d.USUfoto=img.IMGid
+          where d.USUid='$codigo'";
+
+          $resultado=mysqli_query($conexion,$sql);
+          $ver=mysqli_fetch_row($resultado);
+
+          $datos=array(
+            'Nombres'=>$ver[1],
+            'Apellido'=>$ver[2],
+            'Email'=>$ver[3],
+            'Usuario'=>$ver[4],
+            'Password'=>$ver[5],
+            'Estado'=>$ver[6],
+            'Foto'=>$ver[7],
+            'Ruta'=>$ver[8]);
+
+          return $datos;
+
+        }
 }
 
 

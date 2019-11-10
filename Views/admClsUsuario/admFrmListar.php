@@ -217,7 +217,7 @@ $resultado=mysqli_query($conexion,$sql);
                                               <td><?php echo  $ver[6]?></td>
                                               <td>
                                                 <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i></a>
+                                                <a href="#" onclick="AgregaDatosUsuario('<?php echo  $ver[0]?> ')"> <i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i></a>
                                               </td>
                                             </tr><!--end tr-->
   																				<?php endwhile ?>
@@ -229,7 +229,7 @@ $resultado=mysqli_query($conexion,$sql);
                         </div> <!--end col-->
                     </div><!--end row-->
 
-                    <!--  Modal content for the above example -->
+
                     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
@@ -240,25 +240,31 @@ $resultado=mysqli_query($conexion,$sql);
                                 <div class="modal-body">
 																	<div class="row">
 																			<div class="col-md-3">
-																					<img src="../../Assets/images/small/user-pro.jpg" alt="" class="img-fluid">
+																					<img  alt="" id="idfotos" class="img-fluid">
 																			</div>
 																			<div class="col-lg-9 align-self-center">
                                             <div class="single-pro-detail">
                                                 <p class="mb-1">Usuario</p>
                                                 <div class="custom-border mb-3"></div>
-                                                <h3 class="pro-title">Guimer Coaquira Coaquira</h3>
+
+
+
 																								<table width=100%>
 																									<tr>
+																										<th width=2%><h5><b>NOMBRE</b></h5></th>
+																										<td width=70%><h5 id="idnombres"> </h5> </td>
+																									</tr>
+																									<tr>
 																										<th width=2%><h5><b>CORREO</b></h5></th>
-																										<td width=70%><h5>: guicoaquirac@upt.pe</h5></td>
+																										<td width=70%><h5 id="idcorreou"></h5> </td>
 																									</tr>
 																									<tr>
 																										<th width=30%><h5><b>USUARIO</b></h5></th>
-																										<td width=70%><h5>: admin</h5></td>
+																										<td width=70%><h5  id="idusu"> : admin</h5></td>
 																									</tr>
 																									<tr>
-																										<th width=30%><h5><b>ESTADO</b></h5></th>
-																										<td width=70%><h5>: Activo</h5></td>
+																										<th width=30%><h5 ><b>ESTADO</b></h5></th>
+																										<td width=70%><h5  id="idestado"> : Activo</h5></td>
 																									</tr>
 																								</table>
                                             </div>
@@ -302,6 +308,40 @@ $resultado=mysqli_query($conexion,$sql);
 
 
 <script type="text/javascript">
+function AgregaDatosUsuario(Codigousus)
+	{
 
+			$.ajax({
+				type:"POST",
+				data:"codigo="+Codigousus,
+				url:"../../Models/admUSUtUsuario/ObtenerDatosUsuario.php",
+				success:function(r){
+
+					dato=jQuery.parseJSON(r);
+					console.log(r);
+			///		$('#nombreu').val(dato['Nombres']);idcorreou  idfotos
+								$('#idnombres').text(dato['Nombres']);
+								$('#idcorreou').text(dato['Email']);
+								$('#idusu').text(dato['Usuario']);
+
+
+								if (dato['Estado']=="A") {
+									$('#idestado').text("Activo");
+								}
+								else{
+									$('#idestado').text("InActivo");
+								}
+								$('#idfotos').attr("src",dato['Ruta']);
+
+				//	$('#nombreU').val(dato['Nombre']);
+					//$('#nivelU').val(dato['Nivel']);
+
+
+			}
+		});
+	}
+function ver(){
+	alert("hola");
+}
 
 </script>
