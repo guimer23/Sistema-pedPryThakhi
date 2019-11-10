@@ -61,7 +61,7 @@
                                         </div>
                                     </div><!--end form-group-->
 
-                                    
+
 
                                     <div class="form-group mb-0 row">
                                         <div class="col-12 mt-2">
@@ -110,7 +110,7 @@
       $.ajax({
       				type:"POST",
       				data:datos,
-      				url:"Models/ModelUsuarios/LoginUsuarios.php",
+      				url:"Models/admUSUtUsuario/LoginUsuarios.php",
       				success:function(r){
 
       					if(r==1){
