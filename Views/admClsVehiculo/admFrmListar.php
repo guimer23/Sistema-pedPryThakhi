@@ -217,6 +217,7 @@ $resultado=mysqli_query($conexion,$sql);
                                                 <td><?php echo  $ver[2]?></td>
                                                 <td><?php echo  $ver[3]?></td>
                                                 <td><?php echo  $ver[4]?></td>
+																								  <td><?php echo  $ver[5]?></td>
 
                                               <td>
                                                 <a   class="mr-2" onclick="TraeDatos('<?php echo  $ver[0]?>')"><i class="fas fa-edit text-info font-16"></i></a>

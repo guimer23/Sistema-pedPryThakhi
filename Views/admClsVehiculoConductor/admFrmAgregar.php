@@ -218,7 +218,7 @@ require_once("../../Controllers/admClsConexion.php");
                                     <div class="col-md-6">
                                         <label>Estado</label>
                                         <div class="form-group">
-                                            <select name="Estado" class="form-control" Required>
+	                                            <select name="estado" id="estado" class="form-control" Required>
                                                 <option value="">- Seleccionar -</option>
                                                 <option value="Activo">Activo</option>
                                                 <option value="Inactivo">Inactivo</option>

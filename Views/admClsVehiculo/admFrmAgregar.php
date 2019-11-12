@@ -185,7 +185,7 @@
                                                   <div class="col-md-3">
                                                       <div class="form-group">
                                                           <label>Placa </label>
-                                                          <input type="text" name="es" id="es"  value="<?php echo $code  ?>"  >
+                                                          <input type="text" name="es" id="es" hidden=""  value="<?php echo $code  ?>"  >
                                                           <input type="text" id="placa" name="placa" class="form-control" required >
                                                       </div>
                                                   </div>
@@ -212,7 +212,7 @@
                                                   <div class="col-md-7">
                                                       <div class="form-group">
                                                           <label>Año Fabricación</label>
-                                                          <input type="number" id="ano" name="ano" class="form-control" required >
+                                                          <input type="date" id="ano" name="ano" class="form-control" required >
                                                       </div>
                                                   </div>
 
@@ -322,7 +322,7 @@
 					processData: false,
 
 					success:function(r){
-		alert(r);
+		//alert(r);
 						if(r == 1){
 
 							alert("Agregado con exito :D");

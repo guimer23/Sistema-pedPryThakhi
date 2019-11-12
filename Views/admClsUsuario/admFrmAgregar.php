@@ -176,6 +176,7 @@
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Nombres </label>
+
                                                           <input type="text" id="nombre" name="nombre" class="form-control" required />
                                                       </div>
                                                   </div>
@@ -283,10 +284,9 @@
 $(document).ready(function(){
 
     $('#registrousuario').click(function(){
-//console.log("hola");
-      //alert("hola");
 
       var formData = new FormData(document.getElementById("frmregistrousuario"));
+
 
       $.ajax({
         url:"../../Models/admUSUtUsuario/RegistrarUsuario.php",
