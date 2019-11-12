@@ -5,7 +5,7 @@ class Conectar
 
 	private $servidor="localhost";
 	private $usuario="root";
-	private $pass="root";
+	private $pass="";
 	private $bd="administracionthakhi";
 
 	function conexion()
