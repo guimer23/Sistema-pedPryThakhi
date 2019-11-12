@@ -163,10 +163,10 @@
                     </div>
                     <?php
 
-                    require_once("../../Controllers/Conexion.php");
+                    require_once("../../Controllers/admClsConexion.php");
                     	$c= new Conectar();
                     	$conexion=$c->conexion();
-                    	$sql="SELECT CONid,CONnombre,CONapellido from admcontconductor ";
+                    	$sql="SELECT CONdni,CONnombre,CONapellido from admcontconductor ";
                     		$resultado=mysqli_query($conexion,$sql);
 
 
@@ -177,7 +177,7 @@
                     <div class="row">
                         <div class="col-md-12 col-lg-12">
                             <div class="card">
-                                <form class="form-parsley" action="pedFrmListar.php">
+                                <form id="frmentrega" enctype="multipart/form-data">
                                   <div class="row">
                                       <div class="col-md-12 col-lg-9">
                                           <div class="card-body">
@@ -186,13 +186,14 @@
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Código </label>
-                                                          <input type="text" class="form-control" required >
+
+                                                                <input type="text" class="form-control" value="<?php  echo "no hay regostros"; ?>" required >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Descripción</label>
-                                                          <input type="text" class="form-control" required >
+                                                          <input type="text" class="form-control" id="descripcion" name="descripcion" required >
                                                       </div>
                                                   </div>
                                               </div>
@@ -201,7 +202,7 @@
                                                       <div class="form-group">
                                                           <label>Tipo <span class="text-danger"></span></label>
                                                           <div class="form-group">
-                                                              <select name="Estado" class="form-control" Required>
+                                                              <select  class="form-control" id="tipo" name="tipo" Required>
                                                                   <option value="">- Seleccionar -</option>
                                                                   <option value="Comida">Comida</option>
                                                                   <option value="Documento">Documento</option>
@@ -215,7 +216,7 @@
                                                       <div class="form-group">
                                                           <label>Conductor <span class="text-danger"></span></label>
                                                           <div class="form-group">
-                                                              <select name="Estado" class="form-control" Required>
+                                                              <select name="conductor" id="conductor" class="form-control" Required>
                                                                   <option value="">- Seleccionar -</option>
                                                                   <?php
                                                                 while ($ver=mysqli_fetch_row($resultado)) :
@@ -231,14 +232,14 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Fecha y Hora de entrega</label>
-                                                            <input type="date" class="form-control" required >
+                                                            <input type="date" id="fecha" name="fecha" class="form-control" required >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="form-group">
                                                             <label>Cliente </label>
                                                             <div class="form-group">
-                                                                <select name="Estado" class="form-control" Required>
+                                                                <select id="cliente" name="cliente" class="form-control" Required>
                                                                     <option value="">- Seleccionar -</option>
                                                                     <?php
                                                                   while ($ver2=mysqli_fetch_row($resultado2)) :
@@ -254,13 +255,13 @@
                                                       <div class="col-md-6">
                                                           <div class="form-group">
                                                               <label>Precio</label>
-                                                              <input type="text" class="form-control" required >
+                                                              <input type="number" id="precio" name="precio" class="form-control" required >
                                                           </div>
                                                       </div>
                                                       <div class="col-md-6">
                                                           <label>Estado</label>
                                                           <div class="form-group">
-                                                              <select name="Estado" class="form-control" id="estado" name="estado" >
+                                                              <select  class="form-control" id="estado" name="estado" >
                                                                   <option value="">- Seleccionar -</option>
                                                                   <option value="Activo">Activo</option>
                                                                   <option value="Inactivo">Inactivo</option>
@@ -274,14 +275,14 @@
                                           <div class="card-body">
                                             <h4 class="mt-0 header-title">Subir Foto</h4>
                                             <p class="text-muted mb-3">Arrastra una imagen</p>
-                                            <input type="file" id="input-file-now" class="dropify" />
+                                            <input type="file" id="imagen" name="imagen" class="dropify" />
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                       <div class="col-md-12 col-lg-12">
                                           <div class="card-body">
                                             <div class="row clearfix text-right  ">
                                               <div class="form-group mb-0">
-                                                  <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                  <button type="button" id="registroentrega" class="btn btn-primary waves-effect waves-light">
                                                       Guardar
                                                   </button>
                                                   <button type="reset" class="btn btn-danger waves-effect m-l-5">
@@ -327,7 +328,53 @@
 </html>
 
 
+
 <script type="text/javascript">
+$(document).ready(function(){
+
+    $('#registroentrega').click(function(){
+//console.log("hola");
+      //alert("hola");
+
+      var formData = new FormData(document.getElementById("frmentrega"));
 
 
+      $.ajax({
+        url:"../../Models/admENTtEntrega/RegistrarEntrega.php",
+        type: "post",
+        dataType: "html",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success:function(r){
+        //    alert(r);
+          if(r == 1){
+            alert(r);
+            /*
+            Swal.fire({
+                type: 'success',
+                title: 'Muy Bien!',
+                text: 'Se guardo con éxito!'
+            })
+            */
+          //alert("Agregado con exito :D");
+          //  window.location = "admFrmListar.php";
+
+          }else{
+            alert("error");
+
+        /*    Swal.fire({
+                type: 'error',
+                title: 'Error!',
+                text: 'Tiene que llenar todo los campos!'
+            })
+            */
+            //alert("Fallo al subir el archivo :(");
+          }
+        }
+      });
+
+    });
+  });
 </script>

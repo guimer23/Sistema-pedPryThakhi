@@ -173,7 +173,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <a href="pedFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nueva Entrega</a>
+                                    <a href="admFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nueva Entrega</a>
                                     <h4 class="header-title mt-0">Detalles de Entregas</h4>
                                     <div class="table-responsive dash-social">
                                         <table id="datatable" class="table">
