@@ -167,7 +167,7 @@
                     <div class="row">
                         <div class="col-md-12 col-lg-12">
                             <div class="card">
-                                <form id="frmregistrousuario" enctype="multipart/form-data" class="form-parsley">
+                                <form id="frmregistrousuario" enctype="multipart/form-data" class="form-parsley" novalidate>
                                   <div class="row">
                                       <div class="col-md-12 col-lg-9">
                                           <div class="card-body">
@@ -178,6 +178,9 @@
                                                           <label>Nombres </label>
                                                           <input type="text" id="code" name="code" class="form-control" required />
                                                           <input type="text" id="nombre" name="nombre" class="form-control" required />
+                                                          <div class="valid-feedback">
+                                                              Introduce nombre!
+                                                          </div>
                                                       </div>
                                                   </div>
                                                   <div class="col-md-8">
@@ -303,9 +306,12 @@ $(document).ready(function(){
                 type: 'success',
                 title: 'Muy Bien!',
                 text: 'Se guardo con éxito!'
+            }).then(function () {
+                console.log("Despues de dar click en el boton, aqui llamarias al submit");
+                window.location = "admFrmListar.php";
             })
           //alert("Agregado con exito :D");
-          //  window.location = "admFrmListar.php";
+
 
           }else{
             Swal.fire({
