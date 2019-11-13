@@ -26,7 +26,7 @@ class Entregas
 
     $c= new Conectar();
     $conexion=$c->conexion();
-    $sql="INSERT INTO admenttentrega (ENTdescripcion,ENTtipo,VECid,ENTfechahora,CLIdni,ENTprecio,ENTestado,ENTfoto)
+    $sql="INSERT INTO admenttentrega (entdescripcion,enttipo,VECid,ENTfechahora,CLIdni,ENTprecio,ENTestado,ENTfoto)
     values('$datos[0]',
             '$datos[1]',
             '$datos[2]',

@@ -12,6 +12,9 @@ require_once("../../Controllers/admClsConexion.php");
 $resultado=mysqli_query($conexion,$sql);
 
 ?>
+<?php
+
+ ?>
 
 
 <!DOCTYPE html>
@@ -216,7 +219,7 @@ $resultado=mysqli_query($conexion,$sql);
                                               <td><?php echo  $ver[4]?></td>
                                               <td><?php echo  $ver[6]?></td>
                                               <td>
-                                                <a href="admFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a onclick="AgregaDatosUsuario2()"	 class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#" onclick="AgregaDatosUsuario('<?php echo  $ver[0]?> ')"> <i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i></a>
                                               </td>
                                             </tr><!--end tr-->
@@ -340,8 +343,10 @@ function AgregaDatosUsuario(Codigousus)
 			}
 		});
 	}
+
 function ver(){
-	alert("hola");
+	//alert("hola");
+	window.location="admFrmAgregar.php"
 }
 
 </script>

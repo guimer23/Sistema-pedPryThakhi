@@ -1,3 +1,22 @@
+<?php
+
+require_once("../../Controllers/admClsConexion.php");
+	$c= new Conectar();
+		$conexion=$c->conexion();
+	$sql="SELECT a.ENTid,a.ENTdescripcion,a.ENTtipo,c.CONnombre ,ENTfechahora,cli.CLInombre,a.ENTestado from admenttentrega as a
+  inner join admclitcliente as cli
+  on a.CLIdni=cli.CLIdni
+  inner join admvectvehiculo_conductor as co
+  on a.VECid=co.VECid
+  inner join admcontconductor as c
+  on co.CONdni=c.CONdni
+  ";
+
+
+$resultado=mysqli_query($conexion,$sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -192,34 +211,25 @@
                                             </thead>
 
                                             <tbody>
+                                              <?php
+                                            while ($ver=mysqli_fetch_row($resultado)) :
+                                              # code...
+                                              ?>
                                             <tr>
-                                              <td>1</td>
-                                              <td>PRO001</td>
-                                              <td>Oferton de Pollo a la brasa</td>
-                                              <td>Comida</td>
-                                              <td>Guimer Coaquira</td>
-                                              <td>12/11/2019 23:12:00</td>
-                                              <td>Leydi Huallpa</td>
-                                              <td>En Proceso</td>
+                                              <td><?php echo  $ver[0]?></td>
+                                                    <td>Codigo</td>
+                                              <td><?php echo  $ver[1]?></td>
+                                              <td><?php echo  $ver[2]?></td>
+                                              <td><?php echo  $ver[3]?></td>
+                                              <td><?php echo  $ver[4]?></td>
+                                              <td><?php echo  $ver[5]?></td>
+                                              <td><?php echo  $ver[6]?></td>
                                               <td>
                                                 <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
                                               </td>
                                             </tr><!--end tr-->
-                                            <tr>
-                                              <td>2</td>
-                                              <td>PRO002</td>
-                                              <td>Documentos </td>
-                                              <td>Portafolio</td>
-                                              <td>Gyno Alfaro</td>
-                                              <td>12/11/2019 10:12:00</td>
-                                              <td>Perez Mamani</td>
-                                              <td>Entregado</td>
-                                              <td>
-                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
-                                              </td>
-                                            </tr><!--end tr-->
+                                            <?php endwhile ?>
                                             </tbody>
                                         </table>
                                     </div>

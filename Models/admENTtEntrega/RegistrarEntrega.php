@@ -26,14 +26,16 @@ $obj = new Entregas();
 			$var="I";
 		}
 			if($idimagen > 0){
+
 					$datos[0]=$_POST['descripcion'];
 					$datos[1]=$_POST['tipo'];
           $datos[2]=$_POST['conductor'];
           $datos[3]=$_POST['fecha'];
           $datos[4]=$_POST['cliente'];
           $datos[5]=$_POST['precio'];
-          $datos[6]=$var;
-					$datos[7]=$idimagen;
+          $datos[6]="A";
+					$datos[7]=7;
+					//console.log($datos);
 					echo $obj->RegistroEntrega($datos);
 				}else{
 					echo 0;

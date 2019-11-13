@@ -166,7 +166,8 @@
                     require_once("../../Controllers/admClsConexion.php");
                     	$c= new Conectar();
                     	$conexion=$c->conexion();
-                    	$sql="SELECT CONdni,CONnombre,CONapellido from admcontconductor ";
+                  //  	$sql="SELECT CONdni,CONnombre,CONapellido from admcontconductor ";
+                      $sql="SELECT VECid,CONdni from admvectvehiculo_conductor ";
                     		$resultado=mysqli_query($conexion,$sql);
 
 
@@ -221,7 +222,7 @@
                                                                   <?php
                                                                 while ($ver=mysqli_fetch_row($resultado)) :
                                                                   ?>
-                                                                  <option  value="<?php echo $ver[0] ?>"><?php echo $ver[1]."-".$ver[2]; ?></option>
+                                                                  <option  value="<?php echo $ver[0] ?>"><?php echo $ver[1] ?></option>
                                                                 <?php endwhile; ?>
                                                               </select>
                                                           </div>
@@ -348,28 +349,30 @@ $(document).ready(function(){
         contentType: false,
         processData: false,
         success:function(r){
-        //    alert(r);
-          if(r == 1){
             alert(r);
-            /*
+            console.log(r);
+
+          if(r == 1){
+        //    alert(r);
+
             Swal.fire({
                 type: 'success',
                 title: 'Muy Bien!',
                 text: 'Se guardo con éxito!'
             })
-            */
+
           //alert("Agregado con exito :D");
           //  window.location = "admFrmListar.php";
 
           }else{
-            alert("error");
+          //  alert("error");
 
-        /*    Swal.fire({
+          Swal.fire({
                 type: 'error',
                 title: 'Error!',
                 text: 'Tiene que llenar todo los campos!'
             })
-            */
+            
             //alert("Fallo al subir el archivo :(");
           }
         }
