@@ -1,3 +1,5 @@
+
+
   <!DOCTYPE html>
 <html lang="es">
 
@@ -174,7 +176,19 @@
                                               <div class="row clearfix">
                                                   <div class="col-md-4">
                                                       <div class="form-group">
+
+                                                        <?php
+
+                                                        if(isset($_GET['co']))
+                                                        	$txtdnic =strtoupper($_GET['co']);
+                                                        	 else $txtdnic="";
+
+                                                           if(isset($_GET['ti']))
+                                                             $ti =strtoupper($_GET['ti']);
+                                                              else $ti="";
+                                                         ?>
                                                           <label>DNI </label>
+                                                          <input type="text" name="txtcodde" id="txtcodde" hidden=""  value="<?php echo  $txtdnic ?>"  >
                                                           <input type="number" id="dni" name="dni" class="form-control"  >
                                                       </div>
                                                   </div>
@@ -309,40 +323,114 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-
+var t = '<?php echo $ti;?>';
+//alert(t);
     $('#registroconductor').click(function(){
 
-      vacios=ValidadFormVacio('frmconductor');
+ if (t=="N") {
+   var formData = new FormData(document.getElementById("frmconductor"));
 
-      if(vacios > 0){
-        alert("Debes llenar todos los campos!!");
-        return false;
-      }
+   $.ajax({
+     url:"../../Models/admCONtConductor/RegistroConductor.php",
+     type: "post",
+     dataType: "html",
+     data: formData,
+     cache: false,
+     contentType: false,
+     processData: false,
 
-      var formData = new FormData(document.getElementById("frmconductor"));
+     success:function(r){
 
-      $.ajax({
-        url:"../../Models/admCONtConductor/RegistroConductor.php",
-        type: "post",
-        dataType: "html",
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
+       if(r == 1){
+         alert("Agregado con exito :D");
+          $('#frmconductor')[0].reset();
+       }else{
+       alert("Fallo al subir el archivo :(");
+       }
+     }
+   });
+ }
+ if (t=="M") {
+   var formData = new FormData(document.getElementById("frmconductor"));
 
-        success:function(r){
+   $.ajax({
+     url:"../../Models/admCONtConductor/ActualizarConductor.php",
+     type: "post",
+     dataType: "html",
+     data: formData,
+     cache: false,
+     contentType: false,
+     processData: false,
 
-          if(r == 1){
+     success:function(r){
+//alert(r);
+       if(r == 1){
+         alert("Actualizado con :D");
+          $('#frmconductor')[0].reset();
+       }else{
+       alert("Fallo  :(");
+       }
+     }
+   });
+ }
 
-
-            alert("Agregado con exito :D");
-            //  $('#frmconductor')[0].reset();
-          }else{
-          alert("Fallo al subir el archivo :(");
-          }
-        }
-      });
 
     });
   });
+</script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+  var code=$('#txtcodde').val();
+
+//  var img = '<?php //echo $txtdnic;?>';
+
+  if (code=="") {
+
+  }
+  else {
+        $.ajax({
+          type:"POST",
+          data:"codigo="+code,
+          url:"../../Models/admCONtConductor/ObtenerDatosConductor.php",
+          success:function(r){
+
+            dato=jQuery.parseJSON(r);
+          //  window.location="admFrmAgregar.php?co="+Codigoc;
+              //window.location="Odontograma.php?txtdnic="+txtdnic+"&txtidcita="+idcita;
+
+        ///		$('#nombreu').val(dato['Nombres']);idcorreou  idfotos
+                $('#dni').val(dato['id']);
+            		$('#nombre').val(dato['nombre']);
+                $('#apellidos').val(dato['apellido']);
+                $('#licencia').val(dato['licencia']);
+                $('#vigencia').val(dato['vigencia']);
+                $('#celular').val(dato['celular']);
+                $('#correo').val(dato['email']);
+                  $('#clave').val(dato['clave']);
+
+                $('#direccion').val(dato['direccion']);
+                var e=dato['estado'];
+                if (e=="A") {
+                    $('#estado').val("Activo");
+                }
+                else{
+                    $('#estado').val("Inactivo");
+                }
+
+              //		$('#idcorreou').text(dato['Email']);
+                //	$('#idusu').text(dato['Usuario']);
+
+          //	$('#nombreU').val(dato['Nombre']);
+            //$('#nivelU').val(dato['Nivel']);
+
+
+        }
+      });
+  }
+
+})
+
 </script>

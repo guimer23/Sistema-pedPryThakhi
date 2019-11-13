@@ -292,9 +292,7 @@
                                                   <td class="border-0"><button type="button" id="registrocliente" class="btn btn-primary waves-effect waves-light">
                                                       Guardar
                                                   </button></td>
-                                                  <td class="border-0"><button type="button" class="btn btn-primary waves-effect waves-light" id="sa-success">Click me</button></td>
-
-
+                                                
                                                   <button type="reset" class="btn btn-danger waves-effect m-l-5">
                                                       Cancelar
                                                   </button>

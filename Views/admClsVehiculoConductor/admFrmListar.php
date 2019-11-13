@@ -205,13 +205,19 @@ $resultado=mysqli_query($conexion,$sql);
                                               <?php
 
                                             while ($ver=mysqli_fetch_row($resultado)) :
-                                              # code...
+                                            $estado="";
+																							if ($ver[4]=="A") {
+																							$estado="Activo";
+																							}
+																							else{
+																								$estado="Inactivo";
+																							}
                                               ?>
                                             <tr>
                                               <td><?php echo  $ver[0]?></td>
                                               <td><?php echo  $ver[1]." ".$ver[2] ?></td>
                                               <td><?php echo  $ver[3]?></td>
-																							 <td><?php echo  $ver[4]?></td>
+																							 <td><?php echo  $estado?></td>
                                               <td>
                                                 <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>

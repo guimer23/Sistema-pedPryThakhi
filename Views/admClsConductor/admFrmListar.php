@@ -210,3 +210,34 @@
 
 	});
 </script>
+
+<script type="text/javascript">
+
+function AgregaDatosConductor(Codigoc)
+	{
+
+      var t="M";
+			$.ajax({
+				type:"POST",
+				data:"codigo="+Codigoc,
+				url:"../../Models/admCONtConductor/ObtenerDatosConductor.php",
+				success:function(r){
+
+					dato=jQuery.parseJSON(r);
+          window.location="admFrmAgregar.php?co="+Codigoc+"&ti="+t;
+          	//window.location="Odontograma.php?txtdnic="+txtdnic+"&txtidcita="+idcita;
+			//		console.log(r);
+			///		$('#nombreu').val(dato['Nombres']);idcorreou  idfotos
+					//			$('#idnombres').text(dato['Nombres']);
+						//		$('#idcorreou').text(dato['Email']);
+							//	$('#idusu').text(dato['Usuario']);
+
+				//	$('#nombreU').val(dato['Nombre']);
+					//$('#nivelU').val(dato['Nivel']);
+
+
+			}
+		});
+	}
+
+</script>

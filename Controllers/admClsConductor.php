@@ -44,16 +44,19 @@ class Conductores
 			$c=new conectar();
 			$conexion=$c->conexion();
 
-			$sql="SELECT CONid,
+			$sql="SELECT CONdni,
               CONnombre,
 							CONapellido,
 							CONlicencia,
-							concelular,
-              conclave,
+							CONvigencialicencia,
+              CONcelular,
               CONemail,
-              CONestado
+              CONclave,
+              CONdireccion,
+              CONestado,
+              CONfoto
 					from admcontconductor
-					where CONid='$idusuario'";
+					where CONdni='$idusuario'";
 			$result=mysqli_query($conexion,$sql);
 
 			$ver=mysqli_fetch_row($result);
@@ -63,13 +66,38 @@ class Conductores
 							'nombre' => $ver[1],
 							'apellido' => $ver[2],
 							'licencia' => $ver[3],
-              'celular' => $ver[4],
-  						'clave' => $ver[5],
-  						'email' => $ver[6]
+              'vigencia' => $ver[4],
+              'celular' => $ver[5],
+              'email' => $ver[6],
+              'clave' => $ver[7],
+              'direccion' => $ver[8],
+              'estado' => $ver[9]
 						);
 
 			return $datos;
 		}
+
+  public function ActualizaConductor($datos) {
+
+			$c= new Conectar();
+		$conexion=$c->conexion();
+
+		$sql ="UPDATE admcontconductor
+		SET CONnombre='$datos[1]',
+		    CONapellido ='$datos[2]',
+        CONlicencia ='$datos[3]',
+        CONvigencialicencia='$datos[4]',
+    		CONcelular ='$datos[5]',
+        CONemail ='$datos[6]' ,
+        CONclave ='$datos[7]',
+        CONdireccion='$datos[8]',
+    		CONestado ='$datos[9]'
+
+		where CONdni='$datos[0]'";
+//CONdni,CONnombre,CONapellido,CONlicencia,CONvigencialicencia,CONcelular,CONemail,CONclave,CONdireccion,CONestado,CONfoto
+	return mysqli_query($conexion,$sql);// e mysqli_query($conexion,$sql);
+
+	}
 }
 
 

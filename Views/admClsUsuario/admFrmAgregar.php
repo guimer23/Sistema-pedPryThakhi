@@ -176,7 +176,7 @@
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Nombres </label>
-                                                          <input type="text" id="code" name="code" class="form-control" required />
+                                                          <input type="text" id="code" name="code" class="form-control" hidden=""  />
                                                           <input type="text" id="nombre" name="nombre" class="form-control" required />
                                                           <div class="valid-feedback">
                                                               Introduce nombre!

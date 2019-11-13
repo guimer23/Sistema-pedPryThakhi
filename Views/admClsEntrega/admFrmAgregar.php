@@ -188,7 +188,7 @@
                                                       <div class="form-group">
                                                           <label>Código </label>
 
-                                                                <input type="text" class="form-control" value="<?php  echo "no hay regostros"; ?>" required >
+                                                                <input type="text" class="form-control" value="<?php  echo "Codigo"; ?>" required >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-8">
@@ -372,7 +372,7 @@ $(document).ready(function(){
                 title: 'Error!',
                 text: 'Tiene que llenar todo los campos!'
             })
-            
+
             //alert("Fallo al subir el archivo :(");
           }
         }

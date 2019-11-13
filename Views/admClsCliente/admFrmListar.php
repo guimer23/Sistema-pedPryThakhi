@@ -211,7 +211,7 @@ $resultado=mysqli_query($conexion,$sql);
                                               <td><?php echo  $ver[4]?></td>
 
                                               <td>
-                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="admFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
                                               </td>
                                             </tr><!--end tr-->
