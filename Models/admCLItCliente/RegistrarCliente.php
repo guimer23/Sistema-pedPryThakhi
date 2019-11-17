@@ -23,9 +23,7 @@ $obj = new Clientes();
           $datos[3]=$_POST['celular'];
         	$datos[4]=$_POST['correo'];
 					$datos[5]=$_POST['clave'];
-          $datos[6]=$_POST['latitud'];
-          $datos[7]=$_POST['longitud'];
-					$datos[8]=$idimagen;
+					$datos[6]=$idimagen;
 					echo $obj->RegistrarCliente($datos);
 				}else{
 					echo 0;

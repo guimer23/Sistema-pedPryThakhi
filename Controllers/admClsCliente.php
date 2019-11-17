@@ -24,16 +24,14 @@ class Clientes
   {
     $c= new Conectar();
     $conexion=$c->conexion();
-    $sql="INSERT INTO admclitcliente (CLIdni,CLInombre,CLIapellido,CLIcelular,CLIemail,CLIclave,CLIlatitud,CLIlongitud,CLIfoto)
+    $sql="INSERT INTO admclitcliente (CLIdni,CLInombre,CLIapellido,CLIcelular,CLIemail,CLIclave,CLIfoto)
     values('$datos[0]',
           '$datos[1]',
           '$datos[2]',
           '$datos[3]',
           '$datos[4]',
           '$datos[5]',
-          '$datos[6]',
-          '$datos[7]',
-          '$datos[8]')";
+          '$datos[6]')";
 
       return mysqli_query($conexion,$sql);
   }

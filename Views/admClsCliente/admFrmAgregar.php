@@ -15,6 +15,11 @@
         <link href="../../Assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="../../Assets/css/metisMenu.min.css" rel="stylesheet" type="text/css" />
         <link href="../../Assets/css/style.css" rel="stylesheet" type="text/css" />
+
+        <!--Sweetalert2 para alertas-->
+        <script src="../../Assets/sweetalert2/dist/sweetalert2.all.min.js"></script>
+        <script src="../../Assets/sweetalert2/dist/sweetalert2.min.js"></script>
+        <link href="../../Assets/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
@@ -195,22 +200,7 @@
                                                             <input type="password" id="clave" name="clave" class="form-control" required >
                                                         </div>
                                                     </div>
-                                                </div>
-
-                                                <div class="row clearfix">
-                                                  <div class="col-md-4">
-                                                      <div class="form-group">
-                                                          <label>Latitud</label>
-                                                          <input type="text"  id="latitud" name="latitud" class="form-control"  >
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-4">
-                                                      <div class="form-group">
-                                                          <label>Longitud</label>
-                                                          <input type="text" id="longitud" name="longitud" class="form-control"  >
-                                                      </div>
-                                                  </div>
-                                                </div>
+                                                </div>                                                
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                       <div class="col-md-12 col-lg-3">
@@ -293,8 +283,6 @@ $(document).ready(function(){
            $('#celular').val(dato['celular']);
            $('#correo').val(dato['email']);
            $('#clave').val(dato['clave']);
-
-
 				}
 			});
 	}
@@ -322,14 +310,25 @@ var t = '<?php echo $ti;?>';
             processData: false,
 
             success:function(r){
+              if(r == 1){
+                Swal.fire({
+                    type: 'success',
+                    title: 'Muy Bien!',
+                    text: 'Se guardo con éxito!'
+                }).then(function () {
+                  //  console.log("Despues de dar click en el boton, aqui llamarias al submit");
+                    window.location = "admFrmListar.php";
+                })
 
-                if(r == 1){
-                  alert("Agregado con exito :D");
-                  window.location = "admFrmListar.php";
+              }else{
+                Swal.fire({
+                    type: 'error',
+                    title: 'Error!',
+                    text: 'Tiene que llenar todo los campos!'
+                })
+                //alert("Fallo al subir el archivo :(");
+              }
 
-                }else{
-                  alert("Fallo al subir el archivo :(");
-                }
             }
           });
       }
