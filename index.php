@@ -98,13 +98,7 @@ if (isset($_SESSION['usu'])) {
                                 <button class="button-menu-mobile nav-link waves-effect waves-light">
                                     <i class="dripicons-menu nav-icon"></i>
                                 </button>
-                            </li>
-                            <li class="hide-phone app-search">
-                                <form role="search" class="">
-                                    <input type="text" placeholder="Buscar . . ." class="form-control">
-                                    <a href=""><i class="fas fa-search"></i></a>
-                                </form>
-                            </li>
+                            </li>                            
                         </ul>
                     </nav>
                     <!-- end navbar-->
@@ -152,22 +146,7 @@ if (isset($_SESSION['usu'])) {
                               <path d="M200.043 106.067c-40.631 15.171-73.434 46.382-90.717 85.933H256l-55.957-85.933zM412.797 288A160.723 160.723 0 0 0 416 256c0-36.624-12.314-70.367-33.016-97.334L311 288h101.797zM359.973 134.395C332.007 110.461 295.694 96 256 96c-7.966 0-15.794.591-23.448 1.715L310.852 224l49.121-89.605zM99.204 224A160.65 160.65 0 0 0 96 256c0 36.639 12.324 70.394 33.041 97.366L201 224H99.204zM311.959 405.932c40.631-15.171 73.433-46.382 90.715-85.932H256l55.959 85.932zM152.046 377.621C180.009 401.545 216.314 416 256 416c7.969 0 15.799-.592 23.456-1.716L201.164 288l-49.118 89.621z"/>
                           </svg>
                       </a><!--Termina Menu Mantenimiento -->
-                      <!--Inicia Menu Auntenticacion -->
-                      <a href="#Autenticacion" class="nav-link" data-toggle="tooltip-custom" data-placement="top" title="" data-original-title="Seguridad">
-                          <svg class="nav-svg" version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                          viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                              <g>
-                                  <path class="svg-primary" d="M376,192h-24v-46.7c0-52.7-42-96.5-94.7-97.3c-53.4-0.7-97.3,42.8-97.3,96v48h-24c-22,0-40,18-40,40v192c0,22,18,40,40,40
-                                      h240c22,0,40-18,40-40V232C416,210,398,192,376,192z M270,316.8v68.8c0,7.5-5.8,14-13.3,14.4c-8,0.4-14.7-6-14.7-14v-69.2
-                                      c-11.5-5.6-19.1-17.8-17.9-31.7c1.4-15.5,14.1-27.9,29.6-29c18.7-1.3,34.3,13.5,34.3,31.9C288,300.7,280.7,311.6,270,316.8z
-                                          M324,192H188v-48c0-18.1,7.1-35.1,20-48s29.9-20,48-20s35.1,7.1,48,20s20,29.9,20,48V192z"/>
-                              </g>
-                          </svg>
-                      </a> <!--Termina Menu Auntenticacion -->
-
                   </nav><!--end nav-->
-
-
               <!--php include("Plantilla/Nav.php");-->
                   <!--end nav-->
               </div><!--end main-icon-menu-->
@@ -209,21 +188,6 @@ if (isset($_SESSION['usu'])) {
                             <li class="nav-item"><a class="nav-link" href="Views/admClsUsuario/admFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
                           </ul>
                       </div><!--Inicia SubMenu Mantenimiento -->
-
-                      <!--Inicia SubMenu Autenticacion -->
-                      <div id="Autenticacion" class="main-icon-menu-pane">
-                          <div class="title-box">
-                              <h6 class="menu-title">Autenticación</h6>
-                          </div>
-                          <ul class="nav">
-                              <li class="nav-item"><a class="nav-link" href="../authentication/auth-login.html"><i class="dripicons-enter"></i>Log in</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../authentication/auth-register.html"><i class="dripicons-pencil"></i>Register</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../authentication/auth-recover-pw.html"><i class="dripicons-clockwise"></i>Recover Password</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../authentication/auth-lock-screen.html"><i class="dripicons-lock"></i>Lock Screen</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../authentication/auth-404.html"><i class="dripicons-warning"></i>Error 404</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../authentication/auth-500.html"><i class="dripicons-wrong"></i>Error 500</a></li>
-                          </ul>
-                      </div><!--Termina SubMenu Autenticacion -->
                   </div><!--end menu-body-->
               </div><!-- end main-menu-inner-->
             </div>
