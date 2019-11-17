@@ -335,10 +335,23 @@ var t = '<?php echo $ti;?>';
 				data:datos,
 					url:"../../Models/admVECtVehiculoConductor/ActualizarVehiculoConductor.php",
 				success:function(r){
-					if(r==1){
-					alert("Actualizado con exito");
+					if(r == 1){
+						Swal.fire({
+								type: 'success',
+								title: 'Muy Bien!',
+								text: 'Actualizado con éxito!'
+						}).then(function () {
+								//console.log("Despues de dar click en el boton, aqui llamarias al submit");
+								window.location = "admFrmListar.php";
+						})
+
 					}else{
-					alert("Fallo al agregar :(");
+						Swal.fire({
+								type: 'error',
+								title: 'Error!',
+								text: 'Tiene que llenar todo los campos!'
+						})
+						//alert("Fallo al subir el archivo :(");
 					}
 				}
 			});
