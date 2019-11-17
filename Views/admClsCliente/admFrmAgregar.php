@@ -163,13 +163,13 @@
                   				                                 else $ti="";
                    																			 		?>
                                                           <label>DNI </label>
-                                                          <input type="text" id="dni" name="dni" value="<?php echo $code; ?>" class="form-control" required >
+                                                          <input type="text" id="dni" name="dni" value="<?php echo $code; ?>" class="form-control" required maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return justNumbers(event);" value="1"/><i>(Máximo 8 dígitos)</i>
                                                       </div>
                                                   </div>
                                                   <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Nombres</label>
-                                                          <input type="text" id="nombre" name="nombre" class="form-control" required >
+                                                          <input type="text" id="nombre" name="nombre" class="form-control" required onkeypress="return soloLetras(event)" onpaste="return false">
                                                       </div>
                                                   </div>
                                               </div>
@@ -177,13 +177,13 @@
                                                   <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Apellidos <span class="text-danger"></span></label>
-                                                          <input type="text" id="apellido" name="apellido" class="form-control" required >
+                                                          <input type="text" id="apellido" name="apellido" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false" required >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Celular <span class="text-danger"></span></label>
-                                                          <input type="text" id="celular" name="celular" class="form-control" required >
+                                                          <input type="text" id="celular" name="celular" class="form-control" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return justNumbers(event);" value="2" required/>
                                                       </div>
                                                   </div>
                                               </div>
@@ -370,4 +370,45 @@ var t = '<?php echo $ti;?>';
 
     });
   });
+</script>
+
+<script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+
+            return false;
+        }
+    }
+</script>
+
+<script>
+  var input=  document.getElementById('celular');
+  input.addEventListener('input',function(){
+  if (this.value.length > 12)
+   this.value = this.value.slice(0,12);
+  })
+</script>
+
+<script>
+function justNumbers(e)
+      {
+      var keynum = window.event ? window.event.keyCode : e.which;
+      if ((keynum == 8) || (keynum == 46))
+      return true;
+
+      return /\d/.test(String.fromCharCode(keynum));
+      }
 </script>
