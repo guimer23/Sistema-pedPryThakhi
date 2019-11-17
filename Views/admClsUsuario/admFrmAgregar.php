@@ -294,9 +294,6 @@ $(document).ready(function(){
               estado="Inactivo";
             }
              $('#estado').val(estado);
-
-
-
 				}
 			});
 	}

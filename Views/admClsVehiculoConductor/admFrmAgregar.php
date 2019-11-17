@@ -29,6 +29,11 @@ require_once("../../Controllers/admClsConexion.php");
         <link href="../../Assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="../../Assets/css/metisMenu.min.css" rel="stylesheet" type="text/css" />
         <link href="../../Assets/css/style.css" rel="stylesheet" type="text/css" />
+
+				<!--Sweetalert2 para alertas-->
+        <script src="../../Assets/sweetalert2/dist/sweetalert2.all.min.js"></script>
+        <script src="../../Assets/sweetalert2/dist/sweetalert2.min.js"></script>
+        <link href="../../Assets/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
@@ -295,16 +300,29 @@ var t = '<?php echo $ti;?>';
 		$('#btnregistrovc').click(function(){
 
 			if (t=="N") {
-				datos=$('#frmvehiculoconductor').serialize();	
+				datos=$('#frmvehiculoconductor').serialize();
 				$.ajax({
 					type:"POST",
 					data:datos,
 						url:"../../Models/admVECtVehiculoConductor/RegistroVehiculoConductor.php",
 					success:function(r){
-						if(r==1){
-						alert("Agregado con exito");
+						if(r == 1){
+							Swal.fire({
+									type: 'success',
+									title: 'Muy Bien!',
+									text: 'Se guardo con éxito!'
+							}).then(function () {
+								//  console.log("Despues de dar click en el boton, aqui llamarias al submit");
+									window.location = "admFrmListar.php";
+							})
+
 						}else{
-					  alert("Fallo al agregar :(");
+							Swal.fire({
+									type: 'error',
+									title: 'Error!',
+									text: 'Tiene que llenar todo los campos!'
+							})
+							//alert("Fallo al subir el archivo :(");
 						}
 					}
 				});
