@@ -130,7 +130,7 @@ $resultado=mysqli_query($conexion,$sql);
                               <li class="nav-item"><a class="nav-link" href="../../Views/admClsUsuario/admFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
                           </ul>
                       </div><!--Inicia SubMenu Mantenimiento -->
-                      
+
                   </div><!--end menu-body-->
               </div><!-- end main-menu-inner-->
             </div>
@@ -161,7 +161,7 @@ $resultado=mysqli_query($conexion,$sql);
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <a href="admFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Asignar Nuevo Vehículo a Conductor</a>
+                                    <a href="#" id="ir2" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Asignar Nuevo Vehículo a Conductor</a>
                                     <h4 class="header-title mt-0">Detalles de Vehículo - Conductor</h4>
                                     <div class="table-responsive dash-social">
                                         <table id="datatable" class="table">
@@ -193,7 +193,7 @@ $resultado=mysqli_query($conexion,$sql);
                                               <td><?php echo  $ver[3]?></td>
 																							 <td><?php echo  $estado?></td>
                                               <td>
-                                                <a href="pedFrmAgregar.php" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="#" onclick="ir('<?php echo $ver[0]; ?>')" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
                                               </td>
                                             </tr><!--end tr-->
@@ -239,6 +239,16 @@ $resultado=mysqli_query($conexion,$sql);
 
 
 <script type="text/javascript">
+$(document).ready(function(){
+	$('#ir2').click(function(){
+		var ti="N";
+		window.location="admFrmAgregar.php?ti="+ti;
+	})
+})
 
+function ir(code){
 
+var ti="M";
+	window.location="admFrmAgregar.php?code="+code+"&ti="+ti;
+}
 </script>

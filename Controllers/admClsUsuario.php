@@ -82,6 +82,24 @@ class Usuario
           return $datos;
 
         }
+        public function ActualizaUsuario($datos) {
+
+          $c= new Conectar();
+          $conexion=$c->conexion();
+
+          $sql ="UPDATE admusutusuario
+          SET USUnombre='$datos[1]',
+              USUapellidos ='$datos[2]',
+              USUemail ='$datos[3]',
+              USUusuario='$datos[4]',
+              USUpassword ='$datos[5]',
+              USUestado ='$datos[6]'
+          where USUid='$datos[0]'";
+        //CONdni,CONnombre,CONapellido,CONlicencia,CONvigencialicencia,CONcelular,CONemail,CONclave,CONdireccion,CONestado,CONfoto
+        return mysqli_query($conexion,$sql);// e mysqli_query($conexion,$sql);
+
+        }
+
 }
 
 

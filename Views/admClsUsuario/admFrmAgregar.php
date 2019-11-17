@@ -150,9 +150,18 @@
                                             <h4 class="mt-0 header-title">Datos del Usuarios</h4>
                                               <div class="row clearfix">
                                                   <div class="col-md-4">
+                                                    <?php if(isset($_GET['id']))
+                                                  //
+                                                    $code =strtoupper($_GET['id']);
+                                                    else $code="";
+
+                                                    if(isset($_GET['ti']))
+                                                      $ti =strtoupper($_GET['ti']);
+                                                       else $ti="";
+                                                        ?>
                                                       <div class="form-group">
                                                           <label>Nombres </label>
-                                                          <input type="text" id="code" name="code" class="form-control" hidden=""  />
+                                                          <input type="text" id="code" name="code" value="<?php echo $code; ?>"  class="form-control"  hidden="" />
                                                           <input type="text" id="nombre" name="nombre" class="form-control" required />
                                                           <div class="valid-feedback">
                                                               Introduce nombre!
@@ -260,56 +269,112 @@
 
 
 <script type="text/javascript">
+
 $(document).ready(function(){
+	var code="<?php echo $code; ?>"
+	if (code!="") {
 
-    $('#registrousuario').click(function(){
-
-      var formData = new FormData(document.getElementById("frmregistrousuario"));
-
-
-      $.ajax({
-        url:"../../Models/admUSUtUsuario/RegistrarUsuario.php",
-        type: "post",
-        dataType: "html",
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
-
-        success:function(r){
-          if(r == 1){
-            Swal.fire({
-                type: 'success',
-                title: 'Muy Bien!',
-                text: 'Se guardo con éxito!'
-            }).then(function () {
-                console.log("Despues de dar click en el boton, aqui llamarias al submit");
-                window.location = "admFrmListar.php";
-            })
-          //alert("Agregado con exito :D");
+		$.ajax({
+				 type:"POST",
+				 data:"codigo=" + code,
+				 url:"../../Models/admUSUtUsuario/ObtenerDatosUsuario.php",
+				 success:function(r){
+           console.log(r);
+					 dato=jQuery.parseJSON(r);
+           $('#nombre').val(dato['Nombres']);
+           $('#apellido').val(dato['Apellido']);
+            $('#correo').val(dato['Email']);
+           $('#usuario').val(dato['Usuario']);
+            $('#clave').val(dato['Password']);
+            var estado="";
+            if (dato['Estado']=="A") {
+              estado="Activo";
+            }
+            else {
+              estado="Inactivo";
+            }
+             $('#estado').val(estado);
 
 
-          }else{
-            Swal.fire({
-                type: 'error',
-                title: 'Error!',
-                text: 'Tiene que llenar todo los campos!'
-            })
-            //alert("Fallo al subir el archivo :(");
-          }
-        }
-      });
 
-    });
-  });
+				}
+			});
+	}
+})
 </script>
 
 <script type="text/javascript">
+$(document).ready(function(){
+var t = '<?php echo $ti;?>';
+    $('#registrousuario').click(function(){
+        if (t=="N") {
 
-  function AgregaDatosUsuario2(){
-  alert("hola desde otro pagina");
+              var formData = new FormData(document.getElementById("frmregistrousuario"));
+              $.ajax({
+                url:"../../Models/admUSUtUsuario/RegistrarUsuario.php",
+                type: "post",
+                dataType: "html",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
 
+                success:function(r){
+                  if(r == 1){
+                    Swal.fire({
+                        type: 'success',
+                        title: 'Muy Bien!',
+                        text: 'Se guardo con éxito!'
+                    }).then(function () {
+                      //  console.log("Despues de dar click en el boton, aqui llamarias al submit");
+                        window.location = "admFrmListar.php";
+                    })
 
-}
+                  }else{
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Error!',
+                        text: 'Tiene que llenar todo los campos!'
+                    })
+                    //alert("Fallo al subir el archivo :(");
+                  }
+                }
+              });
+        }
+        if (t=="M") {
+          var formData = new FormData(document.getElementById("frmregistrousuario"));
+          $.ajax({
+            url:"../../Models/admUSUtUsuario/ActualizarUsuario.php",
+            type: "post",
+            dataType: "html",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
 
+            success:function(r){
+              if(r == 1){
+                Swal.fire({
+                    type: 'success',
+                    title: 'Muy Bien!',
+                    text: 'Actualizado con éxito!'
+                }).then(function () {
+                    //console.log("Despues de dar click en el boton, aqui llamarias al submit");
+                    window.location = "admFrmListar.php";
+                })
+
+              }else{
+                Swal.fire({
+                    type: 'error',
+                    title: 'Error!',
+                    text: 'Tiene que llenar todo los campos!'
+                })
+                //alert("Fallo al subir el archivo :(");
+              }
+            }
+          });
+        }
+
+    });
+  });
 </script>

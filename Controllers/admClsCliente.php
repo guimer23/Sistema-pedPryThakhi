@@ -38,6 +38,52 @@ class Clientes
       return mysqli_query($conexion,$sql);
   }
 
+
+  public function obtenDatosCliente($idusuario){
+
+			$c=new conectar();
+			$conexion=$c->conexion();
+
+			$sql="SELECT CLIdni,
+              CLInombre,
+							CLIapellido,
+							CLIcelular,
+							CLIemail,
+              CLIclave
+					from admclitcliente
+					where CLIdni='$idusuario'";
+			$result=mysqli_query($conexion,$sql);
+
+			$ver=mysqli_fetch_row($result);
+
+			$datos=array(
+						  'id' => $ver[0],
+							'nombre' => $ver[1],
+							'apellido' => $ver[2],
+							'celular' => $ver[3],
+              'email' => $ver[4],
+              'clave' => $ver[5]
+						);
+
+			return $datos;
+		}
+
+  public function ActualizaCliente($datos) {
+
+			$c= new Conectar();
+		$conexion=$c->conexion();
+
+		$sql ="UPDATE admclitcliente
+		SET CLInombre='$datos[1]',
+  		  CLIapellido='$datos[2]',
+        CLIcelular='$datos[3]',
+        CLIemail='$datos[4]',
+      	CLIclave	='$datos[5]'
+		where CLIdni='$datos[0]'";
+//CONdni,CONnombre,CONapellido,CONlicencia,CONvigencialicencia,CONcelular,CONemail,CONclave,CONdireccion,CONestado,CONfoto
+	return mysqli_query($conexion,$sql);// e mysqli_query($conexion,$sql);
+
+	}
 }
 
 

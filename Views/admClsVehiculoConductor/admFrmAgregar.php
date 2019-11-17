@@ -125,7 +125,7 @@ require_once("../../Controllers/admClsConexion.php");
                           </ul>
                       </div><!--Inicia SubMenu Mantenimiento -->
 
-                      
+
                   </div><!--end menu-body-->
               </div><!-- end main-menu-inner-->
             </div>
@@ -161,6 +161,16 @@ require_once("../../Controllers/admClsConexion.php");
                                 <form  id="frmvehiculoconductor" class="form-parsley" >
                                   <div class="row clearfix">
                                     <div class="col-md-6">
+																			<?php if(isset($_GET['code']))
+				                            //
+				                              $code =strtoupper($_GET['code']);
+				                              else $code="";
+
+				                              if(isset($_GET['ti']))
+				                                $ti =strtoupper($_GET['ti']);
+				                                 else $ti="";
+ 																			 		?>
+																			<input type="text" name="code"  id="code" value="<?php echo $code; ?>" hidden="">
                                         <label>Conductor</label>
                                         <div class="form-group">
                                             <select  class="form-control" id="idconductor" name="idconductor" Required>
@@ -250,31 +260,72 @@ require_once("../../Controllers/admClsConexion.php");
     </body>
 </html>
 
+<script type="text/javascript">
 
+$(document).ready(function(){
+	var code="<?php echo $code; ?>"
+	if (code!="") {
 
+		$.ajax({
+				 type:"POST",
+				 data:"codigo=" + code,
+				 url:"../../Models/admVECtVehiculoConductor/ObtenerDatosVehiculoConductor.php",
+				 success:function(r){
+					 dato=jQuery.parseJSON(r);
 
+					 $('#idconductor').val(dato['dni']);
+					 $('#idvehiculo').val(dato['idvehiculo']);
+					 var estado="";
+					 if (dato['estado']=="A") {
+					 	estado="Activo";
+					 }
+					 else {
+					 	estado="Inactivo";
+					 }
+					 $('#estado').val(estado);
+				}
+			});
+	}
+})
+
+</script>
 <script type="text/javascript">
 	$(document).ready(function(){
-
+var t = '<?php echo $ti;?>';
 		$('#btnregistrovc').click(function(){
-			datos=$('#frmvehiculoconductor').serialize();
 
+			if (t=="N") {
+				datos=$('#frmvehiculoconductor').serialize();	
+				$.ajax({
+					type:"POST",
+					data:datos,
+						url:"../../Models/admVECtVehiculoConductor/RegistroVehiculoConductor.php",
+					success:function(r){
+						if(r==1){
+						alert("Agregado con exito");
+						}else{
+					  alert("Fallo al agregar :(");
+						}
+					}
+				});
+			}
+
+		if (t=="M") {
+			datos=$('#frmvehiculoconductor').serialize();
 			$.ajax({
 				type:"POST",
 				data:datos,
-
-				  url:"../../Models/admVECtVehiculoConductor/RegistroVehiculoConductor.php",
-
+					url:"../../Models/admVECtVehiculoConductor/ActualizarVehiculoConductor.php",
 				success:function(r){
-					//alert(r);
 					if(r==1){
-
-					alert("Agregado con exito");
+					alert("Actualizado con exito");
 					}else{
-				alert("Fallo al agregar :(");
+					alert("Fallo al agregar :(");
 					}
 				}
 			});
+		}
+
 		});
 	});
 </script>

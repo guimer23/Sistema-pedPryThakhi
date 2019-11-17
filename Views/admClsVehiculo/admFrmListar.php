@@ -4,7 +4,7 @@
 require_once("../../Controllers/admClsConexion.php");
 	$c= new Conectar();
 		$conexion=$c->conexion();
-	$sql="SELECT VEHid,VEHplaca,VEHmarca,VEHmodelo,VEHcolor,VEHanio_fabricacion from admvehtvehiculo ";
+	$sql="SELECT VEHid,VEHplaca,VEHmarca,VEHmodelo,VEHcolor,VEHanio_fabricacion,VEHestado from admvehtvehiculo ";
 
 
 $resultado=mysqli_query($conexion,$sql);
@@ -162,7 +162,7 @@ $resultado=mysqli_query($conexion,$sql);
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <a href="admFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Vehículo</a>
+                                    <a href="#" id="irr" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Vehículo</a>
                                     <h4 class="header-title mt-0">Detalles de Vehículos</h4>
                                     <div class="table-responsive dash-social">
                                         <table id="datatable" class="table">
@@ -183,7 +183,12 @@ $resultado=mysqli_query($conexion,$sql);
                                               <?php
 
                                             while ($ver=mysqli_fetch_row($resultado)) :
-                                              # code...
+                                              if ($ver[6]=="A") {
+                                              $estado="Activo";
+                                              }
+																							else {
+																								$estado="Inactivo";
+																							}
                                               ?>
                                             <tr>
                                                 <td><?php echo  $ver[0]?></td>
@@ -192,9 +197,10 @@ $resultado=mysqli_query($conexion,$sql);
                                                 <td><?php echo  $ver[3]?></td>
                                                 <td><?php echo  $ver[4]?></td>
 																								  <td><?php echo  $ver[5]?></td>
+																										  <td><?php echo    $estado?></td>
 
                                               <td>
-                                                <a   class="mr-2" onclick="TraeDatos('<?php echo  $ver[0]?>')"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="#"  class="mr-2" onclick="TraeDatos('<?php echo  $ver[0]?>')"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
                                               </td>
                                             </tr><!--end tr-->
@@ -243,21 +249,29 @@ $resultado=mysqli_query($conexion,$sql);
 <script type="text/javascript">
  function TraeDatos(code){
 
+var t="M";
 	 $.ajax({
 				type:"POST",
-				data:"codigo=" + code,
-				url:"../../Models/ModelVehiculo/ObtenerDatosVehiculo.php",
+				data:"codigo="+ code,
+				url:"../../Models/admVEHtVehiculo/ObtenerDatosVehiculo.php",
 				success:function(r){
 					dato=jQuery.parseJSON(r);
-					$('#placa').val(dato['Placa']);
-
-					window.location="pedFrmAgregar.php?code="+code;
-
-
+				//	$('#placa').val(dato['Placa']);
+					window.location="admFrmAgregar.php?code="+code+"&ti="+t;
 				}
 			});
 
  }
 
 
+</script>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		$('#irr').click(function(){
+			var t="N";
+			window.location="admFrmAgregar.php?ti="+t;
+		})
+	})
 </script>

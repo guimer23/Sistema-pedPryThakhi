@@ -167,7 +167,7 @@ $resultado=mysqli_query($conexion,$sql);
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <a href="admFrmAgregar.php" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Usuario</a>
+                                    <a href="#" id="ir4"  class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Usuario</a>
                                     <h4 class="header-title mt-0">Detalles de Usuario</h4>
                                     <div class="table-responsive dash-social">
                                         <table id="datatable" class="table">
@@ -195,7 +195,7 @@ $resultado=mysqli_query($conexion,$sql);
                                               <td><?php echo  $ver[4]?></td>
                                               <td><?php echo  $ver[6]?></td>
                                               <td>
-                                                <a onclick="AgregaDatosUsuario2()"	 class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a onclick="AgregaDatosUsuario2('<?php echo  $ver[0] ?>')"	 class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#" onclick="AgregaDatosUsuario('<?php echo  $ver[0]?> ')"> <i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i></a>
                                               </td>
                                             </tr><!--end tr-->
@@ -312,17 +312,20 @@ function AgregaDatosUsuario(Codigousus)
 								}
 								$('#idfotos').attr("src",dato['Ruta']);
 
-				//	$('#nombreU').val(dato['Nombre']);
-					//$('#nivelU').val(dato['Nivel']);
-
-
-			}
+					}
 		});
 	}
 
-function ver(){
-	//alert("hola");
-	window.location="admFrmAgregar.php"
+function AgregaDatosUsuario2(id){
+
+	var t="M";
+	window.location="admFrmAgregar.php?id="+id+"&ti="+t;
 }
 
+$(document).ready(function(){
+	$('#ir4').click(function(){
+		var t="N";
+		window.location="admFrmAgregar.php?ti="+t;
+	});
+})
 </script>

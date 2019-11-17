@@ -112,7 +112,7 @@ $resultado=mysqli_query($conexion,$sql);
 	$(document).ready(function(){
 		$('#ir').click(function(){
 			var t="N";
-			window.location="admFrmAgregar.php?tipo="+t;
+			window.location="admFrmAgregar.php?ti="+t;
 		})
 	})
 </script>

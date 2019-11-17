@@ -148,8 +148,17 @@
                                               <div class="row clearfix">
                                                   <div class="col-md-4">
                                                       <div class="form-group">
+                                                        <?php if(isset($_GET['code']))
+                  				                            //
+                  				                              $code =strtoupper($_GET['code']);
+                  				                              else $code="";
+
+                  				                              if(isset($_GET['ti']))
+                  				                                $ti =strtoupper($_GET['ti']);
+                  				                                 else $ti="";
+                   																			 		?>
                                                           <label>DNI </label>
-                                                          <input type="text" id="dni" name="dni" class="form-control" required >
+                                                          <input type="text" id="dni" name="dni" value="<?php echo $code; ?>" class="form-control" required >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-8">
@@ -192,13 +201,13 @@
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Latitud</label>
-                                                          <input type="text"  id="latitud" name="latitud" class="form-control" required >
+                                                          <input type="text"  id="latitud" name="latitud" class="form-control"  >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Longitud</label>
-                                                          <input type="text" id="longitud" name="longitud" class="form-control" required >
+                                                          <input type="text" id="longitud" name="longitud" class="form-control"  >
                                                       </div>
                                                   </div>
                                                 </div>
@@ -267,33 +276,88 @@
 
 
 <script type="text/javascript">
+
+$(document).ready(function(){
+	var code="<?php echo $code; ?>"
+	if (code!="") {
+
+		$.ajax({
+				 type:"POST",
+				 data:"dni=" + code,
+				 url:"../../Models/admCLItCliente/ObtenerDatosCliente.php",
+				 success:function(r){
+					 dato=jQuery.parseJSON(r);
+
+					 $('#nombre').val(dato['nombre']);
+					 $('#apellido').val(dato['apellido']);
+           $('#celular').val(dato['celular']);
+           $('#correo').val(dato['email']);
+           $('#clave').val(dato['clave']);
+
+
+				}
+			});
+	}
+})
+
+</script>
+
+<script type="text/javascript">
 $(document).ready(function(){
 
+var t = '<?php echo $ti;?>';
+
     $('#registrocliente').click(function(){
+      if (t=="N") {
 
-          var formData = new FormData(document.getElementById("frmregistrocliente"));
+        var formData = new FormData(document.getElementById("frmregistrocliente"));
 
-      $.ajax({
-        url:"../../Models/admCLItCliente/RegistrarCliente.php",
-        type: "post",
-        dataType: "html",
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
+            $.ajax({
+            url:"../../Models/admCLItCliente/RegistrarCliente.php",
+            type: "post",
+            dataType: "html",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
 
-        success:function(r){
+            success:function(r){
 
-          if(r == 1){
-            alert("Agregado con exito :D");
+                if(r == 1){
+                  alert("Agregado con exito :D");
+                  window.location = "admFrmListar.php";
 
-            window.location = "admFrmListar.php";
+                }else{
+                  alert("Fallo al subir el archivo :(");
+                }
+            }
+          });
+      }
+      if (t=="M") {
+        var formData = new FormData(document.getElementById("frmregistrocliente"));
 
-          }else{
-          alert("Fallo al subir el archivo :(");
-          }
-        }
-      });
+            $.ajax({
+            url:"../../Models/admCLItCliente/ActualizarCliente.php",
+            type: "post",
+            dataType: "html",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+
+            success:function(r){
+
+                if(r == 1){
+                  alert("Actualizado con exito :D");
+              //    window.location = "admFrmListar.php";
+
+                }else{
+                  alert("Fallo al subir el archivo :(");
+                }
+            }
+          });
+      }
+
 
     });
   });

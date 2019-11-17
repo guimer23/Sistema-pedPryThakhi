@@ -1,7 +1,7 @@
 <?php
 
-require_once("../../Controllers/Conexion.php");
-require_once("../../Controllers/Vehiculo.php");
+require_once("../../Controllers/admClsConexion.php");
+require_once("../../Controllers/admClsVehiculo.php");
 
 	$obj= new Vehiculo();
 

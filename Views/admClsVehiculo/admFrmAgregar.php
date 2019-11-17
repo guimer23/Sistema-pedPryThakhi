@@ -109,7 +109,7 @@
                             <li class="nav-item"><a class="nav-link" href="../../Views/admClsCliente/admFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
                             <li class="nav-item"><a class="nav-link" href="../../Views/admClsUsuario/admFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
                           </ul>
-                      </div><!--Inicia SubMenu Mantenimiento -->                      
+                      </div><!--Inicia SubMenu Mantenimiento -->
                   </div><!--end menu-body-->
               </div><!-- end main-menu-inner-->
             </div>
@@ -143,9 +143,11 @@
                               if(isset($_GET['code']))
                             //
                               $code =strtoupper($_GET['code']);
-                              else $code="AAA";
+                              else $code="";
 
-
+                              if(isset($_GET['ti']))
+                                $ti =strtoupper($_GET['ti']);
+                                 else $ti="";
 
                                ?>
 
@@ -272,49 +274,110 @@
 
 <script type="text/javascript">
 		$(document).ready(function(){
-
-
+var t = '<?php echo $ti;?>';
 			$('#btnvehiculo').click(function(){
-
-					vacios=ValidadFormVacio('frmvehiculo');
-
+			/*		vacios=ValidadFormVacio('frmvehiculo');
 				if(vacios > 0){
 					alert("Debes llenar todos los campos!!");
 					return false;
 				}
+        */
+      if (t=="N") {
+        var formData = new FormData(document.getElementById("frmvehiculo"));
+        $.ajax({
+          url:"../../Models/admVEHtVehiculo/RegistrarVehiculo.php",
+          type: "post",
+          dataType: "html",
+          data: formData,
+          cache: false,
+          contentType: false,
+          processData: false,
 
-				var formData = new FormData(document.getElementById("frmvehiculo"));
+          success:function(r){
+      //alert(r);
+            if(r == 1){
 
-				$.ajax({
-					url:"../../Models/admVEHtVehiculo/RegistrarVehiculo.php",
-					type: "post",
-					dataType: "html",
-					data: formData,
-					cache: false,
-					contentType: false,
-					processData: false,
+              alert("Agregado con exito :D");
+                 $('#frmvehiculo')[0].reset();
+            }else{
+          alert("no se pudo agregar");
+            }
+          }
+        });
+      }
 
-					success:function(r){
-		//alert(r);
-						if(r == 1){
+    if (t=="M") {
+      var formData = new FormData(document.getElementById("frmvehiculo"));
+      $.ajax({
+        url:"../../Models/admVEHtVehiculo/ActualizarVehiculo.php",
+        type: "post",
+        dataType: "html",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
 
-							alert("Agregado con exito :D");
-              //    $('#frmvehiculo')[0].reset();
-						}else{
-					alert("no se pudo agregar");
-						}
-					}
-				});
+        success:function(r){
+      //alert(r);
+          if(r == 1){
+
+            alert("Actualizado con exito :D");
+            //    $('#frmvehiculo')[0].reset();
+          }else{
+        alert("no se pudo actualizar");
+          }
+        }
+      });
+    }
+
 
 			});
 		});
 	</script>
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+  var code = '<?php echo $code; ?>';
+  if (code!="") {
+    $.ajax({
+         type:"POST",
+         data:"codigo=" + code,
+         url:"../../Models/admVEHtVehiculo/ObtenerDatosVehiculo.php",
+         success:function(r){
+           dato=jQuery.parseJSON(r);
+           $('#placa').val(dato['Placa']);
+           $('#marca').val(dato['Marca']);
+           $('#modelo').val(dato['Modelo']);
+           $('#color').val(dato['Color']);
+           $('#ano').val(dato['Fabricacion']);
+           $('#soat').val(dato['Soat']);
+           var e= dato['Estado'];
+           if (e=="A") {
+             $('#estado').val("Activo");
+           }else {
+             $('#estado').val("Inactivo")
+           }
+           var img=dato['Foto'];
+
+        }
+      });
+
+
+  }
+
+})
+
+
+
+</script>
+
+
 
   <script type="text/javascript">
    function LlenaDatos(){
 
-var  code=$('#es').val();
+     var  code=$('#es').val();
   	 $.ajax({
   				type:"POST",
   				data:"codigo=" + code,
