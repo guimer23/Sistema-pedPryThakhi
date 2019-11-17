@@ -43,7 +43,7 @@ $resultado=mysqli_query($conexion,$sql);
                         <table id="datatable" class="table">
                             <thead class="thead-light">
                             <tr>
-                              <th>#</th>
+                              <th>DNI</th>
                               <th>Nombres y Apellidos</th>
                               <th>Licencia</th>
                               <th>Vigencia de Lic.</th>
