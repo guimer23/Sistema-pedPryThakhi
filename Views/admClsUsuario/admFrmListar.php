@@ -185,7 +185,13 @@ $resultado=mysqli_query($conexion,$sql);
                                             <tbody>
                                               <?php
                                             while ($ver=mysqli_fetch_row($resultado)) :
-                                              # code...
+																							$estado="";
+                                              if ( $ver[6]=="A") {
+                                              	$estado="Activo";
+                                              }
+																							else{
+																								$estado="Inactivo";
+																							}
                                               ?>
                                             <tr>
                                               <td><?php echo  $ver[0]?></td>
@@ -193,7 +199,7 @@ $resultado=mysqli_query($conexion,$sql);
                                               <td><?php echo  $ver[2]?></td>
                                               <td><?php echo  $ver[3]?></td>
                                               <td><?php echo  $ver[4]?></td>
-                                              <td><?php echo  $ver[6]?></td>
+                                              <td><?php echo  $estado ?></td>
                                               <td>
                                                 <a onclick="AgregaDatosUsuario2('<?php echo  $ver[0] ?>')"	 class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#" onclick="AgregaDatosUsuario('<?php echo  $ver[0]?> ')"> <i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i></a>

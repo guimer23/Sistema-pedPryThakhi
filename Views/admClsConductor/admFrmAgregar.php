@@ -153,7 +153,7 @@
                                           <div class="card-body">
                                             <h4 class="mt-0 header-title">Datos del Conductor</h4>
                                               <div class="row clearfix">
-                                                  <div class="col-md-3">
+                                                  <div class="col-md-4">
                                                       <div class="form-group">
 
                                                         <?php
@@ -171,60 +171,62 @@
                                                           <input type="number" id="dni" name="dni" class="form-control"  >
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4">
+                                                  <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Nombres</label>
                                                           <input type="text" class="form-control input-sm" name="nombre" id="nombre">
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-5">
+                                              </div>
+                                              <div class="row clearfix">
+                                                  <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Apellidos <span class="text-danger"></span></label>
                                                           <input type="text" id="apellidos" name="apellidos"class="form-control input-sm"  >
                                                       </div>
                                                   </div>
-                                              </div>
-                                              <div class="row clearfix">
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Licencia de conductor <span class="text-danger"></span></label>
                                                           <input type="text"  id="licencia" name="licencia" class="form-control"  >
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4">
-                                                      <div class="form-group">
-                                                          <label>Vigencia de Licencia</label>
-                                                          <input type="date" id="vigencia" name="vigencia" class="form-control"  >
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-4">
-                                                      <div class="form-group">
-                                                          <label>Celular </label>
-                                                          <input type="number" id="celular" name="celular" class="form-control"  >
-                                                      </div>
-                                                  </div>
                                               </div>
                                               <div class="row clearfix">
-                                                    <div class="col-md-8">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label>Vigencia de Licencia</label>
+                                                            <input type="date" id="vigencia" name="vigencia" class="form-control"  >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label>Celular </label>
+                                                            <input type="number" id="celular" name="celular" class="form-control"  >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Correo electrónico</label>
                                                             <input type="email" id="correo" name="correo" class="form-control"  >
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>Clave </label>
-                                                            <input type="password" id="clave" name="clave" class="form-control input-sm"   >
-                                                        </div>
-                                                    </div>
                                                 </div>
                                                 <div class="row clearfix">
-                                                  <div class="col-md-8">
+                                                  <div class="col-md-4">
+                                                      <div class="form-group">
+                                                          <label>Clave </label>
+                                                          <input type="password" id="clave" name="clave" class="form-control input-sm"   >
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
                                                       <div class="form-group">
                                                           <label>Dirección</label>
                                                           <input type="text" id="direccion" name="direccion"  class="form-control"  >
                                                       </div>
                                                   </div>
+                                                </div>
+                                                <div class="row clearfix">
                                                   <div class="col-md-4">
                                                       <label>Estado</label>
                                                       <div class="form-group">
@@ -235,7 +237,7 @@
                                                           </select>
                                                       </div>
                                                   </div>
-                                                </div>                                                
+                                                </div>
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                       <div class="col-md-12 col-lg-3">
@@ -418,13 +420,6 @@ $(document).ready(function(){
                 else{
                     $('#estado').val("Inactivo");
                 }
-
-              //		$('#idcorreou').text(dato['Email']);
-                //	$('#idusu').text(dato['Usuario']);
-
-          //	$('#nombreU').val(dato['Nombre']);
-            //$('#nivelU').val(dato['Nivel']);
-
 
         }
       });

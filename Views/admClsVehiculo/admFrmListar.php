@@ -201,7 +201,7 @@ $resultado=mysqli_query($conexion,$sql);
 
                                               <td>
                                                 <a href="#"  class="mr-2" onclick="TraeDatos('<?php echo  $ver[0]?>')"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
+                                                <a href="#" onclick="llenar('<?php echo  $ver[0]?> ')"><i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i></a>
                                               </td>
                                             </tr><!--end tr-->
                                           <?php endwhile ?>
@@ -213,6 +213,59 @@ $resultado=mysqli_query($conexion,$sql);
                             </div><!--end card-->
                         </div> <!--end col-->
                     </div><!--end row-->
+
+
+										<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+												<div class="modal-dialog modal-lg">
+														<div class="modal-content">
+																<div class="modal-header">
+																		<h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Vehiculo</h5>
+																		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+																</div>
+																<div class="modal-body">
+																	<div class="row">
+																			<div class="col-md-3">
+																					<img  alt="" id="idfotosv" class="img-fluid">
+																			</div>
+																			<div class="col-lg-9 align-self-center">
+																						<div class="single-pro-detail">
+																								<p class="mb-1">Vehiculo</p>
+																								<div class="custom-border mb-3"></div>
+																								<table width=100%>
+																									<tr>
+																										<th width=2%><h5><b>Placa</b></h5></th>
+																										<td width=70%><h5 id="placav"> </h5> </td>
+																									</tr>
+																									<tr>
+																										<th width=2%><h5><b>Marca</b></h5></th>
+																										<td width=70%><h5 id="marcav"></h5> </td>
+																									</tr>
+																									<tr>
+																										<th width=30%><h5><b>Modelo</b></h5></th>
+																										<td width=70%><h5  id="modelov"> :</h5></td>
+																									</tr>
+																									<tr>
+																										<th width=30%><h5 ><b>Año</b></h5></th>
+																										<td width=70%><h5  id="anov"> </h5></td>
+																									</tr>
+																									<tr>
+																										<th width=30%><h5 ><b>Soat</b></h5></th>
+																										<td width=70%><h5  id="soatv"> : Activo</h5></td>
+																									</tr>
+																									<tr>
+																										<th width=30%><h5 ><b>Estado</b></h5></th>
+																										<td width=70%><h5  id="estadov"> : Activo</h5></td>
+																									</tr>
+																								</table>
+																						</div>
+																				</div><!--end col-->
+																	</div>
+																</div>
+														</div><!-- /.modal-content -->
+												</div><!-- /.modal-dialog -->
+										</div><!-- /.modal -->
+
+
 
                 </div><!-- container -->
 
@@ -247,6 +300,33 @@ $resultado=mysqli_query($conexion,$sql);
 
 
 <script type="text/javascript">
+function llenar(code){
+	$.ajax({
+			 type:"POST",
+			 data:"codigo=" + code,
+			 url:"../../Models/admVEHtVehiculo/ObtenerDatosVehiculo.php",
+			 success:function(r){
+				 dato=jQuery.parseJSON(r);
+				 $('#placav').text(dato['Placa']);
+				 $('#marcav').text(dato['Marca']);
+				 $('#modelov').text(dato['Modelo']);
+				 $('#colorv').text(dato['Color']);
+				 $('#anov').text(dato['Fabricacion']);
+				 $('#soatv').text(dato['Soat']);
+				 var e= dato['Estado'];
+				 if (e=="A") {
+					 $('#estadov').text("Activo");
+				 }else {
+					 $('#estadov').text("Inactivo")
+				 }
+				 	 var img=dato['Foto'];
+				 $('#idfotosv').attr("src",img);
+
+
+			}
+		});
+}
+
  function TraeDatos(code){
 
 var t="M";

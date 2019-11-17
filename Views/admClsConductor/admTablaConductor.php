@@ -70,7 +70,7 @@ $resultado=mysqli_query($conexion,$sql);
 
                               <td>
                                 <a  onclick="AgregaDatosConductor('<?php echo  $ver[0]  ?>')"  class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
+                                <a href="#" onclick="llenadatosc('<?php echo  $ver[0]  ?>')" ><i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg" ></i></a>
                               </td>
                             </tr><!--end tr-->
 

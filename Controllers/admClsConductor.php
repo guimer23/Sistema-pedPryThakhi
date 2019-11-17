@@ -44,18 +44,20 @@ class Conductores
 			$c=new conectar();
 			$conexion=$c->conexion();
 
-			$sql="SELECT CONdni,
-              CONnombre,
-							CONapellido,
-							CONlicencia,
-							CONvigencialicencia,
-              CONcelular,
-              CONemail,
-              CONclave,
-              CONdireccion,
-              CONestado,
-              CONfoto
-					from admcontconductor
+			$sql="SELECT ad.CONdni,
+              ad.CONnombre,
+							ad.CONapellido,
+							ad.CONlicencia,
+							ad.CONvigencialicencia,
+              ad.CONcelular,
+              ad.CONemail,
+              ad.CONclave,
+              ad.CONdireccion,
+              ad.CONestado,
+              img.IMGruta
+					from admcontconductor  as ad
+          inner join admimgtimagen as img
+          on ad.CONfoto=img.IMGid
 					where CONdni='$idusuario'";
 			$result=mysqli_query($conexion,$sql);
 
@@ -71,7 +73,8 @@ class Conductores
               'email' => $ver[6],
               'clave' => $ver[7],
               'direccion' => $ver[8],
-              'estado' => $ver[9]
+              'estado' => $ver[9],
+              'foto' => $ver[10]
 						);
 
 			return $datos;

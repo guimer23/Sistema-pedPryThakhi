@@ -145,7 +145,59 @@
                   <div id="tablaconductor">
 
                   </div>
-
+                  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Vehiculo</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                              </div>
+                              <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img  alt="" id="idfotosv2" class="img-fluid">
+                                    </div>
+                                    <div class="col-lg-9 align-self-center">
+                                          <div class="single-pro-detail">
+                                              <p class="mb-1">Conductor</p>
+                                              <div class="custom-border mb-3"></div>
+                                              <table width=100%>
+                                                <tr>
+                                                  <th width=2%><h5><b>Dni</b></h5></th>
+                                                  <td width=70%><h5 id="dniv"> </h5> </td>
+                                                </tr>
+                                                <tr>
+                                                  <th width=2%><h5><b>Nombres</b></h5></th>
+                                                  <td width=70%><h5 id="nombrev"></h5> </td>
+                                                </tr>
+                                                <tr>
+                                                  <th width=30%><h5><b>Apellidos</b></h5></th>
+                                                  <td width=70%><h5  id="apellidov"> :</h5></td>
+                                                </tr>
+                                                <tr>
+                                                  <th width=30%><h5 ><b>Licencia</b></h5></th>
+                                                  <td width=70%><h5  id="licenciav"> </h5></td>
+                                                </tr>
+                                                <tr>
+                                                  <th width=30%><h5 ><b>Vigencia</b></h5></th>
+                                                  <td width=70%><h5  id="vigenciav"></h5></td>
+                                                </tr>
+                                                <tr>
+                                                  <th width=30%><h5 ><b>Correo</b></h5></th>
+                                                  <td width=70%><h5  id="correov"></h5></td>
+                                                </tr>
+                                                <tr>
+                                                  <th width=30%><h5 ><b>Celular</b></h5></th>
+                                                  <td width=70%><h5  id="celularv"></h5></td>
+                                                </tr>
+                                              </table>
+                                          </div>
+                                      </div><!--end col-->
+                                </div>
+                              </div>
+                          </div><!-- /.modal-content -->
+                      </div><!-- /.modal-dialog -->
+                  </div><!-- /.modal -->
 
                 <?php include "../Template/footer.php" ;?>
             </div>
@@ -186,6 +238,34 @@
 </script>
 
 <script type="text/javascript">
+
+function llenadatosc(code){
+  $.ajax({
+    type:"POST",
+    data:"codigo="+code,
+    url:"../../Models/admCONtConductor/ObtenerDatosConductor.php",
+    success:function(r){
+
+console.log(r);
+      dato=jQuery.parseJSON(r);
+
+          $('#dniv').text(dato['id']);
+          $('#nombrev').text(dato['nombre']);
+          $('#apellidov').text(dato['apellido']);
+          $('#licenciav').text(dato['licencia']);
+          $('#vigenciav').text(dato['vigencia']);
+          $('#celularv').text(dato['celular']);
+          $('#correov').text(dato['email']);
+
+          var img=dato['foto'];
+         $('#idfotosv2').attr("src",img);
+
+
+
+  }
+});
+
+}
 
 function AgregaDatosConductor(Codigoc)
 	{
