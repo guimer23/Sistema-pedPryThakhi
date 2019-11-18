@@ -163,7 +163,7 @@
                   				                                 else $ti="";
                    																			 		?>
                                                           <label>DNI </label>
-                                                          <input type="text" id="dni" name="dni" value="<?php echo $code; ?>" class="form-control" required maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return justNumbers(event);" value="1"/><i>(Máximo 8 dígitos)</i>
+                                                          <input type="text" id="dnicliente" name="dni" value="<?php echo $code; ?>" class="form-control" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/><i>(Máximo 8 dígitos)</i>
                                                       </div>
                                                   </div>
                                                   <div class="col-md-8">
@@ -183,7 +183,7 @@
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Celular <span class="text-danger"></span></label>
-                                                          <input type="text" id="campo-numerico" name="celular" class="form-control" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/>
+                                                          <input type="text" id="celularcliente" name="celular" class="form-control" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/>
                                                       </div>
                                                   </div>
                                               </div>
@@ -395,21 +395,11 @@ var t = '<?php echo $ti;?>';
     }
 </script>
 <!-- fin validacion solo letras -->
-
-<script>
-  var input=  document.getElementById('celular');
-  input.addEventListener('input',function(){
-  if (this.value.length > 12)
-   this.value = this.value.slice(0,12);
-  })
-</script>
-
 <!-- validacion solo numeros -->
-</script> -->
 <script>
-  const campoNumerico = document.getElementById('campo-numerico');
+  const dnicliente = document.getElementById('dnicliente');
 
-  campoNumerico.addEventListener('keydown', function(evento) {
+  dnicliente.addEventListener('keydown', function(evento) {
   const teclaPresionada = evento.key;
   const teclaPresionadaEsUnNumero =
     Number.isInteger(parseInt(teclaPresionada));
@@ -424,7 +414,36 @@ var t = '<?php echo $ti;?>';
     teclaPresionada != 'Enter' &&
     !teclaPresionadaEsUnNumero;
   const comienzaPorCero =
-    campoNumerico.value.length === 0 &&
+    dnicliente.value.length === 0 &&
+    teclaPresionada == 0;
+
+  if (sePresionoUnaTeclaNoAdmitida || comienzaPorCero) {
+    evento.preventDefault();
+  }
+
+  });
+</script>
+<!-- fin validacion solo numeros -->
+<!-- validacion solo numeros -->
+<script>
+  const celularcliente = document.getElementById('celularcliente');
+
+  celularcliente.addEventListener('keydown', function(evento) {
+  const teclaPresionada = evento.key;
+  const teclaPresionadaEsUnNumero =
+    Number.isInteger(parseInt(teclaPresionada));
+
+  const sePresionoUnaTeclaNoAdmitida =
+    teclaPresionada != 'ArrowDown' &&
+    teclaPresionada != 'ArrowUp' &&
+    teclaPresionada != 'ArrowLeft' &&
+    teclaPresionada != 'ArrowRight' &&
+    teclaPresionada != 'Backspace' &&
+    teclaPresionada != 'Delete' &&
+    teclaPresionada != 'Enter' &&
+    !teclaPresionadaEsUnNumero;
+  const comienzaPorCero =
+    celularcliente.value.length === 0 &&
     teclaPresionada == 0;
 
   if (sePresionoUnaTeclaNoAdmitida || comienzaPorCero) {
