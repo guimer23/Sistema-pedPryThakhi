@@ -310,6 +310,7 @@ var t = '<?php echo $ti;?>';
             processData: false,
 
             success:function(r){
+            //º  alert(r);
               if(r == 1){
                 Swal.fire({
                     type: 'success',

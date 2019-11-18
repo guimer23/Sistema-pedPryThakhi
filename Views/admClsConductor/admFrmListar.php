@@ -145,6 +145,7 @@
                   <div id="tablaconductor">
 
                   </div>
+
                   <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                           <div class="modal-content">
@@ -259,8 +260,6 @@ console.log(r);
 
           var img=dato['foto'];
          $('#idfotosv2').attr("src",img);
-
-
 
   }
 });
