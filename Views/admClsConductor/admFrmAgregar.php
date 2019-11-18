@@ -167,8 +167,8 @@
                                                               else $ti="";
                                                          ?>
                                                           <label>DNI </label>
-                                                          <input type="text" name="txtcodde" id="txtcodde" hidden=""  value="<?php echo  $txtdnic ?>"  >
-                                                          <input type="text" id="dniconductor" name="dni" class="form-control" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/><i>(Máximo 8 dígitos)</i>
+                                                            
+                                                          <input type="text" id="dniconductor" value="<?php echo  $txtdnic ?>" name="dni" class="form-control" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/><i>(Máximo 8 dígitos)</i>
                                                       </div>
                                                   </div>
                                                   <div class="col-md-8">
@@ -384,7 +384,7 @@ var t = '<?php echo $ti;?>';
 
 $(document).ready(function(){
 
-  var code=$('#txtcodde').val();
+  var code=$('#dniconductor').val();
 
 //  var img = '<?php //echo $txtdnic;?>';
 

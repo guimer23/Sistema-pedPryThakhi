@@ -163,7 +163,7 @@
                   				                                 else $ti="";
                    																			 		?>
                                                           <label>DNI </label>
-                                                          <input type="text" id="dnicliente" name="dni" value="<?php echo $code; ?>" class="form-control" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/><i>(Máximo 8 dígitos)</i>
+                                                          <input type="text" id="dnicliente" name="dnicliente" value="<?php echo $code; ?>" class="form-control" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/><i>(Máximo 8 dígitos)</i>
                                                       </div>
                                                   </div>
                                                   <div class="col-md-8">
@@ -183,7 +183,7 @@
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Celular <span class="text-danger"></span></label>
-                                                          <input type="text" id="celularcliente" name="celular" class="form-control" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/>
+                                                          <input type="text" id="celularcliente" name="celularcliente" class="form-control" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/>
                                                       </div>
                                                   </div>
                                               </div>
@@ -280,7 +280,7 @@ $(document).ready(function(){
 
 					 $('#nombre').val(dato['nombre']);
 					 $('#apellido').val(dato['apellido']);
-           $('#celular').val(dato['celular']);
+           $('#celularcliente').val(dato['celularcliente']);
            $('#correo').val(dato['email']);
            $('#clave').val(dato['clave']);
 				}
