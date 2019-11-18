@@ -183,7 +183,7 @@
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Celular <span class="text-danger"></span></label>
-                                                          <input type="text" id="celular" name="celular" class="form-control" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return justNumbers(event);" value="2" required/>
+                                                          <input type="text" id="campo-numerico" name="celular" class="form-control" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/>
                                                       </div>
                                                   </div>
                                               </div>
@@ -372,6 +372,7 @@ var t = '<?php echo $ti;?>';
   });
 </script>
 
+<!-- validacion solo letras -->
 <script>
     function soloLetras(e){
        key = e.keyCode || e.which;
@@ -393,6 +394,7 @@ var t = '<?php echo $ti;?>';
         }
     }
 </script>
+<!-- fin validacion solo letras -->
 
 <script>
   var input=  document.getElementById('celular');
@@ -402,13 +404,33 @@ var t = '<?php echo $ti;?>';
   })
 </script>
 
+<!-- validacion solo numeros -->
+</script> -->
 <script>
-function justNumbers(e)
-      {
-      var keynum = window.event ? window.event.keyCode : e.which;
-      if ((keynum == 8) || (keynum == 46))
-      return true;
+  const campoNumerico = document.getElementById('campo-numerico');
 
-      return /\d/.test(String.fromCharCode(keynum));
-      }
+  campoNumerico.addEventListener('keydown', function(evento) {
+  const teclaPresionada = evento.key;
+  const teclaPresionadaEsUnNumero =
+    Number.isInteger(parseInt(teclaPresionada));
+
+  const sePresionoUnaTeclaNoAdmitida =
+    teclaPresionada != 'ArrowDown' &&
+    teclaPresionada != 'ArrowUp' &&
+    teclaPresionada != 'ArrowLeft' &&
+    teclaPresionada != 'ArrowRight' &&
+    teclaPresionada != 'Backspace' &&
+    teclaPresionada != 'Delete' &&
+    teclaPresionada != 'Enter' &&
+    !teclaPresionadaEsUnNumero;
+  const comienzaPorCero =
+    campoNumerico.value.length === 0 &&
+    teclaPresionada == 0;
+
+  if (sePresionoUnaTeclaNoAdmitida || comienzaPorCero) {
+    evento.preventDefault();
+  }
+
+  });
 </script>
+<!-- fin validacion solo numeros -->
