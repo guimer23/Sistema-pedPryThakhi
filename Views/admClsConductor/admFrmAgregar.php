@@ -168,13 +168,13 @@
                                                          ?>
                                                           <label>DNI </label>
                                                           <input type="text" name="txtcodde" id="txtcodde" hidden=""  value="<?php echo  $txtdnic ?>"  >
-                                                          <input type="number" id="dni" name="dni" class="form-control"  >
+                                                          <input type="text" id="dniconductor" name="dni" class="form-control" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/><i>(Máximo 8 dígitos)</i>
                                                       </div>
                                                   </div>
                                                   <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Nombres</label>
-                                                          <input type="text" class="form-control input-sm" name="nombre" id="nombre">
+                                                          <input type="text" class="form-control input-sm" name="nombre" id="nombre" onkeypress="return soloLetras(event)" onpaste="return false" required>
                                                       </div>
                                                   </div>
                                               </div>
@@ -182,7 +182,7 @@
                                                   <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Apellidos <span class="text-danger"></span></label>
-                                                          <input type="text" id="apellidos" name="apellidos"class="form-control input-sm"  >
+                                                          <input type="text" id="apellidos" name="apellidos"class="form-control input-sm" onkeypress="return soloLetras(event)" onpaste="return false" required>
                                                       </div>
                                                   </div>
                                                   <div class="col-md-4">
@@ -202,7 +202,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Celular </label>
-                                                            <input type="number" id="celular" name="celular" class="form-control"  >
+                                                            <input type="text" id="celularconductor" name="celular" class="form-control" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -428,3 +428,87 @@ $(document).ready(function(){
 })
 
 </script>
+
+<!-- validacion solo letras -->
+<script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+
+            return false;
+        }
+    }
+</script>
+<!-- fin validacion solo letras -->
+
+
+<!-- validacion solo numeros -->
+<script>
+  const celularconductor = document.getElementById('celularconductor');
+
+  celularconductor.addEventListener('keydown', function(evento) {
+  const teclaPresionada = evento.key;
+  const teclaPresionadaEsUnNumero =
+    Number.isInteger(parseInt(teclaPresionada));
+
+  const sePresionoUnaTeclaNoAdmitida =
+    teclaPresionada != 'ArrowDown' &&
+    teclaPresionada != 'ArrowUp' &&
+    teclaPresionada != 'ArrowLeft' &&
+    teclaPresionada != 'ArrowRight' &&
+    teclaPresionada != 'Backspace' &&
+    teclaPresionada != 'Delete' &&
+    teclaPresionada != 'Enter' &&
+    !teclaPresionadaEsUnNumero;
+  const comienzaPorCero =
+    celularconductor.value.length === 0 &&
+    teclaPresionada == 0;
+
+  if (sePresionoUnaTeclaNoAdmitida || comienzaPorCero) {
+    evento.preventDefault();
+  }
+
+  });
+</script>
+<!-- fin validacion solo numeros -->
+<!-- validacion solo numeros DNI CONDUCTOR-->
+<script>
+  const dniconductor = document.getElementById('dniconductor');
+
+  dniconductor.addEventListener('keydown', function(evento) {
+  const teclaPresionada = evento.key;
+  const teclaPresionadaEsUnNumero =
+    Number.isInteger(parseInt(teclaPresionada));
+
+  const sePresionoUnaTeclaNoAdmitida =
+    teclaPresionada != 'ArrowDown' &&
+    teclaPresionada != 'ArrowUp' &&
+    teclaPresionada != 'ArrowLeft' &&
+    teclaPresionada != 'ArrowRight' &&
+    teclaPresionada != 'Backspace' &&
+    teclaPresionada != 'Delete' &&
+    teclaPresionada != 'Enter' &&
+    !teclaPresionadaEsUnNumero;
+  const comienzaPorCero =
+    dniconductor.value.length === 0 &&
+    teclaPresionada == 0;
+
+  if (sePresionoUnaTeclaNoAdmitida || comienzaPorCero) {
+    evento.preventDefault();
+  }
+
+  });
+</script>
+<!-- fin validacion solo numeros DNI CONDUCTOR-->
