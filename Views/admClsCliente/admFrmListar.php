@@ -188,7 +188,7 @@ $resultado=mysqli_query($conexion,$sql);
 
                                               <td>
                                                 <a href="#" onclick="ir2('<?php echo $ver['0']; ?>')" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i></a>
+                                                <a href="#" onclick="AgregaDatosCliente('<?php echo $ver['0'];?>')" ><i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i></a>
                                               </td>
                                             </tr><!--end tr-->
                                             <?php endwhile ?>
@@ -204,7 +204,7 @@ $resultado=mysqli_query($conexion,$sql);
 												<div class="modal-dialog modal-lg">
 														<div class="modal-content">
 																<div class="modal-header">
-																		<h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Vehiculo</h5>
+																		<h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Cliente</h5>
 																		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 																</div>
 																<div class="modal-body">
@@ -214,7 +214,7 @@ $resultado=mysqli_query($conexion,$sql);
 																			</div>
 																			<div class="col-lg-9 align-self-center">
 																						<div class="single-pro-detail">
-																								<p class="mb-1">Conductor</p>
+																								<p class="mb-1">Cliente</p>
 																								<div class="custom-border mb-3"></div>
 																								<table width=100%>
 																									<tr>
@@ -222,7 +222,7 @@ $resultado=mysqli_query($conexion,$sql);
 																										<td width=70%><h5 id="dnicv"> </h5> </td>
 																									</tr>
 																									<tr>
-																										<th width=2%><h5><b>Nombres</b></h5></th>
+																										<th width=2%><h5  ><b>Nombres</b></h5></th>
 																										<td width=70%><h5 id="nombrecv"></h5> </td>
 																									</tr>
 																									<tr>
@@ -292,4 +292,33 @@ $resultado=mysqli_query($conexion,$sql);
 	var ti="M";
 		window.location="admFrmAgregar.php?code="+code+"&ti="+ti;
 	}
+</script>
+
+<script>
+function AgregaDatosCliente(Codigousus)
+	{
+
+//alert(Codigousus)
+			$.ajax({
+				type:"POST",
+				data:"dni="+Codigousus,
+				url:"../../Models/admCLItCliente/ObtenerDatosCliente.php",
+				success:function(r){
+                //    alert(r);
+					dato=jQuery.parseJSON(r);
+					console.log(r);
+			///		$('#nombreu').val(dato['Nombres']);idcorreou  idfotos
+                      $('#dnicv').text(dato['id']);
+								$('#nombrecv').text(dato['nombre']);
+								$('#apellidocv').text(dato['apellido']);
+								$('#celularcv').text(dato['celular']);
+                                $('#correocv').text(dato['email']);
+
+							
+								$('#idfotosv2').attr("src",dato['foto']);
+
+					}
+		});
+	}
+
 </script>

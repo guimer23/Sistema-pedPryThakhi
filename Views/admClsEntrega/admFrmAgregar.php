@@ -15,6 +15,11 @@
         <link href="../../Assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="../../Assets/css/metisMenu.min.css" rel="stylesheet" type="text/css" />
         <link href="../../Assets/css/style.css" rel="stylesheet" type="text/css" />
+
+        <!--Sweetalert2 para alertas-->
+        <script src="../../Assets/sweetalert2/dist/sweetalert2.all.min.js"></script>
+        <script src="../../Assets/sweetalert2/dist/sweetalert2.min.js"></script>
+        <link href="../../Assets/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
@@ -139,7 +144,9 @@
                     	$c= new Conectar();
                     	$conexion=$c->conexion();
                   //  	$sql="SELECT CONdni,CONnombre,CONapellido from admcontconductor ";
-                      $sql="SELECT VECid,CONdni from admvectvehiculo_conductor ";
+                      $sql="SELECT vec.VECid,vec.CONdni,con.CONnombre,con.CONapellido    from admvectvehiculo_conductor as vec
+                      inner join admcontconductor as con
+                      on vec.CONdni = con.CONdni ";
                     		$resultado=mysqli_query($conexion,$sql);
 
 
@@ -194,7 +201,7 @@
                                                                   <?php
                                                                 while ($ver=mysqli_fetch_row($resultado)) :
                                                                   ?>
-                                                                  <option  value="<?php echo $ver[0] ?>"><?php echo $ver[1] ?></option>
+                                                                  <option  value="<?php echo $ver[0] ?>"><?php echo $ver[2]." ".$ver[3] ?></option>
                                                                 <?php endwhile; ?>
                                                               </select>
                                                           </div>
@@ -217,7 +224,7 @@
                                                                     <?php
                                                                   while ($ver2=mysqli_fetch_row($resultado2)) :
                                                                     ?>
-                                                                  <option  value="<?php echo $ver2[0] ?>"><?php echo $ver2[1]."-".$ver2[2]; ?></option>
+                                                                  <option  value="<?php echo $ver2[0] ?>"><?php echo  $ver2[1]." ". $ver2[2]; ?></option>
                                                                 <?php endwhile; ?>
                                                                 </select>
                                                             </div>
@@ -321,17 +328,20 @@ $(document).ready(function(){
         contentType: false,
         processData: false,
         success:function(r){
-            alert(r);
+            //alert(r);
             console.log(r);
 
           if(r == 1){
         //    alert(r);
 
-            Swal.fire({
-                type: 'success',
-                title: 'Muy Bien!',
-                text: 'Se guardo con éxito!'
-            })
+        Swal.fire({
+                    type: 'success',
+                    title: 'Muy Bien!',
+                    text: 'Se guardo con éxito!'
+                }).then(function () {
+                  //  console.log("Despues de dar click en el boton, aqui llamarias al submit");
+                    window.location = "admFrmListar.php";
+                })
 
           //alert("Agregado con exito :D");
           //  window.location = "admFrmListar.php";

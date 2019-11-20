@@ -42,14 +42,17 @@ class Clientes
 			$c=new conectar();
 			$conexion=$c->conexion();
 
-			$sql="SELECT CLIdni,
-              CLInombre,
-							CLIapellido,
-							CLIcelular,
-							CLIemail,
-              CLIclave
-					from admclitcliente
-					where CLIdni='$idusuario'";
+			$sql="SELECT  cli.CLIdni,
+                  cli.CLInombre,
+                  cli.CLIapellido,
+                  cli.CLIcelular,
+                  cli.CLIemail,
+                  cli.CLIclave,
+              img.IMGruta
+					from admclitcliente as cli
+          inner join  admimgtimagen as img
+          on cli.CLIfoto=img.IMGid
+					where cli.CLIdni='$idusuario'";
 			$result=mysqli_query($conexion,$sql);
 
 			$ver=mysqli_fetch_row($result);
@@ -60,7 +63,8 @@ class Clientes
 							'apellido' => $ver[2],
 							'celular' => $ver[3],
               'email' => $ver[4],
-              'clave' => $ver[5]
+              'clave' => $ver[5],
+              'foto' => $ver[6]
 						);
 
 			return $datos;
