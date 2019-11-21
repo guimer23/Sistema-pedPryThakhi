@@ -283,6 +283,7 @@ $(document).ready(function(){
            $('#celularcliente').val(dato['celular']);
            $('#correo').val(dato['email']);
            $('#clave').val(dato['clave']);
+          // $('#clave').val(dato['clave']);
 				}
 			});
 	}
