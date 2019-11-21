@@ -38,6 +38,52 @@ class Entregas
 
       return mysqli_query($conexion,$sql);
   }
+  public function ObtenDatosEntrega($codigo){
+        $c= new Conectar();
+        $conexion=$c->conexion();
+
+        $sql ="SELECT d.ENTid, d.entdescripcion,d.enttipo,d.VECid,d.ENTfechahora,d.CLIdni,d.ENTprecio,d.ENTestado,img.IMGruta from admenttentrega as d
+        inner join  admimgtimagen as img
+        on d.ENTfoto=img.IMGid
+        where d.ENTid='$codigo'";
+
+        $resultado=mysqli_query($conexion,$sql);
+        $ver=mysqli_fetch_row($resultado);
+
+        $datos=array(
+          'id'=>$ver[0],
+          'descripcion'=>$ver[1],
+          'tipo'=>$ver[2],
+          'idvehiculo'=>$ver[3],
+          'fecha'=>$ver[4],
+          'clidni'=>$ver[5],
+          'precio'=>$ver[6],
+          'estado'=>$ver[7],
+          'foto'=>$ver[8]);
+
+        return $datos;
+
+      }
+
+      public function ActualizaEntrega($datos) {
+
+        $c= new Conectar();
+        $conexion=$c->conexion();
+
+        $sql ="UPDATE admenttentrega
+        SET entdescripcion='$datos[1]',
+            enttipo ='$datos[2]',
+            VECid ='$datos[3]',
+            ENTfechahora='$datos[4]',
+            CLIdni ='$datos[5]',
+            ENTprecio ='$datos[6]',
+            ENTestado ='$datos[7]'
+        where ENTid='$datos[0]'";
+      //CONdni,CONnombre,CONapellido,CONlicencia,CONvigencialicencia,CONcelular,CONemail,CONclave,CONdireccion,CONestado,CONfoto
+      return mysqli_query($conexion,$sql);// e mysqli_query($conexion,$sql);
+
+      }
+
 }
 
 

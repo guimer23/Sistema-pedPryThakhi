@@ -164,10 +164,19 @@
                                             <h4 class="mt-0 header-title">Datos del Entregas</h4>
                                               <div class="row clearfix">
                                                   <div class="col-md-4">
+                                                    <?php if(isset($_GET['id']))
+                                                  //
+                                                    $code =strtoupper($_GET['id']);
+                                                    else $code="";
+
+                                                    if(isset($_GET['ti']))
+                                                      $ti =strtoupper($_GET['ti']);
+                                                       else $ti="";
+                                                        ?>
                                                       <div class="form-group">
                                                           <label>Código </label>
 
-                                                                <input type="text" class="form-control" value="<?php  echo "Codigo"; ?>" required >
+                                                                <input type="text" id="code" name="code" class="form-control"  >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-8">
@@ -309,56 +318,143 @@
 
 
 
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var code="<?php echo $code; ?>"
+	if (code!="") {
+
+		$.ajax({
+				 type:"POST",
+				 data:"id="+code,
+				 url:"../../Models/admENTtEntrega/ObtenerDatosEntrega.php",
+				 success:function(r){
+           console.log(r);
+					 dato=jQuery.parseJSON(r);
+           $('#code').val(dato['id']);
+           $('#descripcion').val(dato['descripcion']);
+           $('#tipo').val(dato['tipo']);
+           $('#conductor').val(dato['idvehiculo']);
+           $('#fecha').val(dato['fecha']);
+           $('#cliente').val(dato['clidni']);
+           $('#precio').val(dato['precio']);
+
+
+            var estado="";
+            if (dato['estado']=="A") {
+              estado="Activo";
+            }
+            else {
+              estado="Inactivo";
+            }
+          $('#estado').val(estado);
+				}
+			});
+	}
+})
+</script>
+
 <script type="text/javascript">
 $(document).ready(function(){
 
+	var t="<?php echo $ti; ?>";
+  
     $('#registroentrega').click(function(){
-//console.log("hola");
-      //alert("hola");
 
-      var formData = new FormData(document.getElementById("frmentrega"));
+if (t=="N") {
+  var formData = new FormData(document.getElementById("frmentrega"));
 
 
-      $.ajax({
-        url:"../../Models/admENTtEntrega/RegistrarEntrega.php",
-        type: "post",
-        dataType: "html",
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success:function(r){
-            //alert(r);
-            console.log(r);
+        $.ajax({
+          url:"../../Models/admENTtEntrega/RegistrarEntrega.php",
+          type: "post",
+          dataType: "html",
+          data: formData,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success:function(r){
+              //alert(r);
+          //    console.log(r);
 
-          if(r == 1){
-        //    alert(r);
-
-        Swal.fire({
-                    type: 'success',
-                    title: 'Muy Bien!',
-                    text: 'Se guardo con éxito!'
-                }).then(function () {
-                  //  console.log("Despues de dar click en el boton, aqui llamarias al submit");
-                    window.location = "admFrmListar.php";
-                })
-
-          //alert("Agregado con exito :D");
-          //  window.location = "admFrmListar.php";
-
-          }else{
-          //  alert("error");
+            if(r == 1){
+          //    alert(r);
 
           Swal.fire({
-                type: 'error',
-                title: 'Error!',
-                text: 'Tiene que llenar todo los campos!'
-            })
+                      type: 'success',
+                      title: 'Muy Bien!',
+                      text: 'Se guardo con éxito!'
+                  }).then(function () {
+                    //  console.log("Despues de dar click en el boton, aqui llamarias al submit");
+                      window.location = "admFrmListar.php";
+                  })
 
-            //alert("Fallo al subir el archivo :(");
+            //alert("Agregado con exito :D");
+            //  window.location = "admFrmListar.php";
+
+            }else{
+            //  alert("error");
+
+            Swal.fire({
+                  type: 'error',
+                  title: 'Error!',
+                  text: 'Tiene que llenar todo los campos!'
+              })
+
+              //alert("Fallo al subir el archivo :(");
+            }
           }
-        }
-      });
+        });
+
+      }
+
+      if (t=="M") {
+
+        var formData = new FormData(document.getElementById("frmentrega"));
+
+
+        $.ajax({
+          url:"../../Models/admENTtEntrega/ActualizarEntrega.php",
+          type: "post",
+          dataType: "html",
+          data: formData,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success:function(r){
+              //alert(r);
+              console.log(r);
+
+            if(r == 1){
+          //    alert(r);
+
+          Swal.fire({
+                      type: 'success',
+                      title: 'Muy Bien!',
+                      text: 'Se Actualizo con éxito!'
+                  }).then(function () {
+                    //  console.log("Despues de dar click en el boton, aqui llamarias al submit");
+                      window.location = "admFrmListar.php";
+                  })
+
+
+            }else{
+            //  alert("error");
+
+            Swal.fire({
+                  type: 'error',
+                  title: 'Error!',
+                  text: 'Tiene que llenar todo los campos!'
+              })
+
+              //alert("Fallo al subir el archivo :(");
+            }
+          }
+        });
+
+      }
+
 
     });
   });
