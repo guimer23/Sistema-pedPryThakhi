@@ -359,7 +359,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 
 	var t="<?php echo $ti; ?>";
-  
+
     $('#registroentrega').click(function(){
 
 if (t=="N") {
