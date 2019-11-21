@@ -309,6 +309,39 @@
 
 
 
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var code="<?php echo $code; ?>"
+	if (code!="") {
+
+		$.ajax({
+				 type:"POST",
+				 data:"codigo=" + code,
+				 url:"../../Models/admUSUtUsuario/ObtenerDatosUsuario.php",
+				 success:function(r){
+           console.log(r);
+					 dato=jQuery.parseJSON(r);
+           $('#nombre').val(dato['Nombres']);
+           $('#apellido').val(dato['Apellido']);
+            $('#correo').val(dato['Email']);
+           $('#usuario').val(dato['Usuario']);
+            $('#clave').val(dato['Password']);
+            var estado="";
+            if (dato['Estado']=="A") {
+              estado="Activo";
+            }
+            else {
+              estado="Inactivo";
+            }
+             $('#estado').val(estado);
+				}
+			});
+	}
+})
+</script>
+
 <script type="text/javascript">
 $(document).ready(function(){
 
