@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+      <meta http-equiv="refresh" content="10">
         <meta charset="utf-8" />
         <title>Sistema - Thakhi Pedidos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,7 +72,19 @@
                               <path class="svg-primary" d="M256 32C132.288 32 32 132.288 32 256s100.288 224 224 224 224-100.288 224-224S379.712 32 256 32zm135.765 359.765C355.5 428.028 307.285 448 256 448s-99.5-19.972-135.765-56.235C83.972 355.5 64 307.285 64 256s19.972-99.5 56.235-135.765C156.5 83.972 204.715 64 256 64s99.5 19.972 135.765 56.235C428.028 156.5 448 204.715 448 256s-19.972 99.5-56.235 135.765z"/>
                               <path d="M200.043 106.067c-40.631 15.171-73.434 46.382-90.717 85.933H256l-55.957-85.933zM412.797 288A160.723 160.723 0 0 0 416 256c0-36.624-12.314-70.367-33.016-97.334L311 288h101.797zM359.973 134.395C332.007 110.461 295.694 96 256 96c-7.966 0-15.794.591-23.448 1.715L310.852 224l49.121-89.605zM99.204 224A160.65 160.65 0 0 0 96 256c0 36.639 12.324 70.394 33.041 97.366L201 224H99.204zM311.959 405.932c40.631-15.171 73.433-46.382 90.715-85.932H256l55.959 85.932zM152.046 377.621C180.009 401.545 216.314 416 256 416c7.969 0 15.799-.592 23.456-1.716L201.164 288l-49.118 89.621z"/>
                           </svg>
-                      </a><!--Termina Menu Mantenimiento -->                     
+                      </a><!--Termina Menu Mantenimiento -->
+                      <!--Inicia Menu Auntenticacion -->
+                      <a href="#Autenticacion" class="nav-link" data-toggle="tooltip-custom" data-placement="top" title="" data-original-title="Seguridad">
+                          <svg class="nav-svg" version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                          viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                              <g>
+                                  <path class="svg-primary" d="M376,192h-24v-46.7c0-52.7-42-96.5-94.7-97.3c-53.4-0.7-97.3,42.8-97.3,96v48h-24c-22,0-40,18-40,40v192c0,22,18,40,40,40
+                                      h240c22,0,40-18,40-40V232C416,210,398,192,376,192z M270,316.8v68.8c0,7.5-5.8,14-13.3,14.4c-8,0.4-14.7-6-14.7-14v-69.2
+                                      c-11.5-5.6-19.1-17.8-17.9-31.7c1.4-15.5,14.1-27.9,29.6-29c18.7-1.3,34.3,13.5,34.3,31.9C288,300.7,280.7,311.6,270,316.8z
+                                          M324,192H188v-48c0-18.1,7.1-35.1,20-48s29.9-20,48-20s35.1,7.1,48,20s20,29.9,20,48V192z"/>
+                              </g>
+                          </svg>
+                      </a> <!--Termina Menu Auntenticacion -->
 
                   </nav><!--end nav-->
 
@@ -99,9 +112,9 @@
                               <h6 class="menu-title">Entregas</h6>
                           </div>
                           <ul class="nav">
-                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsMonitorear/admFrmListar.php"><i class="mdi mdi-google-maps"></i>Monitorear</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsEntrega/admFrmListar.php"><i class="mdi mdi-package-variant"></i>Entregas</a></li>
-                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsCalificar/admFrmListar.php"><i class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsMonitorear/pedFrmListar.php"><i class="mdi mdi-google-maps"></i>Monitorear</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsEntrega/pedFrmListar.php"><i class="mdi mdi-package-variant"></i>Entregas</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../../Views/admClsCalificar/pedFrmListar.php"><i class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
                           </ul>
                       </div><!--Termina SubMenu Entregas -->
                       <!--Inicia SubMenu Mantenimiento -->
@@ -110,13 +123,28 @@
                               <h6 class="menu-title">Mantenimiento</h6>
                           </div>
                           <ul class="nav">
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculo/admFrmListar.php"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsConductor/admFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculoConductor/admFrmListar.php"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsCliente/admFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsUsuario/admFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculo/pedFrmListar.php"><i class="mdi mdi-car-multiple"></i>Vehículos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsConductor/pedFrmListar.php"><i class="mdi mdi-google-street-view"></i>Conductores</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsVehiculoConductor/pedFrmListar.php"><i class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsCliente/pedFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../Views/admClsUsuario/pedFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
                           </ul>
                       </div><!--Inicia SubMenu Mantenimiento -->
+
+                      <!--Inicia SubMenu Autenticacion -->
+                      <div id="Autenticacion" class="main-icon-menu-pane">
+                          <div class="title-box">
+                              <h6 class="menu-title">Autenticación</h6>
+                          </div>
+                          <ul class="nav">
+                              <li class="nav-item"><a class="nav-link" href="../authentication/auth-login.html"><i class="dripicons-enter"></i>Log in</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../authentication/auth-register.html"><i class="dripicons-pencil"></i>Register</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../authentication/auth-recover-pw.html"><i class="dripicons-clockwise"></i>Recover Password</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../authentication/auth-lock-screen.html"><i class="dripicons-lock"></i>Lock Screen</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../authentication/auth-404.html"><i class="dripicons-warning"></i>Error 404</a></li>
+                              <li class="nav-item"><a class="nav-link" href="../authentication/auth-500.html"><i class="dripicons-wrong"></i>Error 500</a></li>
+                          </ul>
+                      </div><!--Termina SubMenu Autenticacion -->
                   </div><!--end menu-body-->
               </div><!-- end main-menu-inner-->
             </div>
@@ -134,7 +162,7 @@
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Thakhi</a></li>
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Entregas</a></li>
-                                        <li class="breadcrumb-item active">Monitorear</li>
+                                        <li class="breadcrumb-item active">Entregas</li>
                                     </ol>
                                 </div>
                                 <h4 class="page-title">Monitorear Entregas</h4>
@@ -146,55 +174,19 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="mt-0 header-title">Monitoreo de Entregas</h4>                                    
-                                    <div id="gmaps-markers" class="gmaps"></div>
+                                    <!-- <h4 class="mt-0 header-title">Markers</h4>
+                                    <p class="text-muted mb-3">Example of google maps.</p>
+ -->
+                                    <div id="mapa" class="gmaps"></div> 
+                                    <center><h3 class="h2s">Direcciónes de conductores</h3></center>
+                                    <?php include('../../mapas/app.php'); ?>    
+                                    
                                 </div><!--end card-body-->
                             </div><!--end card-->
                         </div> <!-- end col -->
 
                     </div> <!-- end row -->
-                    <!-- end page title end breadcrumb -->
-                    <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">                                
-                                <h4 class="header-title mt-0">Detalles de Monitoreo de Entregas</h4>
-                                <div class="table-responsive dash-social">
-                                    <table id="datatable" class="table">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th>#</th>
-                                                <th>DNI</th>
-                                                <th>Nombres y Apellidos</th>
-                                                <th>Celular</th>
-                                                <th>Placa Vehículo</th>
-                                                <th>Color</th>                                                
-                                            </tr>
-                                            <!--end tr-->
-                                        </thead>
-                                        <tbody>
-                                            
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>                                                    
-                                                </tr>
-                                                <!--end tr-->                                            
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!--end card-body-->
-                        </div>
-                        <!--end card-->
-                    </div>
-                    <!--end col-->
-                </div>
 
-                
                 </div><!-- container -->
 
                 <?php include "../Template/footer.php" ;?>
@@ -211,7 +203,8 @@
         <script src="../../Assets/js/jquery.slimscroll.min.js"></script>
 
         <!-- google maps api -->
-        <script src="https://maps.google.com/maps/api/js?key=AIzaSyCtSAR45TFgZjOs4nBFFZnII-6mMHLfSYI"></script>
+       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARu7kkxeBLPH6O5E8PwEAcWrw2okeUXmA&callback=initMap"></script>
+        
         <!-- Gmaps file -->
         <script src="../../Assets/plugins/gmaps/gmaps.min.js"></script>
         <!-- demo codes -->
@@ -219,6 +212,79 @@
 
         <!-- App js -->
         <script src="../../Assets/js/app.js"></script>
+
+        <!-- App js -->
+        <script src="../../Assets/js/app.js"></script>
+
+         
+
+
+   
+     <script type="text/javascript">
+      function initMap() {
+          var map;
+          var bounds = new google.maps.LatLngBounds();
+          var mapOptions = {
+              mapTypeId: 'roadmap'
+          };
+
+          map = new google.maps.Map(document.getElementById('mapa'), {
+              mapOptions
+          });
+
+          map.setTilt(50);
+
+          // Crear múltiples marcadores desde la Base de Datos 
+          var marcadores = [
+              <?php include('../../mapas/marcadores.php'); ?>
+          ];
+
+          // Creamos la ventana de información para cada Marcador
+          var ventanaInfo = [
+              <?php include('../../mapas/info_marcadores.php'); ?>
+          ];
+
+          // Creamos la ventana de información con los marcadores 
+          var mostrarMarcadores = new google.maps.InfoWindow(),
+              marcadores, i;
+
+          // Colocamos los marcadores en el Mapa de Google 
+          for (i = 0; i < marcadores.length; i++) {
+              var position = new google.maps.LatLng(marcadores[i][1], marcadores[i][2]);
+              bounds.extend(position);
+              marker = new google.maps.Marker({
+                  position: position,
+                  map: map,
+                  title: marcadores[i][0]
+              });
+
+              // Colocamos la ventana de información a cada Marcador del Mapa de Google 
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                  return function() {
+                      mostrarMarcadores.setContent(ventanaInfo[i][0]);
+                      mostrarMarcadores.open(map, marker);
+                  }
+              })(marker, i));
+
+              // Centramos el Mapa de Google para que todos los marcadores se puedan ver 
+              map.fitBounds(bounds);
+          }
+
+          // Aplicamos el evento 'bounds_changed' que detecta cambios en la ventana del Mapa de Google, también le configramos un zoom de 14 
+          var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+              this.setZoom(14);
+              google.maps.event.removeListener(boundsListener);
+          });
+
+      }
+
+      // Lanzamos la función 'initMap' para que muestre el Mapa con Los Marcadores y toda la configuración realizada 
+      google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
+
+        <script src="../../Assets/plugins/gmaps/gmaps.min.js"></script>
+        <!-- demo codes -->
+        <script src="../../Assets/pages/jquery.gmaps.init.js"></script>
 
         <!-- App js -->
         <script src="../../Assets/js/app.js"></script>
