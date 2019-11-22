@@ -167,7 +167,7 @@
                                                               else $ti="";
                                                          ?>
                                                           <label>DNI </label>
-                                                            
+
                                                           <input type="text" id="dniconductor" value="<?php echo  $txtdnic ?>" name="dni" class="form-control" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/><i>(Máximo 8 dígitos)</i>
                                                       </div>
                                                   </div>
@@ -202,7 +202,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>Celular </label>
-                                                            <input type="text" id="celularconductor" name="celular" class="form-control" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/>
+                                                            <input type="text" id="celular" name="celular" class="form-control" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">

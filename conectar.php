@@ -2,7 +2,7 @@
 
 
 
-$mysqli = new mysqli("localhost", "root", "", "administracion");
+$mysqli = new mysqli("localhost", "root", "", "administracionthakhi");
 
 /* comprobar la conexión */
 if ($mysqli->connect_errno) {

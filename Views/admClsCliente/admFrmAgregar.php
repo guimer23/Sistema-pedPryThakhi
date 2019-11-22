@@ -280,9 +280,10 @@ $(document).ready(function(){
 
 					 $('#nombre').val(dato['nombre']);
 					 $('#apellido').val(dato['apellido']);
-           $('#celularcliente').val(dato['celularcliente']);
+           $('#celularcliente').val(dato['celular']);
            $('#correo').val(dato['email']);
            $('#clave').val(dato['clave']);
+          // $('#clave').val(dato['clave']);
 				}
 			});
 	}

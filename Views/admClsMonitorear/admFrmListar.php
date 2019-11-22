@@ -134,7 +134,7 @@
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Thakhi</a></li>
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Entregas</a></li>
-                                        <li class="breadcrumb-item active">Entregas</li>
+                                        <li class="breadcrumb-item active">Monitorear</li>
                                     </ol>
                                 </div>
                                 <h4 class="page-title">Monitorear Entregas</h4>
@@ -146,15 +146,55 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="mt-0 header-title">Markers</h4>
-                                    <p class="text-muted mb-3">Example of google maps.</p>
+                                    <h4 class="mt-0 header-title">Monitoreo de Entregas</h4>                                    
                                     <div id="gmaps-markers" class="gmaps"></div>
                                 </div><!--end card-body-->
                             </div><!--end card-->
                         </div> <!-- end col -->
 
                     </div> <!-- end row -->
+                    <!-- end page title end breadcrumb -->
+                    <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">                                
+                                <h4 class="header-title mt-0">Detalles de Monitoreo de Entregas</h4>
+                                <div class="table-responsive dash-social">
+                                    <table id="datatable" class="table">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>DNI</th>
+                                                <th>Nombres y Apellidos</th>
+                                                <th>Celular</th>
+                                                <th>Placa Vehículo</th>
+                                                <th>Color</th>                                                
+                                            </tr>
+                                            <!--end tr-->
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>                                                    
+                                                </tr>
+                                                <!--end tr-->                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!--end card-body-->
+                        </div>
+                        <!--end card-->
+                    </div>
+                    <!--end col-->
+                </div>
 
+                
                 </div><!-- container -->
 
                 <?php include "../Template/footer.php" ;?>
