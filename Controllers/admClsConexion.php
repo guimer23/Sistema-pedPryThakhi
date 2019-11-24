@@ -18,7 +18,8 @@ class Conectar
 	private $servidor="localhost";
 	private $usuario="root";
 	private $pass="";
-	private $bd="administracionthakhi";
+	private $bd="administracionthakhi1";
+
 	function conexion()
 	{
 		$conexion=mysqli_connect($this->servidor,
@@ -27,6 +28,7 @@ class Conectar
 						$this->bd);
 		return $conexion;
 	}
+
 }
 
 ?>

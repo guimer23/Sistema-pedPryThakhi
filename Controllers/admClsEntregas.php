@@ -42,9 +42,16 @@ class Entregas
         $c= new Conectar();
         $conexion=$c->conexion();
 
-        $sql ="SELECT d.ENTid, d.entdescripcion,d.enttipo,d.VECid,d.ENTfechahora,d.CLIdni,d.ENTprecio,d.ENTestado,img.IMGruta from admenttentrega as d
+        $sql ="SELECT d.ENTid, d.entdescripcion,d.enttipo,c.CONnombre,d.ENTfechahora,cli.CLInombre,d.ENTprecio,d.ENTestado,img.IMGruta from admenttentrega as d
         inner join  admimgtimagen as img
         on d.ENTfoto=img.IMGid
+
+        inner join admvectvehiculo_conductor as co
+        on d.VECid=co.VECid
+        inner join admcontconductor as c
+        on co.CONdni=c.CONdni
+        inner join admclitcliente as cli
+        on d.CLIdni=cli.CLIdni
         where d.ENTid='$codigo'";
 
         $resultado=mysqli_query($conexion,$sql);
@@ -59,7 +66,7 @@ class Entregas
           'clidni'=>$ver[5],
           'precio'=>$ver[6],
           'estado'=>$ver[7],
-          'foto'=>$ver[8]);
+          'ruta'=>$ver[8]);
 
         return $datos;
 

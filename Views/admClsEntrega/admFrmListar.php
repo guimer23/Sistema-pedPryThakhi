@@ -3,7 +3,7 @@
 require_once("../../Controllers/admClsConexion.php");
 $c = new Conectar();
 $conexion = $c->conexion();
-$sql = "SELECT a.ENTid,a.ENTdescripcion,a.ENTtipo,c.CONnombre ,ENTfechahora,cli.CLInombre,a.ENTestado from admenttentrega as a
+$sql = "SELECT a.ENTid,a.ENTdescripcion,a.ENTtipo,c.CONnombre ,a.ENTfechahora,cli.CLInombre,a.ENTprecio,a.ENTestado from admenttentrega as a
   inner join admclitcliente as cli
   on a.CLIdni=cli.CLIdni
   inner join admvectvehiculo_conductor as co
@@ -195,7 +195,7 @@ $resultado = mysqli_query($conexion, $sql);
                                         <?php
                                             while ($ver = mysqli_fetch_row($resultado)) :
                                                 $estado = "";
-                                                if ($ver[6] == "A") {
+                                                if ($ver[7] == "A") {
                                                     $estado = "Activo";
                                                 } else {
                                                     $estado = "Inactivo";
@@ -209,10 +209,11 @@ $resultado = mysqli_query($conexion, $sql);
                                                     <td><?php echo  $ver[3] ?></td>
                                                     <td><?php echo  $ver[4] ?></td>
                                                     <td><?php echo  $ver[5] ?></td>
+                                                    <td><?php echo  $ver[6] ?></td>
                                                     <td><?php echo  $estado ?></td>
                                                     <td>
-                                                        <a href="#" onclick="Ir('<?php echo $ver[0] ; ?>')" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                        <a href="#" onclick="Ir('<?php echo $ver[0]; ?>')"><i class="fas fa-eye text-dark font-16"></i></a>
+                                                        <a  onclick="Ir('<?php echo $ver[0] ; ?>')" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                        <a href="#" onclick="AgregaDatosEntrega('<?php echo $ver[0]; ?>')"><i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i></a>
                                                     </td>
                                                 </tr>
                                                 <!--end tr-->
@@ -228,6 +229,92 @@ $resultado = mysqli_query($conexion, $sql);
                     <!--end col-->
                 </div>
                 <!--end row-->
+                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Usuario</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                      <br>
+                                      <br>
+                                        <img alt="" id="idfotos" class="img-fluid">
+                                    </div>
+                                    <div class="col-lg-9 align-self-center">
+                                        <div class="single-pro-detail">
+                                            <p class="mb-1">Usuario</p>
+                                            <div class="custom-border mb-3"></div>
+                                            <table width=100%>
+                                                <tr>
+                                                    <th width=2%>
+                                                        <h5><b>DESCRIPCION</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="iddescripcion"> </h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=2%>
+                                                        <h5><b>TIPO</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idtipo"></h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=30%>
+                                                        <h5><b>CONDUCTOR</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idconductor"> : </h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=30%>
+                                                        <h5><b>FECHA</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idfecha"> : </h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=30%>
+                                                        <h5><b>CLIENTE</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idcliente"> : </h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=30%>
+                                                        <h5><b>PRECIO</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idprecio"> : </h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=30%>
+                                                        <h5><b>ESTADO</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idestado"> : </h5>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+
 
             </div><!-- container -->
 
@@ -277,4 +364,36 @@ $resultado = mysqli_query($conexion, $sql);
             window.location = "admFrmAgregar.php?ti=" + t;
         });
     })
+
+
+    function AgregaDatosEntrega(Codigousus) {
+
+        $.ajax({
+            type: "POST",
+            data: "id=" + Codigousus,
+            url: "../../Models/admENTtEntrega/ObtenerDatosEntrega.php",
+            success: function(r) {
+
+                dato = jQuery.parseJSON(r);
+                console.log(r);
+
+                $('#iddescripcion').text(dato['descripcion']);
+                $('#idtipo').text(dato['tipo']);
+                $('#idconductor').text(dato['idvehiculo']);
+                $('#idfecha').text(dato['fecha']);
+                $('#idcliente').text(dato['clidni']);
+                $('#idprecio').text(dato['precio']);
+
+                if (dato['Estado'] == "A") {
+                    $('#idestado').text("Activo");
+                } else {
+                    $('#idestado').text("InActivo");
+                }
+
+                $('#idfotos').attr("src", dato['ruta']);
+
+            }
+        });
+    }
+
 </script>
