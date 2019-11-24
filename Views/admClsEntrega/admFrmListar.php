@@ -179,11 +179,12 @@ $resultado = mysqli_query($conexion, $sql);
                                             <tr>
                                                 <th>#</th>
                                                 <th>Código</th>
-                                                <th>Nombre</th>
+                                                <th>Descripción</th>
                                                 <th>Tipo</th>
                                                 <th>Conductor</th>
-                                                <th>Fecha y Hora de Entrega</th>
+                                                <th>Fecha</th>
                                                 <th>Cliente</th>
+                                                <th>Precio</th>
                                                 <th>Estado</th>
                                                 <th>Acción</th>
                                             </tr>

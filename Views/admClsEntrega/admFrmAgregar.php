@@ -159,7 +159,7 @@
                             <div class="card">
                                 <form id="frmentrega" enctype="multipart/form-data">
                                   <div class="row">
-                                      <div class="col-md-12 col-lg-9">
+                                      <div class="col-md-12 col-lg-12">
                                           <div class="card-body">
                                             <h4 class="mt-0 header-title">Datos del Entregas</h4>
                                               <div class="row clearfix">
@@ -220,7 +220,7 @@
                                               <div class="row clearfix">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label>Fecha y Hora de entrega</label>
+                                                            <label>Fecha de entrega</label>
                                                             <input type="date" id="fecha" name="fecha" class="form-control" required >
                                                         </div>
                                                     </div>
@@ -250,23 +250,16 @@
                                                       <div class="col-md-6">
                                                           <label>Estado</label>
                                                           <div class="form-group">
-                                                              <select  class="form-control" id="estado" name="estado" >
-                                                                  <option value="">- Seleccionar -</option>
-                                                                  <option value="Activo">Activo</option>
-                                                                  <option value="Inactivo">Inactivo</option>
+                                                              <select  class="form-control" id="estado" name="estado" disabled >                                                                  
+                                                                  <option value="Pendiente">Pendiente</option>
+                                                                  <option value="Entregado">Entregado</option> 
+                                                                  <option value="No Entregado">No Entregado</option>                                                                  
                                                               </select>
                                                           </div>
                                                       </div>
                                                   </div>
                                           </div><!--end card-body-->
-                                      </div><!--end col-->
-                                      <div class="col-md-12 col-lg-3">
-                                          <div class="card-body">
-                                            <h4 class="mt-0 header-title">Subir Foto</h4>
-                                            <p class="text-muted mb-3">Arrastra una imagen</p>
-                                            <input type="file" id="imagen" name="imagen" class="dropify" />
-                                          </div><!--end card-body-->
-                                      </div><!--end col-->
+                                      </div><!--end col-->  
                                       <div class="col-md-12 col-lg-12">
                                           <div class="card-body">
                                             <div class="row clearfix text-right  ">
