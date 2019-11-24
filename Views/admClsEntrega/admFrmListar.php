@@ -340,12 +340,10 @@ $resultado = mysqli_query($conexion, $sql);
     <script src="../../Assets/plugins/peity-chart/jquery.peity.min.js"></script>
 
     <script src="../../Assets/pages/jquery.ana_customers.inity.js"></script>
-
     <!-- App js -->
     <script src="../../Assets/js/app.js"></script>
 
 </body>
-
 </html>
 
 
@@ -353,7 +351,6 @@ $resultado = mysqli_query($conexion, $sql);
 
 
     function Ir(id) {
-
         var t = "M";
         window.location = "admFrmAgregar.php?id=" + id + "&ti=" + t;
     }
@@ -364,7 +361,6 @@ $resultado = mysqli_query($conexion, $sql);
             window.location = "admFrmAgregar.php?ti=" + t;
         });
     })
-
 
     function AgregaDatosEntrega(Codigousus) {
 

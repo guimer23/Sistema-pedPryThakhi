@@ -250,16 +250,16 @@
                                                       <div class="col-md-6">
                                                           <label>Estado</label>
                                                           <div class="form-group">
-                                                              <select  class="form-control" id="estado" name="estado" disabled >                                                                  
+                                                              <select  class="form-control" id="estado" name="estado" disabled  >
                                                                   <option value="Pendiente">Pendiente</option>
-                                                                  <option value="Entregado">Entregado</option> 
-                                                                  <option value="No Entregado">No Entregado</option>                                                                  
+                                                                  <option value="Entregado">Entregado</option>
+                                                                  <option value="No Entregado">No Entregado</option>
                                                               </select>
                                                           </div>
                                                       </div>
                                                   </div>
                                           </div><!--end card-body-->
-                                      </div><!--end col-->  
+                                      </div><!--end col-->
                                       <div class="col-md-12 col-lg-12">
                                           <div class="card-body">
                                             <div class="row clearfix text-right  ">
@@ -324,6 +324,7 @@ $(document).ready(function(){
 				 url:"../../Models/admENTtEntrega/ObtenerDatosEntrega.php",
 				 success:function(r){
            console.log(r);
+
 					 dato=jQuery.parseJSON(r);
            $('#code').val(dato['id']);
            $('#descripcion').val(dato['descripcion']);
@@ -368,7 +369,7 @@ if (t=="N") {
           contentType: false,
           processData: false,
           success:function(r){
-              //alert(r);
+            alert(r);
           //    console.log(r);
 
             if(r == 1){

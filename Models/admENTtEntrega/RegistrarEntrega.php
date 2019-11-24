@@ -5,7 +5,7 @@ require_once("../../Controllers/admClsEntregas.php");
 $obj = new Entregas();
 
 	$datos=array();
-	$nombreImg=$_FILES['imagen']['name'];
+/*	$nombreImg=$_FILES['imagen']['name'];
 	$rutaAlmacenamiento=$_FILES['imagen']['tmp_name'];
 	$carpeta='../../Fotos/';
 	$rutaFinal=$carpeta.$nombreImg;
@@ -26,6 +26,7 @@ $obj = new Entregas();
 			$var="I";
 		}
 			if($idimagen > 0){
+				*/
 
 					$datos[0]=$_POST['descripcion'];
 					$datos[1]=$_POST['tipo'];
@@ -34,14 +35,15 @@ $obj = new Entregas();
           $datos[4]=$_POST['cliente'];
           $datos[5]=$_POST['precio'];
           $datos[6]="A";
-					$datos[7]=7;
+	//				$datos[7]=7;
 					//console.log($datos);
 					echo $obj->RegistroEntrega($datos);
-				}else{
+			/*	}else{
 					echo 0;
 				}
 
 		}
+		*/
 
 
  ?>
