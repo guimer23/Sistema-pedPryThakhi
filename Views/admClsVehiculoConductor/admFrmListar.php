@@ -170,7 +170,7 @@ $resultado=mysqli_query($conexion,$sql);
                                               <th>#</th>
                                               <th>Conductor</th>
                                               <th>Vehículo</th>
-																							<th>Estado</th>
+											<th>Estado</th>
                                               <th>Acción</th>
                                             </tr><!--end tr-->
                                             </thead>
@@ -193,8 +193,7 @@ $resultado=mysqli_query($conexion,$sql);
                                               <td><?php echo  $ver[3]?></td>
 																							 <td><?php echo  $estado?></td>
                                               <td>
-                                                <a href="#" onclick="ir('<?php echo $ver[0]; ?>')" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                                <a href="#"><i class="fas fa-eye text-dark font-16"></i></a>
+                                                <a href="#" onclick="ir('<?php echo $ver[0]; ?>')" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>                                                
                                               </td>
                                             </tr><!--end tr-->
                                           <?php endwhile ?>
