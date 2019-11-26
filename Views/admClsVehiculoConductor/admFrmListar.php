@@ -164,7 +164,7 @@ $resultado=mysqli_query($conexion,$sql);
                                     <a href="#" id="ir2" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Asignar Nuevo Vehículo a Conductor</a>
                                     <h4 class="header-title mt-0">Detalles de Vehículo - Conductor</h4>
                                     <div class="table-responsive dash-social">
-                                        <table id="datatable" class="table">
+                                        <table id="TablaVehiculoConductor" class="table">
                                             <thead class="thead-light">
                                             <tr>
                                               <th>#</th>
@@ -252,3 +252,34 @@ var ti="M";
 	window.location="admFrmAgregar.php?code="+code+"&ti="+ti;
 }
 </script>
+<script>
+    $(function (e) {
+        $('#TablaVehiculoConductor').DataTable({
+            "aLengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Todos"]],
+            "bDestroy": true,
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningun dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "?ltimo",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            }
+        });
+    });</script>

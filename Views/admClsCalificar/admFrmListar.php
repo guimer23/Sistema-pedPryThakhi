@@ -145,7 +145,7 @@
                                 <div class="card-body">
                                     <h4 class="header-title mt-0">Detalles de Calificación de Conductores</h4>
                                     <div class="table-responsive dash-social">
-                                        <table id="datatable" class="table">
+                                        <table id="TablaCalificacion" class="table">
                                             <thead class="thead-light">
                                             <tr>
                                               <th>#</th>
@@ -197,8 +197,12 @@
         <!-- App js -->
         <script src="../../Assets/js/app.js"></script>
 
-        <!-- App js -->
-        <script src="../../Assets/js/app.js"></script>
+        <!-- Required datatable js -->
+        <script src="../../Assets/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../Assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+        <script src="../../Assets/plugins/peity-chart/jquery.peity.min.js"></script>
+
+        <script src="../../Assets/pages/jquery.ana_customers.inity.js"></script>
 
     </body>
 </html>
@@ -208,3 +212,34 @@
 
 
 </script>
+<script>
+    $(function (e) {
+        $('#TablaCalificacion').DataTable({
+            "aLengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Todos"]],
+            "bDestroy": true,
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningun dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "?ltimo",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            }
+        });
+    });</script>
