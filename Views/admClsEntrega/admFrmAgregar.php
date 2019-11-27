@@ -334,11 +334,15 @@ $(document).ready(function(){
 
 
             var estado="";
-            if (dato['estado']=="A") {
-              estado="Activo";
+            if (dato['estado']=="P") {
+              estado="Pendiente";
             }
-            else {
-              estado="Inactivo";
+
+            else if(dato['estado']=="E" ) {
+              estado="Entregado";
+            }
+            else{
+                estado="No Entregado";
             }
           $('#estado').val(estado);
 				}
@@ -367,7 +371,7 @@ if (t=="N") {
           contentType: false,
           processData: false,
           success:function(r){
-        
+
           //    console.log(r);
 
             if(r == 1){

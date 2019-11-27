@@ -8,9 +8,11 @@
   $conexion = $c->conexion();
 
   // Listamos las direcciones con todos sus datos (lat, lng, dirección, etc.)
-  $result = mysqli_query($conexion,  "SELECT  vhi.VEHid, vhi.CONdni,co.CONnombre,co.CONapellido,vhi.VEClatitud,vhi.VEClongitud FROM admvectvehiculo_conductor as vhi
+  $result = mysqli_query($conexion,  "SELECT  vhi.VEHid, vhi.CONdni,co.CONnombre,co.CONapellido,co.CONcelular,vehi.VEHplaca,  vhi.VEClatitud,vhi.VEClongitud FROM admvectvehiculo_conductor as vhi
   inner join admcontconductor as co
-  on vhi.condni= co.CONdni");
+  on vhi.condni= co.CONdni
+  inner join admvehtvehiculo as vehi
+  on vhi.VEHid=vehi.VEHid");
 
   // Creamos una tabla para listar los datos
   echo "<div class='table-responsive'>";
@@ -40,8 +42,8 @@
       echo "<td scope='col'>". $row['VEHid'] ."</td>";
       echo "<td scope='col'>" . $row['CONdni'] . "</td>";
       echo "<td scope='col'>" . preg_replace('/\\\\u([\da-fA-F]{4})/', '&#x\1;', $row['CONnombre']." ".$row['CONapellido']) . "</td>";
-      echo "<td scope='col'>" . $row['VEClatitud'] . "</td>";
-      echo "<td scope='col'>" . $row['VEClongitud'] . "</td>";
+      echo "<td scope='col'>" . $row['CONcelular'] . "</td>";
+      echo "<td scope='col'>" . $row['VEHplaca'] . "</td>";
       echo "<td class='text-center'><h5><span class='badge badge-success'>Activo</span></h5></td>";
       echo "</tr>";
   }

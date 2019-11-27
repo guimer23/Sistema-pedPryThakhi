@@ -229,10 +229,48 @@
               // Colocamos la ventana de información a cada Marcador del Mapa de Google
               google.maps.event.addListener(marker, 'click', (function(marker, i) {
                   return function() {
-                      mostrarMarcadores.setContent(ventanaInfo[i][0]);
-                      mostrarMarcadores.open(map, marker);
+                    var dni= marcadores[i][0];
+                      var idvehi= marcadores[i][3];
+
+
+                    $.ajax({
+                        type: "POST",
+                        data: "codigo=" + dni,
+                        url: "../../Models/admCONtConductor/ObtenerDatosConductor.php",
+                        success: function(r) {
+                            dato = jQuery.parseJSON(r);
+                            console.log(r);
+                            nombre=dato['nombre'];
+
+                           $('#pnombre').text(dato['nombre']+" "+dato['apellido']);
+
+                        }
+                    });
+
+                    $.ajax({
+                        type: "POST",
+                        data: "codigo=" + idvehi,
+                        url: "../../Models/admvehtvehiculo/ObtenerDatosVehiculo.php",
+                        success: function(r) {
+                            dato = jQuery.parseJSON(r);
+                           $('#idplacas').text(dato['Placa']);
+
+                        }
+                    });
+                      //mostrarMarcadores.setContent(ventanaInfo[i][0]);
+                      //mostrarMarcadores.open(map, marker);
+
+                      var infowindow = new google.maps.InfoWindow({
+                        content:" <div class='container'>  <strong><center>CONDUCTOR</center></strong><br><p>" +marcadores[i][0]+"</p>  <p id='pnombre'> </p>   <p id='idplacas'> </p> </div>"
+                      });
+                      infowindow.open(map,marker);
+
                   }
-              })(marker, i));
+              })
+
+              (marker, i));
+
+
 
               // Centramos el Mapa de Google para que todos los marcadores se puedan ver
               map.fitBounds(bounds);
@@ -248,6 +286,25 @@
 
       // Lanzamos la función 'initMap' para que muestre el Mapa con Los Marcadores y toda la configuración realizada
       google.maps.event.addDomListener(window, 'load', initMap);
+
+
+      function myMap(latitud,longitud) {
+        console.log(latitud,longitud)
+              console.log("hola");
+          var myCenter = new google.maps.LatLng(latitud,longitud);
+          var mapCanvas = document.getElementById("mapa");
+          var mapOptions = {center: myCenter, zoom: 5};
+          var map = new google.maps.Map(mapCanvas, mapOptions);
+          var marker = new google.maps.Marker({position:myCenter});
+          marker.setMap(map);
+
+          google.maps.event.addListener(marker,'click',function() {
+            var infowindow = new google.maps.InfoWindow({
+              content:"<strong><center>CONDUCTOR</center></strong><br><p>Guimer Coaquira Coaquira</p><p>Placa:PK-2545</p>"
+            });
+          infowindow.open(map,marker);
+          });
+        }
     </script>
 
         <script src="../../Assets/plugins/gmaps/gmaps.min.js"></script>

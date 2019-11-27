@@ -1,15 +1,23 @@
 <?php
 
   // Archivo de Conexión a la Base de Datos
-  include('conexion.php');
+  //include('conexion.php');
 
-  // Listamos las direcciones con todos sus datos (lat, lng, dirección, etc.)
-  $result = mysqli_query($con, "SELECT vhi.CONdni,co.CONnombre,vhi.VEClatitud,vhi.VEClongitud FROM admvectvehiculo_conductor as vhi
+  require_once("../../Controllers/admClsConexion.php");
+  $c = new Conectar();
+  $conexion = $c->conexion();
+ //Listamos las direcciones con todos sus datos (lat, lng, dirección, etc.)
+$result = mysqli_query($conexion, "SELECT vhi.CONdni,vhi.VEClatitud,vhi.VEClongitud,co.CONnombre,vhi.VEHid FROM admvectvehiculo_conductor as vhi
   inner join admcontconductor as co
-  on vhi.condni= co.CONdni");
+  on vhi.CONdni=co.CONdni");
+  //  $result = mysqli_query($con, "SELECT * FROM admvectvehiculo_conductor");
 
   // Seleccionamos los datos para crear los marcadores en el Mapa de Google serian direccion, lat y lng
   while ($row = mysqli_fetch_array($result)) {
-      echo '["' . $row['CONdni'] . '", '.row['CONnombre'].','.row['VEClatitud']. ', ' .$row['VEClongitud'].'],';
+      echo '["' . $row['CONdni'] . '", '.$row['VEClatitud'].','.$row['VEClongitud']. ','.$row['VEHid'].  '],';
+
+
+  //  echo '["' . $row['CONdni'] . '", ' . $row['VEClatitud'] . ', ' . $row['VEClongitud'] . '],';
   }
+
 ?>

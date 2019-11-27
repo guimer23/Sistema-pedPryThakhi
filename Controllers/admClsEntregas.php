@@ -42,7 +42,7 @@ class Entregas
         $c= new Conectar();
         $conexion=$c->conexion();
 
-        $sql ="SELECT d.ENTid, d.entdescripcion,d.enttipo,c.CONnombre,d.ENTfechahora,cli.CLInombre,d.ENTprecio,d.ENTestado,img.IMGruta from admenttentrega as d
+        $sql ="SELECT d.ENTid, d.entdescripcion,d.enttipo,d.VECid, c.CONnombre,d.ENTfechahora,d.CLIdni, cli.CLInombre,d.ENTprecio,d.ENTestado,img.IMGruta from admenttentrega as d
         inner join  admimgtimagen as img
         on d.ENTfoto=img.IMGid
 
@@ -62,11 +62,11 @@ class Entregas
           'descripcion'=>$ver[1],
           'tipo'=>$ver[2],
           'idvehiculo'=>$ver[3],
-          'fecha'=>$ver[4],
-          'clidni'=>$ver[5],
-          'precio'=>$ver[6],
-          'estado'=>$ver[7],
-          'ruta'=>$ver[8]);
+          'fecha'=>$ver[5],
+          'clidni'=>$ver[6],
+          'precio'=>$ver[8],
+          'estado'=>$ver[9],
+          'ruta'=>$ver[10]);
 
         return $datos;
 
