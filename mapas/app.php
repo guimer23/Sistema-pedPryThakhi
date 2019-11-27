@@ -16,12 +16,14 @@
               <h4 class='header-title mt-0'>Detalles de Monitoreo de Entregas</h4>
               <div class='table-responsive dash-social'>
   <table class='table' id='TablaMonitorear'>
-          <thead class='thead-dark'>
+          <thead class='thead-light'>
             <tr>
-              <th scope='col'>Nombre</th>
-              <th scope='col'>Dirección</th>
-              <th scope='col'>Latitud</th>
-              <th scope='col'>Longitud</th>
+                <th scope='col'>#</th>
+                <th scope='col'>DNI</th>
+                <th scope='col'>Nombres y Apellidos</th>
+                <th scope='col'>Celular</th>
+                <th scope='col'>Placa Vehículo</th>
+                <th class='text-center' scope='col'>Estado</th>
               
             </tr>
             </thead>
@@ -29,11 +31,12 @@
 
   while ($row = mysqli_fetch_array($result)) {
       echo "<tr>";
+      echo "<td scope='col'>1</td>"; 
       echo "<td scope='col'>" . $row['CONdni'] . "</td>";
       echo "<td scope='col'>" . preg_replace('/\\\\u([\da-fA-F]{4})/', '&#x\1;', $row['VEHid']) . "</td>";
       echo "<td scope='col'>" . $row['VEClatitud'] . "</td>";
       echo "<td scope='col'>" . $row['VEClongitud'] . "</td>";
-      
+      echo "<td class='text-center'><h5><span class='badge badge-success'>Activo</span></h5></td>"; 
       echo "</tr>";
   }
   echo "</tbody></table>";
