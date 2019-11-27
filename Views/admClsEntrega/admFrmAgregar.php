@@ -161,24 +161,22 @@
                                       <div class="col-md-12 col-lg-12">
                                           <div class="card-body">
                                             <h4 class="mt-0 header-title">Datos del Entregas</h4>
-                                              <div class="row clearfix">
-                                                  <div class="col-md-4">
+                                            <div class="col-md-4">
                                                     <?php if(isset($_GET['id']))
                                                   //
                                                     $code =strtoupper($_GET['id']);
                                                     else $code="";
-
                                                     if(isset($_GET['ti']))
                                                       $ti =strtoupper($_GET['ti']);
                                                        else $ti="";
                                                         ?>
-                                                      <div class="form-group">
-                                                          <label>Código </label>
-
-                                                                <input type="text" id="code" name="code" class="form-control"  >
+                                                      <div class="form-group">                                                       
+                                                       <input type="text" id="code" name="code"  hidden="" >
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-8">
+                                              <div class="row clearfix">
+                                                  
+                                                  <div class="col-md-12">
                                                       <div class="form-group">
                                                           <label>Descripción</label>
                                                           <input type="text" class="form-control" id="descripcion" name="descripcion" required >
@@ -192,10 +190,11 @@
                                                           <div class="form-group">
                                                               <select  class="form-control" id="tipo" name="tipo" Required>
                                                                   <option value="">- Seleccionar -</option>
+                                                                  <option value="Documentos">Documentos</option>
                                                                   <option value="Comida">Comida</option>
-                                                                  <option value="Documento">Documento</option>
-                                                                  <option value="Encomienda">Encomienda</option>
-                                                                  <option value="Agua">Agua</option>
+                                                                  <option value="Artefactos">Artefactos electrónicos</option>
+                                                                  <option value="Utiles">Útiles de oficina</option>
+                                                                  <option value="Otro">Otro</option>
                                                               </select>
                                                           </div>
                                                       </div>

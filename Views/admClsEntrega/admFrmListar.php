@@ -194,10 +194,13 @@ $resultado = mysqli_query($conexion, $sql);
                                         <?php
                                             while ($ver = mysqli_fetch_row($resultado)) :
                                                 $estado = "";
-                                                if ($ver[7] == "A") {
-                                                    $estado = "Activo";
-                                                } else {
-                                                    $estado = "Inactivo";
+                                                if ($ver[7] == "P") {
+                                                    $estado = "<span class='badge badge-primary'>Pendiente</span>";
+                                                }
+                                                else if ($ver[7] == "E") {
+                                                    $estado = "<span class='badge badge-success'>Entregado</span>";
+                                                } else if ($ver[7] == "N") {
+                                                    $estado = "<span class='badge badge-danger'>No entregado</span>";
                                                 }
                                                 ?>
                                                 <tr>
@@ -232,7 +235,7 @@ $resultado = mysqli_query($conexion, $sql);
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Usuario</h5>
+                                <h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Entrega</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             </div>
                             <div class="modal-body">
@@ -244,7 +247,7 @@ $resultado = mysqli_query($conexion, $sql);
                                     </div>
                                     <div class="col-lg-9 align-self-center">
                                         <div class="single-pro-detail">
-                                            <p class="mb-1">Usuario</p>
+                                            <p class="mb-1">Entrega</p>
                                             <div class="custom-border mb-3"></div>
                                             <table width=100%>
                                                 <tr>
