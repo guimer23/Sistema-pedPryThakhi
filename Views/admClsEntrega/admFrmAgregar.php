@@ -156,7 +156,7 @@
                     <div class="row">
                         <div class="col-md-12 col-lg-12">
                             <div class="card">
-                                <form id="frmentrega" enctype="multipart/form-data">
+                                <form id="frmentrega" >
                                   <div class="row">
                                       <div class="col-md-12 col-lg-12">
                                           <div class="card-body">
@@ -170,12 +170,12 @@
                                                       $ti =strtoupper($_GET['ti']);
                                                        else $ti="";
                                                         ?>
-                                                      <div class="form-group">                                                       
+                                                      <div class="form-group">
                                                        <input type="text" id="code" name="code"  hidden="" >
                                                       </div>
                                                   </div>
                                               <div class="row clearfix">
-                                                  
+
                                                   <div class="col-md-12">
                                                       <div class="form-group">
                                                           <label>Descripción</label>
@@ -248,10 +248,10 @@
                                                       <div class="col-md-6">
                                                           <label>Estado</label>
                                                           <div class="form-group">
-                                                              <select  class="form-control" id="estado" name="estado" disabled  >
+                                                              <select  class="form-control" id="estado" name="estado"   >
                                                                   <option value="Pendiente">Pendiente</option>
-                                                                  <option value="Entregado">Entregado</option>
-                                                                  <option value="No Entregado">No Entregado</option>
+                                                                  <option value="Entregado" disabled>Entregado</option>
+                                                                  <option value="No Entregado" disabled>No Entregado</option>
                                                               </select>
                                                           </div>
                                                       </div>
@@ -367,11 +367,11 @@ if (t=="N") {
           contentType: false,
           processData: false,
           success:function(r){
-            alert(r);
+        
           //    console.log(r);
 
             if(r == 1){
-          //    alert(r);
+          //   alert(r);
 
           Swal.fire({
                       type: 'success',
@@ -382,11 +382,7 @@ if (t=="N") {
                       window.location = "admFrmListar.php";
                   })
 
-            //alert("Agregado con exito :D");
-            //  window.location = "admFrmListar.php";
-
             }else{
-            //  alert("error");
 
             Swal.fire({
                   type: 'error',
@@ -394,7 +390,6 @@ if (t=="N") {
                   text: 'Tiene que llenar todo los campos!'
               })
 
-              //alert("Fallo al subir el archivo :(");
             }
           }
         });

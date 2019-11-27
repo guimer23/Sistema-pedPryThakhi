@@ -71,7 +71,7 @@
                               <path class="svg-primary" d="M256 32C132.288 32 32 132.288 32 256s100.288 224 224 224 224-100.288 224-224S379.712 32 256 32zm135.765 359.765C355.5 428.028 307.285 448 256 448s-99.5-19.972-135.765-56.235C83.972 355.5 64 307.285 64 256s19.972-99.5 56.235-135.765C156.5 83.972 204.715 64 256 64s99.5 19.972 135.765 56.235C428.028 156.5 448 204.715 448 256s-19.972 99.5-56.235 135.765z"/>
                               <path d="M200.043 106.067c-40.631 15.171-73.434 46.382-90.717 85.933H256l-55.957-85.933zM412.797 288A160.723 160.723 0 0 0 416 256c0-36.624-12.314-70.367-33.016-97.334L311 288h101.797zM359.973 134.395C332.007 110.461 295.694 96 256 96c-7.966 0-15.794.591-23.448 1.715L310.852 224l49.121-89.605zM99.204 224A160.65 160.65 0 0 0 96 256c0 36.639 12.324 70.394 33.041 97.366L201 224H99.204zM311.959 405.932c40.631-15.171 73.433-46.382 90.715-85.932H256l55.959 85.932zM152.046 377.621C180.009 401.545 216.314 416 256 416c7.969 0 15.799-.592 23.456-1.716L201.164 288l-49.118 89.621z"/>
                           </svg>
-                      </a><!--Termina Menu Mantenimiento -->                      
+                      </a><!--Termina Menu Mantenimiento -->
 
                   </nav><!--end nav-->
 
@@ -118,7 +118,7 @@
                           </ul>
                       </div><!--Inicia SubMenu Mantenimiento -->
 
-                      
+
                   </div><!--end menu-body-->
               </div><!-- end main-menu-inner-->
             </div>
@@ -144,26 +144,26 @@
                         </div><!--end col-->
                     </div>
                     <!-- end page title end breadcrumb -->
-                 
+
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                
-                                
+
+
                                     <!-- <h4 class="mt-0 header-title">Markers</h4>
                                     <p class="text-muted mb-3">Example of google maps.</p>-->
-                                    
-                                    <div id="mapa" class="gmaps" ></div>                                     
-                                    <?php include('../../mapas/app.php'); ?>    
 
-                                    
-                                    
+                                    <div id="mapa" class="gmaps" ></div>
+                                    <?php include('../../mapas/app.php'); ?>
+
+
+
                                 </div><!--end card-body-->
                             </div><!--end card-->
                         </div> <!-- end col -->
                     </div> <!-- end row -->
-                    
+
                 </div><!-- container -->
                 <?php include "../Template/footer.php" ;?>
             </div>
@@ -180,7 +180,7 @@
 
         <!-- google maps api -->
        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARu7kkxeBLPH6O5E8PwEAcWrw2okeUXmA&callback=initMap" ></script>
-        
+
         <!-- App js -->
         <script src="../../Assets/js/app.js"></script>
 
@@ -202,7 +202,7 @@
 
           map.setTilt(50);
 
-          // Crear múltiples marcadores desde la Base de Datos 
+          // Crear múltiples marcadores desde la Base de Datos
           var marcadores = [
               <?php include('../../mapas/marcadores.php'); ?>
           ];
@@ -212,11 +212,11 @@
               <?php include('../../mapas/info_marcadores.php'); ?>
           ];
 
-          // Creamos la ventana de información con los marcadores 
+          // Creamos la ventana de información con los marcadores
           var mostrarMarcadores = new google.maps.InfoWindow(),
               marcadores, i;
 
-          // Colocamos los marcadores en el Mapa de Google 
+          // Colocamos los marcadores en el Mapa de Google   AQUI APARECE EL NOMBRE DEL DNI DEL CONDUCTOR
           for (i = 0; i < marcadores.length; i++) {
               var position = new google.maps.LatLng(marcadores[i][1], marcadores[i][2]);
               bounds.extend(position);
@@ -226,7 +226,7 @@
                   title: marcadores[i][0]
               });
 
-              // Colocamos la ventana de información a cada Marcador del Mapa de Google 
+              // Colocamos la ventana de información a cada Marcador del Mapa de Google
               google.maps.event.addListener(marker, 'click', (function(marker, i) {
                   return function() {
                       mostrarMarcadores.setContent(ventanaInfo[i][0]);
@@ -234,11 +234,11 @@
                   }
               })(marker, i));
 
-              // Centramos el Mapa de Google para que todos los marcadores se puedan ver 
+              // Centramos el Mapa de Google para que todos los marcadores se puedan ver
               map.fitBounds(bounds);
           }
 
-          // Aplicamos el evento 'bounds_changed' que detecta cambios en la ventana del Mapa de Google, también le configramos un zoom de 14 
+          // Aplicamos el evento 'bounds_changed' que detecta cambios en la ventana del Mapa de Google, también le configramos un zoom de 14
           var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
               this.setZoom(14);
               google.maps.event.removeListener(boundsListener);
@@ -246,7 +246,7 @@
 
       }
 
-      // Lanzamos la función 'initMap' para que muestre el Mapa con Los Marcadores y toda la configuración realizada 
+      // Lanzamos la función 'initMap' para que muestre el Mapa con Los Marcadores y toda la configuración realizada
       google.maps.event.addDomListener(window, 'load', initMap);
     </script>
 
@@ -302,4 +302,3 @@
             }
         });
     });</script>
-

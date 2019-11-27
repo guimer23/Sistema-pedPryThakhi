@@ -300,11 +300,14 @@ var t = '<?php echo $ti;?>';
 
 			if (t=="N") {
 				datos=$('#frmvehiculoconductor').serialize();
+
 				$.ajax({
 					type:"POST",
 					data:datos,
 						url:"../../Models/admVECtVehiculoConductor/RegistroVehiculoConductor.php",
+
 					success:function(r){
+						alert(r);
 						if(r == 1){
 							Swal.fire({
 									type: 'success',

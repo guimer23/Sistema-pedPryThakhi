@@ -4,6 +4,7 @@ require_once("../../Controllers/admClsVehiculoConductor.php");
 
 $obj = new VehiculoConductor();
 
+
 $estado=$_POST['estado'];
 $var="";
 if($estado=="Activo"){
@@ -16,10 +17,10 @@ if($estado=="Activo"){
   $var="I";
 }
 
-
 $datos=array(
 $_POST['idconductor'],
 $_POST['idvehiculo'],$var);
+//var_dump($datos);
 
 echo $obj->RegistrarVehiculoConductor($datos);
 

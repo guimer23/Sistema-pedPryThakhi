@@ -303,7 +303,8 @@ $resultado = mysqli_query($conexion, $sql);
                                                         <h5><b>ESTADO</b></h5>
                                                     </th>
                                                     <td width=70%>
-                                                        <h5 id="idestado"> : </h5>
+                                                      
+                                                        <span  id="spanstado"></span>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -382,13 +383,28 @@ $resultado = mysqli_query($conexion, $sql);
                 $('#idcliente').text(dato['clidni']);
                 $('#idprecio').text(dato['precio']);
 
-                if (dato['Estado'] == "A") {
-                    $('#idestado').text("Activo");
+                if (dato['estado'] == "P") {
+                  //  $('#idestado').text("Pendiente");
+                  $('#spanstado').text("Pendiente");
+                    $('#spanstado').addClass('badge badge-primary');
+                  //  $('#spanstado').className="badge badge-primary";
+                  //  var elemento = document.getElementById("spanstado");
+                    // elemento.className += "badge badge-primary";
+
+
                 } else {
                     $('#idestado').text("InActivo");
                 }
 
-                $('#idfotos').attr("src", dato['ruta']);
+
+
+                if (dato['ruta']==null) {
+                    $('#idfotos').attr("src","../../Fotos/paquete.jpg");
+                }
+                else{
+                    $('#idfotos').attr("src", dato['ruta']);
+                }
+
 
             }
         });

@@ -6,12 +6,13 @@ class VehiculoConductor
 
     public function RegistrarVehiculoConductor($datos)
     {
+    
       $c= new Conectar();
       $conexion=$c->conexion();
-      $sql="INSERT INTO admvectvehiculo_conductor (CONdni,VEHid,VECestado)
+      $sql="INSERT INTO admvectvehiculo_conductor (condni,VEHid,VECestado)
       values('$datos[0]',
             '$datos[1]',
-          '$datos[2]')";
+            '$datos[2]')";
 
         return mysqli_query($conexion,$sql);
     }

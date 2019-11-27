@@ -1,18 +1,24 @@
 <?php
 
-  // Archivo de Conexión a la Base de Datos 
-  include('conexion.php');
+  // Archivo de Conexión a la Base de Datos
+  //include('conexion.php');
+
+  require_once("../../Controllers/admClsConexion.php");
+  $c = new Conectar();
+  $conexion = $c->conexion();
 
   // Listamos las direcciones con todos sus datos (lat, lng, dirección, etc.)
-  $result = mysqli_query($con, "SELECT * FROM admvectvehiculo_conductor");
+  $result = mysqli_query($conexion,  "SELECT  vhi.VEHid, vhi.CONdni,co.CONnombre,co.CONapellido,vhi.VEClatitud,vhi.VEClongitud FROM admvectvehiculo_conductor as vhi
+  inner join admcontconductor as co
+  on vhi.condni= co.CONdni");
 
-  // Creamos una tabla para listar los datos 
+  // Creamos una tabla para listar los datos
   echo "<div class='table-responsive'>";
 
   echo "<div class='row'>
   <div class='col-12'>
       <div class='card'>
-          <div class='card-body'>                                
+          <div class='card-body'>
               <h4 class='header-title mt-0'>Detalles de Monitoreo de Entregas</h4>
               <div class='table-responsive dash-social'>
   <table class='table' id='TablaMonitorear'>
@@ -24,19 +30,19 @@
                 <th scope='col'>Celular</th>
                 <th scope='col'>Placa Vehículo</th>
                 <th class='text-center' scope='col'>Estado</th>
-              
+
             </tr>
             </thead>
             <tbody>";
 
   while ($row = mysqli_fetch_array($result)) {
       echo "<tr>";
-      echo "<td scope='col'>1</td>"; 
+      echo "<td scope='col'>". $row['VEHid'] ."</td>";
       echo "<td scope='col'>" . $row['CONdni'] . "</td>";
-      echo "<td scope='col'>" . preg_replace('/\\\\u([\da-fA-F]{4})/', '&#x\1;', $row['VEHid']) . "</td>";
+      echo "<td scope='col'>" . preg_replace('/\\\\u([\da-fA-F]{4})/', '&#x\1;', $row['CONnombre']." ".$row['CONapellido']) . "</td>";
       echo "<td scope='col'>" . $row['VEClatitud'] . "</td>";
       echo "<td scope='col'>" . $row['VEClongitud'] . "</td>";
-      echo "<td class='text-center'><h5><span class='badge badge-success'>Activo</span></h5></td>"; 
+      echo "<td class='text-center'><h5><span class='badge badge-success'>Activo</span></h5></td>";
       echo "</tr>";
   }
   echo "</tbody></table>";
@@ -49,5 +55,3 @@
 <!--end col-->
 </div>";
   echo "</div>";
-
-  
