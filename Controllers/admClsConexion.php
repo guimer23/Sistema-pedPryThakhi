@@ -23,7 +23,7 @@ class Conectar
 private $servidor="localhost";
 private $usuario="root";
 private $pass="";
-private $bd="administracionthakhi1";
+private $bd="administracionthakhi";
 
 	function conexion()
 	{
