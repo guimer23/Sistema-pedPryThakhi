@@ -176,8 +176,7 @@ $resultado = mysqli_query($conexion, $sql);
                                     <table id="TablaEntrega" class="table">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th>#</th>
-                                                <th>Código</th>
+                                                <th>#</th>                                                
                                                 <th>Descripción</th>
                                                 <th>Tipo</th>
                                                 <th>Conductor</th>
@@ -204,8 +203,7 @@ $resultado = mysqli_query($conexion, $sql);
                                                 }
                                                 ?>
                                                 <tr>
-                                                    <td><?php echo  $ver[0] ?></td>
-                                                    <td>Codigo</td>
+                                                    <td><?php echo  $ver[0] ?></td>                                                    
                                                     <td><?php echo  $ver[1] ?></td>
                                                     <td><?php echo  $ver[2] ?></td>
                                                     <td><?php echo  $ver[3] ?></td>
