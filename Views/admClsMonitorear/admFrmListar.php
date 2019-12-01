@@ -151,9 +151,6 @@
                                 <div class="card-body">
 
 
-                                    <!-- <h4 class="mt-0 header-title">Markers</h4>
-                                    <p class="text-muted mb-3">Example of google maps.</p>-->
-
                                     <div id="mapa" class="gmaps" ></div>
                                     <?php include('../../mapas/app.php'); ?>
 
@@ -201,7 +198,6 @@
           });
 
           map.setTilt(50);
-
           // Crear múltiples marcadores desde la Base de Datos
           var marcadores = [
               <?php include('../../mapas/marcadores.php'); ?>
@@ -225,14 +221,11 @@
                   map: map,
                   title: marcadores[i][0]
               });
-
               // Colocamos la ventana de información a cada Marcador del Mapa de Google
               google.maps.event.addListener(marker, 'click', (function(marker, i) {
                   return function() {
                     var dni= marcadores[i][0];
                       var idvehi= marcadores[i][3];
-
-
                     $.ajax({
                         type: "POST",
                         data: "codigo=" + dni,
@@ -241,9 +234,7 @@
                             dato = jQuery.parseJSON(r);
                             console.log(r);
                             nombre=dato['nombre'];
-
                            $('#pnombre').text(dato['nombre']+" "+dato['apellido']);
-
                         }
                     });
 
@@ -269,9 +260,6 @@
               })
 
               (marker, i));
-
-
-
               // Centramos el Mapa de Google para que todos los marcadores se puedan ver
               map.fitBounds(bounds);
           }

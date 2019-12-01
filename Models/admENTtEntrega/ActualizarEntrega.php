@@ -7,14 +7,17 @@ $obj = new Entregas();
 
 $estado=$_POST['estado'];
 $var="";
-if($estado=="Activo"){
+if($estado=="Pendiente"){
    // $datos[6]="A";
-   $var="A";
+   $var="P";
 
+  }
+  else if ($estado=="Entregado") {
+       $var="E";
   }
     else {
   // code...$datos[6]="A";
-  $var="I";
+  $var="N";
 }
 	       $datos=array();
          $datos[0]=$_POST['code'];
