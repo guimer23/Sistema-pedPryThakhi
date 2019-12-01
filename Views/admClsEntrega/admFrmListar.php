@@ -177,8 +177,12 @@ $resultado = mysqli_query($conexion, $sql);
                                     <table id="TablaEntrega" class="table">
                                         <thead class="thead-light">
                                             <tr>
+<<<<<<< HEAD
                                                 <th>#</th>
 
+=======
+                                                <th>#</th>                                                
+>>>>>>> 8e0834eda6edbd0a60e090d666baf7b340bde227
                                                 <th>Descripción</th>
                                                 <th>Tipo</th>
                                                 <th>Conductor</th>
@@ -205,8 +209,12 @@ $resultado = mysqli_query($conexion, $sql);
                                                 }
                                                 ?>
                                                 <tr>
+<<<<<<< HEAD
                                                     <td><?php echo  $ver[0] ?></td>
                                             
+=======
+                                                    <td><?php echo  $ver[0] ?></td>                                                    
+>>>>>>> 8e0834eda6edbd0a60e090d666baf7b340bde227
                                                     <td><?php echo  $ver[1] ?></td>
                                                     <td><?php echo  $ver[2] ?></td>
                                                     <td><?php echo  $ver[3] ?></td>

@@ -24,7 +24,6 @@ private $servidor="localhost";
 private $usuario="root";
 private $pass="";
 private $bd="administracionthakhi1";
-
 	function conexion()
 	{
 		$conexion=mysqli_connect($this->servidor,
