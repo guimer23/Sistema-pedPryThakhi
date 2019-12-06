@@ -292,8 +292,11 @@ console.log(r);
           $('#vigenciav').text(dato['vigencia']);
           $('#celularv').text(dato['celular']);
 <<<<<<< HEAD
+<<<<<<< HEAD
           $('#correov').text(dato['email']);
 =======
+=======
+>>>>>>> parent of b9f13f8... Cambio CONDUCTOR
 
           direccion=dato['direccions'];
          //
