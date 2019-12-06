@@ -246,7 +246,6 @@ $resultado = mysqli_query($conexion, $sql);
                                             <table class="table">
                                                 <thead class="thead-light">
                                                 </thead>
-
                                                 <tbody>
                                                   <tr>
                                                       <th  width=30%>NOMBRE</th>
@@ -326,13 +325,11 @@ $resultado = mysqli_query($conexion, $sql);
 
                 if (dato['Estado'] == "A") {
                     $('#idestado').text("Activo");
-                    //  $('#idestado').text("Activo").val();
                     $('#idestado').removeClass('badge badge-danger');
                     $('#idestado').addClass('badge badge-success');
                 }
                 else if (dato['Estado'] == "I") {
                       $('#idestado').text("Inactivo");
-                      //$('#idestado').text("Inactivo").val();
                       $('#idestado').removeClass('badge badge-success');
                       $('#idestado').addClass('badge badge-danger');
                 }
