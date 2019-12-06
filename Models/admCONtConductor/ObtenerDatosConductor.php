@@ -7,6 +7,5 @@
 	$idart=$_POST['codigo'];
 
 	echo json_encode($obj->obtenDatosConductor($idart));
-	
 
  ?>

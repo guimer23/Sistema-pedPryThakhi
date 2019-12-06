@@ -25,7 +25,7 @@ $obj = new Entregas();
           $datos[4]=$_POST['cliente'];
           $datos[5]=$_POST['precio'];
           $datos[6]=$var;
-					$datos[7]=1;
+					$datos[7]=11;
 
 					echo $obj->RegistroEntrega($datos);
 

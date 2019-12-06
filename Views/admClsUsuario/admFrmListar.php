@@ -195,9 +195,9 @@ $resultado = mysqli_query($conexion, $sql);
                                             while ($ver = mysqli_fetch_row($resultado)) :
                                                 $estado = "";
                                                 if ($ver[6] == "A") {
-                                                    $estado = "<span class='badge badge-success'>Activo</span>";;
+                                                    $estado = "Activo";
                                                 } else {
-                                                    $estado = "<span class='badge badge-danger'>Inactivo</span>";;
+                                                    $estado = "Inactivo";
                                                 }
                                                 ?>
                                                 <tr>
@@ -243,6 +243,7 @@ $resultado = mysqli_query($conexion, $sql);
                                         <div class="single-pro-detail">
                                             <p class="mb-1">Usuario</p>
                                             <div class="custom-border mb-3"></div>
+<<<<<<< HEAD
                                             <table class="table">
                                                 <thead class="thead-light">
                                                 </thead>
@@ -264,6 +265,41 @@ $resultado = mysqli_query($conexion, $sql);
                                                       <td><span id="idestado"></span></td>
                                                   </tr>
                                                 </tbody>
+=======
+                                            <table width=100%>
+                                                <tr>
+                                                    <th width=2%>
+                                                        <h5><b>NOMBRE</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idnombres"> </h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=2%>
+                                                        <h5><b>CORREO</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idcorreou"></h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=30%>
+                                                        <h5><b>USUARIO</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idusu"> : admin</h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=30%>
+                                                        <h5><b>ESTADO</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idestado"> : Activo</h5>
+                                                    </td>
+                                                </tr>
+>>>>>>> b862a53beee7f51cd919975a02b2e68a2e7f23c6
                                             </table>
                                         </div>
                                     </div>
@@ -317,14 +353,16 @@ $resultado = mysqli_query($conexion, $sql);
             success: function(r) {
 
                 dato = jQuery.parseJSON(r);
-                //$('#spanstado').addClass('');
+                console.log(r);
                 ///		$('#nombreu').val(dato['Nombres']);idcorreou  idfotos
                 $('#idnombres').text(dato['Nombres']);
                 $('#idcorreou').text(dato['Email']);
                 $('#idusu').text(dato['Usuario']);
 
+
                 if (dato['Estado'] == "A") {
                     $('#idestado').text("Activo");
+<<<<<<< HEAD
                     $('#idestado').removeClass('badge badge-danger');
                     $('#idestado').addClass('badge badge-success');
                 }
@@ -332,9 +370,11 @@ $resultado = mysqli_query($conexion, $sql);
                       $('#idestado').text("Inactivo");
                       $('#idestado').removeClass('badge badge-success');
                       $('#idestado').addClass('badge badge-danger');
+=======
+                } else {
+                    $('#idestado').text("InActivo");
+>>>>>>> b862a53beee7f51cd919975a02b2e68a2e7f23c6
                 }
-
-
                 $('#idfotos').attr("src", dato['Ruta']);
 
             }
@@ -386,3 +426,5 @@ $resultado = mysqli_query($conexion, $sql);
             }
         });
     });</script>
+
+

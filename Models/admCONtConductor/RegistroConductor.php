@@ -28,9 +28,9 @@ $obj = new Conductores();
 				if($idimagen > 0){
 
 					$datos[0]=$_POST['dni'];
-					$datos[1]=$_POST['nombre'];
-					$datos[2]=$_POST['apellidos'];
-					$datos[3]=$_POST['licencia'];
+          $datos[1]=$_POST['nombre'];
+          $datos[2]=$_POST['apellidos'];
+          $datos[3]=$_POST['licencia'];
 					$datos[4]=$_POST['vigencia'];
 					$datos[5]=$_POST['celular'];
 					$datos[6]=$_POST['correo'];
