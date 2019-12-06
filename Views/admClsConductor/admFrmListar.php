@@ -246,19 +246,20 @@ function llenadatosc(code){
     url:"../../Models/admCONtConductor/ObtenerDatosConductor.php",
     success:function(r){
 
-console.log(r);
+        //alert(r);
       dato=jQuery.parseJSON(r);
-
+   
           $('#dniv').text(dato['id']);
           $('#nombrev').text(dato['nombre']);
           $('#apellidov').text(dato['apellido']);
           $('#licenciav').text(dato['licencia']);
           $('#vigenciav').text(dato['vigencia']);
-          $('#celularv').text(dato['celular']);
           $('#correov').text(dato['email']);
+          $('#celularv').text(dato['celular']);
+         // 
 
           var img=dato['foto'];
-         $('#idfotosv2').attr("src",img);
+             $('#idfotosv2').attr("src",img);
 
   }
 });
