@@ -243,6 +243,29 @@ $resultado = mysqli_query($conexion, $sql);
                                         <div class="single-pro-detail">
                                             <p class="mb-1">Usuario</p>
                                             <div class="custom-border mb-3"></div>
+<<<<<<< HEAD
+                                            <table class="table">
+                                                <thead class="thead-light">
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                      <th  width=30%>NOMBRE</th>
+                                                      <td  width=70% id="idnombres"> </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <th>CORREO</th>
+                                                      <td id="idcorreou"> </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <th>USUARIO</th>
+                                                      <td id="idusu"> </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <th>ESTADO</th>
+                                                      <td><span id="idestado"></span></td>
+                                                  </tr>
+                                                </tbody>
+=======
                                             <table width=100%>
                                                 <tr>
                                                     <th width=2%>
@@ -276,6 +299,7 @@ $resultado = mysqli_query($conexion, $sql);
                                                         <h5 id="idestado"> : Activo</h5>
                                                     </td>
                                                 </tr>
+>>>>>>> b862a53beee7f51cd919975a02b2e68a2e7f23c6
                                             </table>
                                         </div>
                                     </div>
@@ -338,8 +362,18 @@ $resultado = mysqli_query($conexion, $sql);
 
                 if (dato['Estado'] == "A") {
                     $('#idestado').text("Activo");
+<<<<<<< HEAD
+                    $('#idestado').removeClass('badge badge-danger');
+                    $('#idestado').addClass('badge badge-success');
+                }
+                else if (dato['Estado'] == "I") {
+                      $('#idestado').text("Inactivo");
+                      $('#idestado').removeClass('badge badge-success');
+                      $('#idestado').addClass('badge badge-danger');
+=======
                 } else {
                     $('#idestado').text("InActivo");
+>>>>>>> b862a53beee7f51cd919975a02b2e68a2e7f23c6
                 }
                 $('#idfotos').attr("src", dato['Ruta']);
 
