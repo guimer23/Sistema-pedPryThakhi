@@ -161,6 +161,7 @@
                                           <div class="single-pro-detail">
                                               <p class="mb-1">Conductor</p>
                                               <div class="custom-border mb-3"></div>
+<<<<<<< HEAD
                                               <table width=100%>
                                                 <tr>
                                                   <th width=2%><h5><b>Dni</b></h5></th>
@@ -190,6 +191,41 @@
                                                   <th width=30%><h5 ><b>Celular</b></h5></th>
                                                   <td width=70%><h5  id="celularv"></h5></td>
                                                 </tr>
+=======
+                                              <table class="table">
+                                                  <thead class="thead-light">
+                                                  </thead>
+                                                  <tbody>
+                                                    <tr>
+                                                        <th  width=30%>DNI</th>
+                                                        <td  width=70% id="dniv"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>NOMBRE</th>
+                                                        <td id="nombrev"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>APELLIDOS</th>
+                                                        <td id="apellidov"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>LICENCIA</th>
+                                                        <td id="licenciav"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>VIGENCIA</th>
+                                                        <td id="vigenciav"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>CORREO</th>
+                                                        <td id="correov"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>CELULAR</th>
+                                                        <td id="celularv"> </td>
+                                                    </tr>
+                                                  </tbody>
+>>>>>>> parent of b9f13f8... Cambio CONDUCTOR
                                               </table>
                                           </div>
                                       </div><!--end col-->
@@ -255,7 +291,13 @@ console.log(r);
           $('#licenciav').text(dato['licencia']);
           $('#vigenciav').text(dato['vigencia']);
           $('#celularv').text(dato['celular']);
+<<<<<<< HEAD
           $('#correov').text(dato['email']);
+=======
+
+          direccion=dato['direccions'];
+         //
+>>>>>>> parent of b9f13f8... Cambio CONDUCTOR
 
           var img=dato['foto'];
          $('#idfotosv2').attr("src",img);
