@@ -10,6 +10,7 @@ $sql = "SELECT a.ENTid,a.ENTdescripcion,a.ENTtipo,c.CONnombre ,a.ENTfechahora,cl
   on a.VECid=co.VECid
   inner join admcontconductor as c
   on co.CONdni=c.CONdni
+  order by  a.ENTid desc
   ";
 
 
@@ -176,7 +177,12 @@ $resultado = mysqli_query($conexion, $sql);
                                     <table id="TablaEntrega" class="table">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th>#</th>                                                
+
+                                                <th>#</th>
+
+
+                                                <th>#</th>
+
                                                 <th>Descripción</th>
                                                 <th>Tipo</th>
                                                 <th>Conductor</th>
@@ -203,7 +209,12 @@ $resultado = mysqli_query($conexion, $sql);
                                                 }
                                                 ?>
                                                 <tr>
-                                                    <td><?php echo  $ver[0] ?></td>                                                    
+
+                                                    <td><?php echo  $ver[0] ?></td>
+
+
+                                                    <td><?php echo  $ver[0] ?></td>
+
                                                     <td><?php echo  $ver[1] ?></td>
                                                     <td><?php echo  $ver[2] ?></td>
                                                     <td><?php echo  $ver[3] ?></td>
@@ -301,7 +312,7 @@ $resultado = mysqli_query($conexion, $sql);
                                                         <h5><b>ESTADO</b></h5>
                                                     </th>
                                                     <td width=70%>
-                                                      
+                                                        <h5 id="idestado"> : </h5>
                                                         <span  id="spanstado"></span>
                                                     </td>
                                                 </tr>
@@ -382,8 +393,8 @@ $resultado = mysqli_query($conexion, $sql);
                 $('#idprecio').text(dato['precio']);
 
                 if (dato['estado'] == "P") {
-                  //  $('#idestado').text("Pendiente");
-                  $('#spanstado').text("Pendiente");
+                    $('#idestado').text("Pendiente");
+                  $('#spanstado').text("Pendiente").val();
                     $('#spanstado').addClass('badge badge-primary');
                   //  $('#spanstado').className="badge badge-primary";
                   //  var elemento = document.getElementById("spanstado");

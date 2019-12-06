@@ -20,11 +20,18 @@ class Conectar
 	private $pass="Sistemas.123";
 	private $bd="thakhi_administracionthakhi";
 
+<<<<<<< HEAD
 //private $servidor="localhost";
 //private $usuario="root";
 //private $pass="";
 //private $bd="administracionthakhi";
 
+=======
+private $servidor="localhost";
+private $usuario="root";
+private $pass="";
+private $bd="administracionthakhi1";
+>>>>>>> 8ae34e387e2d0cc78f69fdcd0440efb2ede149e7
 	function conexion()
 	{
 		$conexion=mysqli_connect($this->servidor,
