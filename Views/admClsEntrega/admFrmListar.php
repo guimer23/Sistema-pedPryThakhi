@@ -354,23 +354,24 @@ $resultado = mysqli_query($conexion, $sql);
                 $('#idfecha').text(dato['fecha']);
                 $('#idcliente').text(dato['clinombre']);
                 $('#idprecio').text(dato['precio']);
-                              
-            if (dato['estado'] == "P") {
-                    $('#idestado').text("Pendiente");
-                  $('#spanstado').text("Pendiente").val();
 
-                    $('#spanstado').addClass('badge badge-primary');
+            if (dato['estado'] == "P") {
+                  $('#spanstado').text("Pendiente");
+                  $('#estadov').removeClass('badge badge-danger');
+                  $('#estadov').removeClass('badge badge-success');
+                  $('#spanstado').addClass('badge badge-primary');
                 }
                 else if (dato['estado'] == "E") {
-                    $('#idestado').text("Entregado");
-                  $('#spanstado').text("Entregado").val();
-
-                    $('#spanstado').addClass('badge badge-success');
+                  $('#spanstado').text("Entregado");
+                  $('#estadov').removeClass('badge badge-danger');
+                  $('#estadov').removeClass('badge badge-primary');
+                  $('#spanstado').addClass('badge badge-success');
                 }
                 else if (dato['estado'] == "N") {
-                    $('#idestado').text("No entregado");
-                  $('#spanstado').text("No entregado").val();
-                    $('#spanstado').addClass('badge badge-danger');
+                  $('#spanstado').text("No entregado");
+                  $('#estadov').removeClass('badge badge-primary');
+                  $('#estadov').removeClass('badge badge-success');
+                  $('#spanstado').addClass('badge badge-danger');
                 }
 
 

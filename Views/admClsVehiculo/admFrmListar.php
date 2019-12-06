@@ -378,44 +378,36 @@ conexion(); $sql="SELECT VEHid,VEHplaca,VEHmarca,VEHmodelo,VEHcolor,VEHanio_fabr
                                             <div class="single-pro-detail">
                                                 <p class="mb-1">Vehiculo</p>
                                                 <div class="custom-border mb-3"></div>
-                                                <table width="100%">
-                                                    <tr>
-                                                        <th width="2%">
-                                                            <h5><b>Placa</b></h5>
-                                                        </th>
-                                                        <td width="70%"><h5 id="placav"></h5></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th width="2%">
-                                                            <h5><b>Marca</b></h5>
-                                                        </th>
-                                                        <td width="70%"><h5 id="marcav"></h5></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th width="30%">
-                                                            <h5><b>Modelo</b></h5>
-                                                        </th>
-                                                        <td width="70%"><h5 id="modelov">:</h5></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th width="30%">
-                                                            <h5><b>Año</b></h5>
-                                                        </th>
-                                                        <td width="70%"><h5 id="anov"></h5></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th width="30%">
-                                                            <h5><b>Soat</b></h5>
-                                                        </th>
-                                                        <td width="70%"><h5 id="soatv">: Activo</h5></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th width="30%">
-                                                            <h5><b>Estado</b></h5>
-                                                        </th>
-                                                        <td width="70%"><h5 id="estadov">: Activo</h5></td>
-                                                    </tr>
-                                                </table>
+																								<table class="table">
+	                                                  <thead class="thead-light">
+	                                                  </thead>
+	                                                  <tbody>
+	                                                    <tr>
+	                                                        <th  width=30%>PLACA</th>
+	                                                        <td  width=70% id="placav"> </td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                        <th>MARCA</th>
+	                                                        <td id="marcav"> </td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                        <th>MODELO</th>
+	                                                        <td id="modelov"> </td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                        <th>AÑO</th>
+	                                                        <td id="anov"> </td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                        <th>SOAT</th>
+	                                                        <td id="soatv"> </td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                        <th>ESTADO</th>
+	                                                        <td><span id="estadov"></span></td>
+	                                                    </tr>
+	                                                  </tbody>
+	                                              </table>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -472,11 +464,15 @@ conexion(); $sql="SELECT VEHid,VEHplaca,VEHmarca,VEHmodelo,VEHcolor,VEHanio_fabr
                 $("#colorv").text(dato["Color"]);
                 $("#anov").text(dato["Fabricacion"]);
                 $("#soatv").text(dato["Soat"]);
-                var e = dato["Estado"];
-                if (e == "A") {
-                    $("#estadov").text("Activo");
-                } else {
-                    $("#estadov").text("Inactivo");
+								if (dato['Estado'] == "A") {
+                    $('#estadov').text("Activo");
+                    $('#estadov').removeClass('badge badge-danger');
+                    $('#estadov').addClass('badge badge-success');
+                }
+                else if (dato['Estado'] == "I") {
+                      $('#estadov').text("Inactivo");
+                      $('#estadov').removeClass('badge badge-success');
+                      $('#estadov').addClass('badge badge-danger');
                 }
                 var img = dato["Foto"];
                 $("#idfotosv").attr("src", img);
