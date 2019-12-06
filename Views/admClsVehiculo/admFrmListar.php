@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 require_once("../../Controllers/admClsConexion.php");
 	$c= new Conectar();
 		$conexion=$c->
