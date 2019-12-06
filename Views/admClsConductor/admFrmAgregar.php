@@ -152,7 +152,7 @@
                                           <div class="card-body">
                                             <h4 class="mt-0 header-title">Datos del Conductor</h4>
                                               <div class="row clearfix">
-                                                  <div class="col-md-4">
+                                                  <div class="col-md-3">
                                                       <div class="form-group">
 
                                                         <?php
@@ -166,66 +166,64 @@
                                                               else $ti="";
                                                          ?>
                                                           <label>DNI </label>
-
                                                           <input type="text" id="dniconductor" value="<?php echo  $txtdnic ?>" name="dni" class="form-control" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/><i>(Máximo 8 dígitos)</i>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-8">
+                                                  <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Nombres</label>
                                                           <input type="text" class="form-control input-sm" name="nombre" id="nombre" onkeypress="return soloLetras(event)" onpaste="return false" required>
                                                       </div>
                                                   </div>
-                                              </div>
-                                              <div class="row clearfix">
-                                                  <div class="col-md-8">
+                                                  <div class="col-md-5">
                                                       <div class="form-group">
                                                           <label>Apellidos <span class="text-danger"></span></label>
                                                           <input type="text" id="apellidos" name="apellidos"class="form-control input-sm" onkeypress="return soloLetras(event)" onpaste="return false" required>
                                                       </div>
                                                   </div>
+                                              </div>
+                                              <div class="row clearfix">
+
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Licencia de conductor <span class="text-danger"></span></label>
                                                           <input type="text"  id="licencia" name="licencia" class="form-control"  >
                                                       </div>
                                                   </div>
+                                                  <div class="col-md-4">
+                                                      <div class="form-group">
+                                                          <label>Vigencia de Licencia</label>
+                                                          <input type="date" id="vigencia" name="vigencia" class="form-control"  >
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-4">
+                                                      <div class="form-group">
+                                                          <label>Celular </label>
+                                                          <input type="text" id="celular" name="celular" class="form-control" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/>
+                                                      </div>
+                                                  </div>
                                               </div>
                                               <div class="row clearfix">
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>Vigencia de Licencia</label>
-                                                            <input type="date" id="vigencia" name="vigencia" class="form-control"  >
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>Celular </label>
-                                                            <input type="text" id="celular" name="celular" class="form-control" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>Correo electrónico</label>
-                                                            <input type="email" id="correo" name="correo" class="form-control"  >
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row clearfix">
+                                                  <div class="col-md-8">
+                                                      <div class="form-group">
+                                                          <label>Correo electrónico</label>
+                                                          <input type="email" id="correo" name="correo" class="form-control"  >
+                                                      </div>
+                                                  </div>
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Clave </label>
                                                           <input type="password" id="clave" name="clave" class="form-control input-sm"   >
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-6">
+                                                </div>                                                
+                                                <div class="row clearfix">
+                                                  <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Dirección</label>
                                                           <input type="text" id="direccion" name="direccion"  class="form-control"  >
                                                       </div>
                                                   </div>
-                                                </div>
-                                                <div class="row clearfix">
                                                   <div class="col-md-4">
                                                       <label>Estado</label>
                                                       <div class="form-group">
