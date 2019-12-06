@@ -345,23 +345,44 @@ $resultado = mysqli_query($conexion, $sql);
             success: function(r) {
 
                 dato = jQuery.parseJSON(r);
-                console.log(r);
-
+                $('#spanstado').addClass('');
+              //  console.log(r);
+            
                 $('#iddescripcion').text(dato['descripcion']);
                 $('#idtipo').text(dato['tipo']);
-                $('#idconductor').text(dato['idvehiculo']);
+                $('#idconductor').text(dato['nombreconductor']);
                 $('#idfecha').text(dato['fecha']);
-                $('#idcliente').text(dato['clidni']);
+                $('#idcliente').text(dato['clinombre']);
                 $('#idprecio').text(dato['precio']);
+              /*  switch (dato['estado'] ) {
+                            case 'P':
+                                $('#idestado').text("Pendiente");
+                            
+                                $('#spanstado').addClass('badge badge-primary');
+                                break;
+                            case 'E':
+                                $('#idestado').text("Entregado");
+                              
+                             //   $('#spanstado').addClass('badge badge-success');
+                                break;
+                            case 'N':
+                                console.log('El kilogramo de Bananas cuesta $0.48.');
+                                break;
+                  
+                            default:
+                                console.log('Lo lamentamos, por el momento no disponemos de ');
+                            }*/
 
-                if (dato['estado'] == "P") {
+            if (dato['estado'] == "P") {
                     $('#idestado').text("Pendiente");
                   $('#spanstado').text("Pendiente").val();
+                  
                     $('#spanstado').addClass('badge badge-primary');
                 }
                 else if (dato['estado'] == "E") {
                     $('#idestado').text("Entregado");
                   $('#spanstado').text("Entregado").val();
+         
                     $('#spanstado').addClass('badge badge-success');
                 }
                 else if (dato['estado'] == "N") {
@@ -369,6 +390,9 @@ $resultado = mysqli_query($conexion, $sql);
                   $('#spanstado').text("No entregado").val();
                     $('#spanstado').addClass('badge badge-danger');
                 }
+
+
+               
 
                 if (dato['ruta']==null) {
                     $('#idfotos').attr("src","../../Fotos/paquete.jpg");

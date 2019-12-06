@@ -94,7 +94,8 @@ class Conductores
         CONemail ='$datos[6]' ,
         CONclave ='$datos[7]',
         CONdireccion='$datos[8]',
-    		CONestado ='$datos[9]'
+    		CONestado ='$datos[9]',
+        CONfoto ='$datos[10]'
 
 		where CONdni='$datos[0]'";
 //CONdni,CONnombre,CONapellido,CONlicencia,CONvigencialicencia,CONcelular,CONemail,CONclave,CONdireccion,CONestado,CONfoto
