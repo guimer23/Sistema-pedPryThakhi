@@ -37,7 +37,7 @@ $nombreImg=$_FILES['imagen']['name'];
 				  $datos[5]=$_POST['celular'];
 				  $datos[6]=$_POST['correo'];
 				  $datos[7]=$_POST['clave'];
-					  $datos[8]=$_POST['direccion'];
+					$datos[8]=$_POST['direccion'];
 					$datos[9]=$var;
 				  $datos[10]=$idimagen;
 				  echo $obj->ActualizaConductor($datos);

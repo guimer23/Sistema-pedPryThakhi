@@ -193,6 +193,14 @@
                                                         <th>CELULAR</th>
                                                         <td id="celularv"> </td>
                                                     </tr>
+                                                    <tr>
+                                                        <th>DIRECCION</th>
+                                                        <td><span id="direccionv"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>ESTADO</th>
+                                                        <td><span id="estadov"></span></td>
+                                                    </tr>
                                                   </tbody>
                                               </table>
 
@@ -264,8 +272,20 @@ function llenadatosc(code){
           $('#vigenciav').text(dato['vigencia']);
           $('#correov').text(dato['email']);
           $('#celularv').text(dato['celular']);
+          $('#direccionv').text(dato['direccions']);          
 
-          direccion=dato['direccions'];
+          if (dato['estado'] == "A") {
+              $('#estadov').text("Activo");
+              $('#estadov').removeClass('badge badge-danger');
+              $('#estadov').addClass('badge badge-success');
+          }
+          else if (dato['estado'] == "I") {
+                $('#estadov').text("Inactivo");
+                $('#estadov').removeClass('badge badge-success');
+                $('#estadov').addClass('badge badge-danger');
+          }
+
+          //direccion=dato['direccions'];
          //
 
           var img=dato['foto'];
