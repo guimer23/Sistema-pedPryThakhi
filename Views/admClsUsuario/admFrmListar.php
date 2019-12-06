@@ -325,13 +325,15 @@ $resultado = mysqli_query($conexion, $sql);
                 $('#idusu').text(dato['Usuario']);
 
                 if (dato['Estado'] == "A") {
-                      $('#idestado').text("Activo");
+                    $('#idestado').text("Activo");
                     //  $('#idestado').text("Activo").val();
-                      $('#idestado').addClass('badge badge-success');
+                    $('#idestado').removeClass('badge badge-danger');
+                    $('#idestado').addClass('badge badge-success');
                 }
                 else if (dato['Estado'] == "I") {
                       $('#idestado').text("Inactivo");
                       //$('#idestado').text("Inactivo").val();
+                      $('#idestado').removeClass('badge badge-success');
                       $('#idestado').addClass('badge badge-danger');
                 }
 
