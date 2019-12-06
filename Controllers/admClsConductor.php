@@ -41,24 +41,24 @@ class Conductores
 
   public function obtenDatosConductor($idusuario){
 
-			$c=new conectar();
+			$c=new Conectar();
 			$conexion=$c->conexion();
 
-			$sql="SELECT ad.CONdni,
-              ad.CONnombre,
-							ad.CONapellido,
-							ad.CONlicencia,
-							ad.CONvigencialicencia,
-              ad.CONcelular,
-              ad.CONemail,
-              ad.CONclave,
-              ad.CONdireccion,
-              ad.CONestado,
-              img.IMGruta
+			$sql="SELECT  ad.CONdni,
+                    ad.CONnombre,
+                    ad.CONapellido,
+                    ad.CONlicencia,
+                    ad.CONvigencialicencia,
+                    ad.CONemail,
+                    ad.CONcelular,
+                    ad.CONclave,
+                    ad.CONdireccion,
+                    ad.CONestado,
+                    img.IMGruta
 					from admcontconductor  as ad
           inner join admimgtimagen as img
-          on ad.CONfoto=img.IMGid
-					where CONdni='$idusuario'";
+          on ad.CONfoto =  img.IMGid
+					where ad.CONdni='$idusuario'";
 			$result=mysqli_query($conexion,$sql);
 
 			$ver=mysqli_fetch_row($result);
@@ -69,13 +69,15 @@ class Conductores
 							'apellido' => $ver[2],
 							'licencia' => $ver[3],
               'vigencia' => $ver[4],
-              'celular' => $ver[5],
-              'email' => $ver[6],
+              'email' => $ver[5],
+              'celular' => $ver[6],
               'clave' => $ver[7],
-              'direccion' => $ver[8],
+              'direccions' => $ver[8],
               'estado' => $ver[9],
               'foto' => $ver[10]
+
 						);
+
 
 			return $datos;
 		}
@@ -94,7 +96,8 @@ class Conductores
         CONemail ='$datos[6]' ,
         CONclave ='$datos[7]',
         CONdireccion='$datos[8]',
-    		CONestado ='$datos[9]'
+    		CONestado ='$datos[9]',
+        CONfoto ='$datos[10]'
 
 		where CONdni='$datos[0]'";
 //CONdni,CONnombre,CONapellido,CONlicencia,CONvigencialicencia,CONcelular,CONemail,CONclave,CONdireccion,CONestado,CONfoto

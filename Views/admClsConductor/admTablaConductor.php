@@ -4,7 +4,7 @@
 require_once("../../Controllers/admClsConexion.php");
 	$c= new Conectar();
 		$conexion=$c->conexion();
-	$sql="SELECT CONdni,CONnombre,CONapellido,CONlicencia,CONvigencialicencia,CONemail,CONcelular from admcontconductor ";
+	$sql="SELECT CONdni,CONnombre,CONapellido,CONlicencia,CONvigencialicencia,CONemail,CONcelular,CONestado from admcontconductor ";
 
 
 $resultado=mysqli_query($conexion,$sql);
@@ -49,16 +49,21 @@ $resultado=mysqli_query($conexion,$sql);
                               <th>Vigencia de Lic.</th>
                               <th>Correo</th>
 	  													<th>Celular</th>
+															<th>Estado</th>
                               <th>Acción</th>
                             </tr><!--end tr-->
                             </thead>
 
                             <tbody>
-                              <?php
-
-                          	while ($ver=mysqli_fetch_row($resultado)) :
-                          	 	# code...
-                          	  ?>
+															<?php
+															while ($ver = mysqli_fetch_row($resultado)) :
+																	$estado = "";
+																	if ($ver[9] == "A") {
+																			$estado = "<span class='badge badge-success'>Activo</span>";;
+																	} else {
+																			$estado = "<span class='badge badge-danger'>Inactivo</span>";;
+																	}
+																	?>
                             <tr>
 
                               	<td><?php echo  $ver[0]?></td>
@@ -67,6 +72,7 @@ $resultado=mysqli_query($conexion,$sql);
                               	<td><?php echo $ver[4]; ?></td>
                                 <td><?php echo $ver[5]; ?></td>
 														    <td><?php echo $ver[6]; ?></td>
+																<td><?php echo  $estado ?></td>
 
                               <td>
                                 <a  onclick="AgregaDatosConductor('<?php echo  $ver[0]  ?>')"  class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
