@@ -78,8 +78,7 @@ $co=1;
           VEHcolor='$datos[4]',
           VEHanio_fabricacion ='$datos[5]',
           VEHsoat ='$datos[6]' ,
-          VEHestado ='$datos[7]',
-          VEHfoto ='$datos[8]'
+          VEHestado ='$datos[7]'
 
       where VEHid='$datos[0]'";
     //CONdni,CONnombre,CONapellido,CONlicencia,CONvigencialicencia,CONcelular,CONemail,CONclave,CONdireccion,CONestado,CONfoto

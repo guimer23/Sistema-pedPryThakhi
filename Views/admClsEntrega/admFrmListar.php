@@ -177,7 +177,12 @@ $resultado = mysqli_query($conexion, $sql);
                                     <table id="TablaEntrega" class="table">
                                         <thead class="thead-light">
                                             <tr>
+
                                                 <th>#</th>
+
+
+                                                <th>#</th>
+
                                                 <th>Descripción</th>
                                                 <th>Tipo</th>
                                                 <th>Conductor</th>
@@ -204,7 +209,12 @@ $resultado = mysqli_query($conexion, $sql);
                                                 }
                                                 ?>
                                                 <tr>
+
                                                     <td><?php echo  $ver[0] ?></td>
+
+
+                                                    <td><?php echo  $ver[0] ?></td>
+
                                                     <td><?php echo  $ver[1] ?></td>
                                                     <td><?php echo  $ver[2] ?></td>
                                                     <td><?php echo  $ver[3] ?></td>
@@ -233,7 +243,7 @@ $resultado = mysqli_query($conexion, $sql);
                 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                            <div class="modal-header" >
+                            <div class="modal-header">
                                 <h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Entrega</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             </div>
@@ -248,40 +258,64 @@ $resultado = mysqli_query($conexion, $sql);
                                         <div class="single-pro-detail">
                                             <p class="mb-1">Entrega</p>
                                             <div class="custom-border mb-3"></div>
-                                            <table class="table">
-                                                <thead class="thead-light">
-                                                </thead>
-
-                                                <tbody>
-                                                  <tr>
-                                                      <th>DESCRIPCIÓN</th>
-                                                      <td id="iddescripcion"> </td>
-                                                  </tr>
-                                                    <tr>
-                                                        <th width=30%>TIPO</th>
-                                                        <td width=70% id="idtipo"> </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>CONDUCTOR</th>
-                                                        <td id="idconductor"> </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>FECHA</th>
-                                                        <td id="idfecha"> </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>CLIENTE</th>
-                                                        <td id="idcliente"> </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>PRECIO</th>
-                                                        <td id="idprecio"> </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>ESTADO</th>
-                                                        <td><span id="spanstado"></span></td>
-                                                    </tr>
-                                                </tbody>
+                                            <table width=100%>
+                                                <tr>
+                                                    <th width=2%>
+                                                        <h5><b>DESCRIPCION</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="iddescripcion"> </h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=2%>
+                                                        <h5><b>TIPO</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idtipo"></h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=30%>
+                                                        <h5><b>CONDUCTOR</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idconductor"> : </h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=30%>
+                                                        <h5><b>FECHA</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idfecha"> : </h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=30%>
+                                                        <h5><b>CLIENTE</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idcliente"> : </h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=30%>
+                                                        <h5><b>PRECIO</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idprecio"> : </h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=30%>
+                                                        <h5><b>ESTADO</b></h5>
+                                                    </th>
+                                                    <td width=70%>
+                                                        <h5 id="idestado"> : </h5>
+                                                        <span  id="spanstado"></span>
+                                                    </td>
+                                                </tr>
                                             </table>
                                         </div>
                                     </div>
@@ -291,7 +325,11 @@ $resultado = mysqli_query($conexion, $sql);
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
+
+
+
             </div><!-- container -->
+
             <?php include "../Template/footer.php"; ?>
         </div>
         <!-- end page content -->
@@ -345,35 +383,27 @@ $resultado = mysqli_query($conexion, $sql);
             success: function(r) {
 
                 dato = jQuery.parseJSON(r);
-                $('#spanstado').addClass('');
-              //  console.log(r);
+                console.log(r);
 
                 $('#iddescripcion').text(dato['descripcion']);
                 $('#idtipo').text(dato['tipo']);
-                $('#idconductor').text(dato['nombreconductor']);
+                $('#idconductor').text(dato['idvehiculo']);
                 $('#idfecha').text(dato['fecha']);
-                $('#idcliente').text(dato['clinombre']);
+                $('#idcliente').text(dato['clidni']);
                 $('#idprecio').text(dato['precio']);
 
-            if (dato['estado'] == "P") {
-                  $('#spanstado').text("Pendiente");
-                  $('#estadov').removeClass('badge badge-danger');
-                  $('#estadov').removeClass('badge badge-success');
-                  $('#spanstado').addClass('badge badge-primary');
-                }
-                else if (dato['estado'] == "E") {
-                  $('#spanstado').text("Entregado");
-                  $('#estadov').removeClass('badge badge-danger');
-                  $('#estadov').removeClass('badge badge-primary');
-                  $('#spanstado').addClass('badge badge-success');
-                }
-                else if (dato['estado'] == "N") {
-                  $('#spanstado').text("No entregado");
-                  $('#estadov').removeClass('badge badge-primary');
-                  $('#estadov').removeClass('badge badge-success');
-                  $('#spanstado').addClass('badge badge-danger');
-                }
+                if (dato['estado'] == "P") {
+                    $('#idestado').text("Pendiente");
+                  $('#spanstado').text("Pendiente").val();
+                    $('#spanstado').addClass('badge badge-primary');
+                  //  $('#spanstado').className="badge badge-primary";
+                  //  var elemento = document.getElementById("spanstado");
+                    // elemento.className += "badge badge-primary";
 
+
+                } else {
+                    $('#idestado').text("InActivo");
+                }
 
 
 
@@ -383,6 +413,8 @@ $resultado = mysqli_query($conexion, $sql);
                 else{
                     $('#idfotos').attr("src", dato['ruta']);
                 }
+
+
             }
         });
     }

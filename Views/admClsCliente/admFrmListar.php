@@ -215,32 +215,30 @@ $resultado=mysqli_query($conexion,$sql);
 																						<div class="single-pro-detail">
 																								<p class="mb-1">Cliente</p>
 																								<div class="custom-border mb-3"></div>
-																								<table class="table">
-		                                                <thead class="thead-light">
-		                                                </thead>
-		                                                <tbody>
-		                                                  <tr>
-		                                                      <th  width=30%>DNI</th>
-		                                                      <td  width=70% id="dnicv"> </td>
-		                                                  </tr>
-		                                                  <tr>
-		                                                      <th>NOMBRE</th>
-		                                                      <td id="nombrecv"> </td>
-		                                                  </tr>
-		                                                  <tr>
-		                                                      <th>APELLIDOS</th>
-		                                                      <td id="apellidocv"> </td>
-		                                                  </tr>
-																											<tr>
-		                                                      <th>CELULAR</th>
-		                                                      <td id="celularcv"> </td>
-		                                                  </tr>
-																											<tr>
-		                                                      <th>CORREO</th>
-		                                                      <td id="correocv"> </td>
-		                                                  </tr>
-		                                                </tbody>
-		                                            </table>																								
+																								<table width=100%>
+																									<tr>
+																										<th width=2%><h5><b>Dni</b></h5></th>
+																										<td width=70%><h5 id="dnicv"> </h5> </td>
+																									</tr>
+																									<tr>
+																										<th width=2%><h5  ><b>Nombres</b></h5></th>
+																										<td width=70%><h5 id="nombrecv"></h5> </td>
+																									</tr>
+																									<tr>
+																										<th width=30%><h5><b>Apellidos</b></h5></th>
+																										<td width=70%><h5  id="apellidocv"> :</h5></td>
+																									</tr>
+																									<tr>
+																										<th width=30%><h5 ><b>Celular</b></h5></th>
+																										<td width=70%><h5  id="celularcv"> </h5></td>
+																									</tr>
+																									<tr>
+																										<th width=30%><h5 ><b>Correo</b></h5></th>
+																										<td width=70%><h5  id="correocv"></h5></td>
+																									</tr>
+
+
+																								</table>
 																						</div>
 																				</div><!--end col-->
 																	</div>
@@ -315,7 +313,7 @@ function AgregaDatosCliente(Codigousus)
 								$('#celularcv').text(dato['celular']);
                                 $('#correocv').text(dato['email']);
 
-
+							
 								$('#idfotosv2').attr("src",dato['foto']);
 
 					}

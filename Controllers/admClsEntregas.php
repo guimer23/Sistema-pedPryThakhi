@@ -62,10 +62,8 @@ class Entregas
           'descripcion'=>$ver[1],
           'tipo'=>$ver[2],
           'idvehiculo'=>$ver[3],
-          'nombreconductor'=>$ver[4],
           'fecha'=>$ver[5],
           'clidni'=>$ver[6],
-          'clinombre'=>$ver[7],
           'precio'=>$ver[8],
           'estado'=>$ver[9],
           'ruta'=>$ver[10]);
