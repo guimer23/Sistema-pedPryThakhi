@@ -41,7 +41,7 @@ class Conductores
 
   public function obtenDatosConductor($idusuario){
 
-			$c=new conectar();
+			$c=new Conectar();
 			$conexion=$c->conexion();
 
 			$sql="SELECT  ad.CONdni,
@@ -75,10 +75,10 @@ class Conductores
               'direccions' => $ver[8],
               'estado' => $ver[9],
               'foto' => $ver[10]
-             
+
 						);
 
-            
+
 			return $datos;
 		}
 

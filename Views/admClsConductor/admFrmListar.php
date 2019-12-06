@@ -254,11 +254,9 @@ function llenadatosc(code){
 
        // alert(r);
       dato=jQuery.parseJSON(r);
-<<<<<<< HEAD
-     var direccion;
-=======
 
->>>>>>> 6c40909fc3fd78f12f9ebb9236abd00294c3713e
+     var direccion;
+
           $('#dniv').text(dato['id']);
           $('#nombrev').text(dato['nombre']);
           $('#apellidov').text(dato['apellido']);
@@ -266,12 +264,9 @@ function llenadatosc(code){
           $('#vigenciav').text(dato['vigencia']);
           $('#correov').text(dato['email']);
           $('#celularv').text(dato['celular']);
-<<<<<<< HEAD
+
           direccion=dato['direccions'];
-         // 
-=======
          //
->>>>>>> 6c40909fc3fd78f12f9ebb9236abd00294c3713e
 
           var img=dato['foto'];
              $('#idfotosv2').attr("src",img);
