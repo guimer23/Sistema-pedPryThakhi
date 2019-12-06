@@ -161,36 +161,42 @@
                                           <div class="single-pro-detail">
                                               <p class="mb-1">Conductor</p>
                                               <div class="custom-border mb-3"></div>
-                                              <table width=100%>
-                                                <tr>
-                                                  <th width=2%><h5><b>Dni</b></h5></th>
-                                                  <td width=70%><h5 id="dniv"> </h5> </td>
-                                                </tr>
-                                                <tr>
-                                                  <th width=2%><h5><b>Nombres</b></h5></th>
-                                                  <td width=70%><h5 id="nombrev"></h5> </td>
-                                                </tr>
-                                                <tr>
-                                                  <th width=30%><h5><b>Apellidos</b></h5></th>
-                                                  <td width=70%><h5  id="apellidov"> :</h5></td>
-                                                </tr>
-                                                <tr>
-                                                  <th width=30%><h5 ><b>Licencia</b></h5></th>
-                                                  <td width=70%><h5  id="licenciav"> </h5></td>
-                                                </tr>
-                                                <tr>
-                                                  <th width=30%><h5 ><b>Vigencia</b></h5></th>
-                                                  <td width=70%><h5  id="vigenciav"></h5></td>
-                                                </tr>
-                                                <tr>
-                                                  <th width=30%><h5 ><b>Correo</b></h5></th>
-                                                  <td width=70%><h5  id="correov"></h5></td>
-                                                </tr>
-                                                <tr>
-                                                  <th width=30%><h5 ><b>Celular</b></h5></th>
-                                                  <td width=70%><h5  id="celularv"></h5></td>
-                                                </tr>
+                                              <table class="table">
+                                                  <thead class="thead-light">
+                                                  </thead>
+                                                  <tbody>
+                                                    <tr>
+                                                        <th  width=30%>DNI</th>
+                                                        <td  width=70% id="dniv"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>NOMBRE</th>
+                                                        <td id="nombrev"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>APELLIDOS</th>
+                                                        <td id="apellidov"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>LICENCIA</th>
+                                                        <td id="licenciav"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>VIGENCIA</th>
+                                                        <td id="vigenciav"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>CORREO</th>
+                                                        <td id="correov"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>CELULAR</th>
+                                                        <td id="celularv"> </td>
+                                                    </tr>
+                                                  </tbody>
                                               </table>
+
+
                                           </div>
                                       </div><!--end col-->
                                 </div>
@@ -248,7 +254,7 @@ function llenadatosc(code){
 
         //alert(r);
       dato=jQuery.parseJSON(r);
-   
+
           $('#dniv').text(dato['id']);
           $('#nombrev').text(dato['nombre']);
           $('#apellidov').text(dato['apellido']);
@@ -256,7 +262,7 @@ function llenadatosc(code){
           $('#vigenciav').text(dato['vigencia']);
           $('#correov').text(dato['email']);
           $('#celularv').text(dato['celular']);
-         // 
+         //
 
           var img=dato['foto'];
              $('#idfotosv2').attr("src",img);
