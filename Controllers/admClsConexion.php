@@ -32,6 +32,7 @@ class Conectar
 						$this->usuario,
 						$this->pass,
 						$this->bd);
+		$conexion->set_charset("utf8");
 		return $conexion;
 	}
 

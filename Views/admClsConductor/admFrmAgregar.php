@@ -396,6 +396,7 @@ $(document).ready(function(){
           success:function(r){
 
             dato=jQuery.parseJSON(r);
+       
           //  window.location="admFrmAgregar.php?co="+Codigoc;
               //window.location="Odontograma.php?txtdnic="+txtdnic+"&txtidcita="+idcita;
 
@@ -407,14 +408,14 @@ $(document).ready(function(){
                 $('#vigencia').val(dato['vigencia']);
                 $('#celular').val(dato['celular']);
                 $('#correo').val(dato['email']);
-                  $('#clave').val(dato['clave']);
+                $('#clave').val(dato['clave']);
+                $('#direccion').val(dato['direccions']);
 
-                $('#direccion').val(dato['direccion']);
                 var e=dato['estado'];
                 if (e=="A") {
-                    $('#estado').val("Activo");
+                  $('#estado').val("Activo");
                 }
-                else{
+               else{
                     $('#estado').val("Inactivo");
                 }
 

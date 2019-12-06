@@ -246,9 +246,9 @@ function llenadatosc(code){
     url:"../../Models/admCONtConductor/ObtenerDatosConductor.php",
     success:function(r){
 
-        //alert(r);
+       // alert(r);
       dato=jQuery.parseJSON(r);
-   
+     var direccion;
           $('#dniv').text(dato['id']);
           $('#nombrev').text(dato['nombre']);
           $('#apellidov').text(dato['apellido']);
@@ -256,6 +256,7 @@ function llenadatosc(code){
           $('#vigenciav').text(dato['vigencia']);
           $('#correov').text(dato['email']);
           $('#celularv').text(dato['celular']);
+          direccion=dato['direccions'];
          // 
 
           var img=dato['foto'];
