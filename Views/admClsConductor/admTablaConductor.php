@@ -58,7 +58,7 @@ $resultado=mysqli_query($conexion,$sql);
 															<?php
 															while ($ver = mysqli_fetch_row($resultado)) :
 																	$estado = "";
-																	if ($ver[9] == "A") {
+																	if ($ver[7] == "A") {
 																			$estado = "<span class='badge badge-success'>Activo</span>";;
 																	} else {
 																			$estado = "<span class='badge badge-danger'>Inactivo</span>";;
