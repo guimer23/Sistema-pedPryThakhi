@@ -153,9 +153,7 @@
 
                                     <div id="mapa" class="gmaps" ></div>
                                     <?php include('../../mapas/app.php'); ?>
-
-
-
+                          
                                 </div><!--end card-body-->
                             </div><!--end card-->
                         </div> <!-- end col -->
