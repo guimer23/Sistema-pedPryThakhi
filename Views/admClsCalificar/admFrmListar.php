@@ -162,17 +162,24 @@
                                             <tbody>
                                               <tr>
                                                 <td>1</td>
-                                                <td>47199491</td>
-                                                <td>Guimer Coaquira</td>
+                                                <td>84758478</td>
+                                                <td>Jhosmell Gyno Alfaro Musaja</td>
                                                 <td><p class="starability-result" data-rating="5"></p></td>
                                                 <td><span class='badge badge-success'>Activo</span></td>
                                               </tr><!--end tr-->
                                               <tr>
                                                 <td>2</td>
-                                                <td>47199491</td>
-                                                <td>Juan Carlos Panty</td>
-                                                <td><p class="starability-result" data-rating="4"></p></td>
+                                                <td>73929771</td>
+                                                <td>Jhon Peter Aguilar Atencio</td>
+                                                <td><p class="starability-result" data-rating="2"></p></td>
                                                 <td><span class='badge badge-danger'>Inactivo</span></td>
+                                              </tr><!--end tr-->
+                                              <tr>
+                                                <td>3</td>
+                                                <td>12345678</td>
+                                                <td>Guimer Coaquira Coaquira</td>
+                                                <td><p class="starability-result" data-rating="3"></p></td>
+                                                <td><span class='badge badge-success'>Activo</span></td>
                                               </tr><!--end tr-->
                                             </tbody>
                                         </table>
