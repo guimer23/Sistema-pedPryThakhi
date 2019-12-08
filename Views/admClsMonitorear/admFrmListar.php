@@ -210,6 +210,8 @@
           var mostrarMarcadores = new google.maps.InfoWindow(),
               marcadores, i;
 
+
+
           // Colocamos los marcadores en el Mapa de Google   AQUI APARECE EL NOMBRE DEL DNI DEL CONDUCTOR
           for (i = 0; i < marcadores.length; i++) {
               var position = new google.maps.LatLng(marcadores[i][1], marcadores[i][2]);
@@ -217,6 +219,7 @@
               marker = new google.maps.Marker({
                   position: position,
                   map: map,
+                  icon:'../../Fotos/marker_est.png',
                   title: marcadores[i][0]
               });
               // Colocamos la ventana de información a cada Marcador del Mapa de Google
