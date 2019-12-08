@@ -9,6 +9,9 @@
         <meta content="A premium admin dashboard template by Mannatthemes" name="description" />
         <meta content="Mannatthemes" name="author" />
 
+        <!-- starability calificacion de estrellas -->
+        <link rel="stylesheet" type="text/css" href="../../Assets/starability/starability-minified/starability-all.min.css"/>
+
         <!-- App favicon -->
         <link rel="shortcut icon" href="../../Assets/images/favicon.ico">
 
@@ -113,7 +116,7 @@
                             <li class="nav-item"><a class="nav-link" href="../../Views/admClsCliente/admFrmListar.php"><i class="mdi mdi-account-multiple"></i>Clientes</a></li>
                             <li class="nav-item"><a class="nav-link" href="../../Views/admClsUsuario/admFrmListar.php"><i class="dripicons-user-group"></i>Usuarios</a></li>
                           </ul>
-                      </div><!--Inicia SubMenu Mantenimiento -->                      
+                      </div><!--Inicia SubMenu Mantenimiento -->
                   </div><!--end menu-body-->
               </div><!-- end main-menu-inner-->
             </div>
@@ -157,13 +160,20 @@
                                             </thead>
 
                                             <tbody>
-                                            <tr>
-                                              <td>1</td>
-                                              <td>47199491</td>
-                                              <td>Guimer Coaquira</td>
-                                              <td><i class="mdi mdi-star"></i><i class="mdi mdi-star-half"></i><i class="mdi mdi-star-outline"></i></td>
-                                              <td>Activo</td>
-                                            </tr><!--end tr-->
+                                              <tr>
+                                                <td>1</td>
+                                                <td>47199491</td>
+                                                <td>Guimer Coaquira</td>
+                                                <td><p class="starability-result" data-rating="5"></p></td>
+                                                <td><span class='badge badge-success'>Activo</span></td>
+                                              </tr><!--end tr-->
+                                              <tr>
+                                                <td>2</td>
+                                                <td>47199491</td>
+                                                <td>Juan Carlos Panty</td>
+                                                <td><p class="starability-result" data-rating="4"></p></td>
+                                                <td><span class='badge badge-danger'>Inactivo</span></td>
+                                              </tr><!--end tr-->
                                             </tbody>
                                         </table>
                                     </div>
