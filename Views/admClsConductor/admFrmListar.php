@@ -161,37 +161,6 @@
                                           <div class="single-pro-detail">
                                               <p class="mb-1">Conductor</p>
                                               <div class="custom-border mb-3"></div>
-<<<<<<< HEAD
-                                              <table width=100%>
-                                                <tr>
-                                                  <th width=2%><h5><b>Dni</b></h5></th>
-                                                  <td width=70%><h5 id="dniv"> </h5> </td>
-                                                </tr>
-                                                <tr>
-                                                  <th width=2%><h5><b>Nombres</b></h5></th>
-                                                  <td width=70%><h5 id="nombrev"></h5> </td>
-                                                </tr>
-                                                <tr>
-                                                  <th width=30%><h5><b>Apellidos</b></h5></th>
-                                                  <td width=70%><h5  id="apellidov"> :</h5></td>
-                                                </tr>
-                                                <tr>
-                                                  <th width=30%><h5 ><b>Licencia</b></h5></th>
-                                                  <td width=70%><h5  id="licenciav"> </h5></td>
-                                                </tr>
-                                                <tr>
-                                                  <th width=30%><h5 ><b>Vigencia</b></h5></th>
-                                                  <td width=70%><h5  id="vigenciav"></h5></td>
-                                                </tr>
-                                                <tr>
-                                                  <th width=30%><h5 ><b>Correo</b></h5></th>
-                                                  <td width=70%><h5  id="correov"></h5></td>
-                                                </tr>
-                                                <tr>
-                                                  <th width=30%><h5 ><b>Celular</b></h5></th>
-                                                  <td width=70%><h5  id="celularv"></h5></td>
-                                                </tr>
-=======
                                               <table class="table">
                                                   <thead class="thead-light">
                                                   </thead>
@@ -224,9 +193,18 @@
                                                         <th>CELULAR</th>
                                                         <td id="celularv"> </td>
                                                     </tr>
+                                                    <tr>
+                                                        <th>DIRECCION</th>
+                                                        <td><span id="direccionv"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>ESTADO</th>
+                                                        <td><span id="estadov"></span></td>
+                                                    </tr>
                                                   </tbody>
->>>>>>> parent of b9f13f8... Cambio CONDUCTOR
                                               </table>
+
+
                                           </div>
                                       </div><!--end col-->
                                 </div>
@@ -282,46 +260,36 @@ function llenadatosc(code){
     url:"../../Models/admCONtConductor/ObtenerDatosConductor.php",
     success:function(r){
 
-console.log(r);
+       // alert(r);
       dato=jQuery.parseJSON(r);
+
+     var direccion;
 
           $('#dniv').text(dato['id']);
           $('#nombrev').text(dato['nombre']);
           $('#apellidov').text(dato['apellido']);
           $('#licenciav').text(dato['licencia']);
           $('#vigenciav').text(dato['vigencia']);
-          $('#celularv').text(dato['celular']);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
           $('#correov').text(dato['email']);
-=======
-=======
->>>>>>> parent of b9f13f8... Cambio CONDUCTOR
-=======
->>>>>>> parent of b9f13f8... Cambio CONDUCTOR
-=======
->>>>>>> parent of b9f13f8... Cambio CONDUCTOR
-=======
->>>>>>> parent of b9f13f8... Cambio CONDUCTOR
-=======
->>>>>>> parent of b9f13f8... Cambio CONDUCTOR
-=======
->>>>>>> parent of b9f13f8... Cambio CONDUCTOR
-=======
->>>>>>> parent of b9f13f8... Cambio CONDUCTOR
+          $('#celularv').text(dato['celular']);
+          $('#direccionv').text(dato['direccions']);          
 
-          direccion=dato['direccions'];
+          if (dato['estado'] == "A") {
+              $('#estadov').text("Activo");
+              $('#estadov').removeClass('badge badge-danger');
+              $('#estadov').addClass('badge badge-success');
+          }
+          else if (dato['estado'] == "I") {
+                $('#estadov').text("Inactivo");
+                $('#estadov').removeClass('badge badge-success');
+                $('#estadov').addClass('badge badge-danger');
+          }
+
+          //direccion=dato['direccions'];
          //
->>>>>>> parent of b9f13f8... Cambio CONDUCTOR
 
           var img=dato['foto'];
-         $('#idfotosv2').attr("src",img);
+             $('#idfotosv2').attr("src",img);
 
   }
 });

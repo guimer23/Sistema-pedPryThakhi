@@ -4,8 +4,6 @@ require_once("../../Controllers/admClsConductor.php");
 
 $obj = new Conductores();
 
-<<<<<<< HEAD
-=======
 
 
 $datos=array();
@@ -39,7 +37,7 @@ $nombreImg=$_FILES['imagen']['name'];
 				  $datos[5]=$_POST['celular'];
 				  $datos[6]=$_POST['correo'];
 				  $datos[7]=$_POST['clave'];
-					  $datos[8]=$_POST['direccion'];
+					$datos[8]=$_POST['direccion'];
 					$datos[9]=$var;
 				  $datos[10]=$idimagen;
 				  echo $obj->ActualizaConductor($datos);
@@ -49,7 +47,6 @@ $nombreImg=$_FILES['imagen']['name'];
 
 	  }
 /*
->>>>>>> parent of b9f13f8... Cambio CONDUCTOR
 $estado=$_POST['estado'];
 $var="";
 if($estado=="Activo"){
@@ -74,5 +71,5 @@ $var="I";
 					  $datos[9]=$var;
 
 					echo $obj->ActualizaConductor($datos);
-
+*/
  ?>
