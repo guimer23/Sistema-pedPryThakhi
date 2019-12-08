@@ -55,6 +55,7 @@ $resultado=mysqli_query($conexion,$sql);
 
                             <tbody>
 <<<<<<< HEAD
+<<<<<<< HEAD
 															<?php
 															while ($ver = mysqli_fetch_row($resultado)) :
 																	$estado = "";
@@ -65,12 +66,17 @@ $resultado=mysqli_query($conexion,$sql);
 																	}
 																	?>
 =======
+=======
+>>>>>>> parent of b9f13f8... Cambio CONDUCTOR
                               <?php
 
                           	while ($ver=mysqli_fetch_row($resultado)) :
                           	 	# code...
                           	  ?>
+<<<<<<< HEAD
 >>>>>>> b862a53beee7f51cd919975a02b2e68a2e7f23c6
+=======
+>>>>>>> parent of b9f13f8... Cambio CONDUCTOR
                             <tr>
 
                               	<td><?php echo  $ver[0]?></td>

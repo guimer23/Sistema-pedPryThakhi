@@ -298,8 +298,11 @@ console.log(r);
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           $('#correov').text(dato['email']);
 =======
+=======
+>>>>>>> parent of b9f13f8... Cambio CONDUCTOR
 =======
 >>>>>>> parent of b9f13f8... Cambio CONDUCTOR
 =======
