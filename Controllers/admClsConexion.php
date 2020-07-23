@@ -15,16 +15,16 @@ class Conectar
 	//contraseña local
 	//private $pass="Sistemas.123";
 
-	private $servidor="184.107.137.250";
-	private $usuario="thakhi_thakhi";
-	private $pass="Sistemas.123";
-	private $bd="thakhi_administracionthakhi";
+	//private $servidor="184.107.137.250";
+	//private $usuario="thakhi_thakhi";
+	//private $pass="Sistemas.123";
+	//private $bd="thakhi_administracionthakhi";
 
 
-//private $servidor="localhost";
-//private $usuario="root";
-//private $pass="";
-//private $bd="administracionthakhi";
+private $servidor="localhost";
+private $usuario="root";
+private $pass="";
+private $bd="administracionthakhi";
 
 	function conexion()
 	{

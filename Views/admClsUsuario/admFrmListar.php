@@ -230,47 +230,54 @@ $resultado = mysqli_query($conexion, $sql);
                 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Usuario</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img alt="" id="idfotos" class="img-fluid">
-                                    </div>
-                                    <div class="col-lg-9 align-self-center">
-                                        <div class="single-pro-detail">
-                                            <p class="mb-1">Usuario</p>
-                                            <div class="custom-border mb-3"></div>
-                                            <table class="table">
-                                                <thead class="thead-light">
-                                                </thead>
-
-                                                <tbody>
-                                                  <tr>
-                                                      <th  width=30%>NOMBRE</th>
-                                                      <td  width=70% id="idnombres"> </td>
-                                                  </tr>
-                                                  <tr>
-                                                      <th>CORREO</th>
-                                                      <td id="idcorreou"> </td>
-                                                  </tr>
-                                                  <tr>
-                                                      <th>USUARIO</th>
-                                                      <td id="idusu"> </td>
-                                                  </tr>
-                                                  <tr>
-                                                      <th>ESTADO</th>
-                                                      <td><span id="idestado"></span></td>
-                                                  </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <!--end col-->
+                        <div class="modal-header">
+                            <h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Cliente</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img alt="" id="idfotosv2" class="img-fluid">
                                 </div>
+                                <div class="col-lg-9 align-self-center">
+                                    <div class="single-pro-detail">
+                                        <p class="mb-1">Cliente</p>
+                                        <div class="custom-border mb-3"></div>
+                                        <table class="table">
+                                            <thead class="thead-light">
+                                            </thead>
+                                            <tbody>
+
+                                                <tr>
+                                                    <th>NOMBRE</th>
+
+                                                    <td id="nombrecv"> </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>APELLIDOS</th>
+                                                    <td id="apellidocv"> </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>CORREO</th>
+                                                    <td id="correov"> </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>USUARIO</th>
+                                                    <td id="usuariov"> </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>ESTADO</th>
+                                                    <td> <span id="estadov" class='badge badge-danger'>Inactivo</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!--end col-->
                             </div>
+                        </div>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
@@ -389,3 +396,56 @@ $resultado = mysqli_query($conexion, $sql);
             }
         });
     });</script>
+
+
+    <!---->
+    <script>
+function addRowHandlers(rutaFoto) {
+    var table = document.getElementById("TablaUsuario");
+    var rows = table.getElementsByTagName("tr");
+    for (i = 0; i < rows.length; i++) {
+        var currentRow = table.rows[i];
+        var createClickHandler =
+            function(row) {
+                return function() {
+                    var cel1 = row.getElementsByTagName("td")[1];
+                    var cel2 = row.getElementsByTagName("td")[2];
+                    var cel3 = row.getElementsByTagName("td")[3];
+                    var cel4 = row.getElementsByTagName("td")[4];
+                    var cel5 = row.getElementsByTagName("td")[5];
+                    var nombres = cel1.innerHTML;
+                    var apellidos = cel2.innerHTML;
+                    var correo = cel3.innerHTML;
+                    var usuario = cel4.innerHTML;
+                    var estadoval = cel5.innerHTML.trim();
+                    //console.log(estado1);
+                    var estado;
+                    if (estadoval == '<span class="badge badge-success">Activo</span>') {
+                        estado = "Activo";
+                        document.getElementById("estadov").className = "badge badge-success";
+                    } else {
+                        estado = "Inactivo";
+                        document.getElementById("estadov").className = "badge badge-danger";
+                    }
+
+                    $('#nombrecv').text(nombres);
+                    $('#apellidocv').text(apellidos);
+                    $('#correov').text(correo);
+                    $('#usuariov').text(usuario);
+                    $('#estadov').text(estado);
+                    if (rutaFoto == null) {
+                        $('#idfotosv2').attr("src", "public/images/user.png");
+                    } else if (rutaFoto == "") {
+                        $('#idfotosv2').attr("src", "public/images/user.png");
+                    } else {
+                        $('#idfotosv2').attr("src", rutaFoto);
+                    }
+
+                };
+            };
+
+        currentRow.onclick = createClickHandler(currentRow);
+    }
+}
+window.onload = addRowHandlers();
+</script>
