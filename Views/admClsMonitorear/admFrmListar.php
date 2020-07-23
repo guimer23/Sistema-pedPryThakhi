@@ -1,4 +1,4 @@
-
+﻿
 
 <!DOCTYPE html>
 <html lang="es">
@@ -174,7 +174,7 @@
         <script src="../../Assets/js/jquery.slimscroll.min.js"></script>
 
         <!-- google maps api -->
-       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARu7kkxeBLPH6O5E8PwEAcWrw2okeUXmA&callback=initMap" ></script>
+       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeB28AE1Xw3Ert5DOBYsO_EO_oQz1PFSw&callback=initMap" ></script>
 
         <!-- App js -->
         <script src="../../Assets/js/app.js"></script>
